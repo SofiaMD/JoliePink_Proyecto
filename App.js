@@ -14,14 +14,15 @@ import JoliePinkSpecificCategory from "./src/screens/JoliePinkSpecificCategory";
 export default function App() {
   return (
   //  <JoliePinkLogin></JoliePinkLogin>
-  // <JoliePinkRegister></JoliePinkRegister>
-  // <JoliePinkHome></JoliePinkHome>
+  <JoliePinkRegister></JoliePinkRegister>
+  //<JoliePinkHome></JoliePinkHome>
   // <JoliePinkCategory></JoliePinkCategory>
   // <JoliePinkProfile></JoliePinkProfile>
-  <JoliePinkSpecificCategory></JoliePinkSpecificCategory>
+  //<JoliePinkSpecificCategory></JoliePinkSpecificCategory>
 
   );
 }
+
 
 const styles = StyleSheet.create({
   container: {
