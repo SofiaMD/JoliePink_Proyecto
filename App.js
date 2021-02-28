@@ -31,7 +31,8 @@ export default function App() {
             title : "",
             headerStyle: {
               backgroundColor: '#f2d3ce',
-              border : 0
+              border: 0,
+              borderBottomColor: '#f2d3ce'
             },
             headerRight: () => (
               <Button title = "Registrarse" 

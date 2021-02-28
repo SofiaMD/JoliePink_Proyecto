@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, View, Text, Dimensions, Image} from "react-native";
+import { StyleSheet, View, Text, Dimensions, Image, ImageBackground} from "react-native";
 
 import {
     Input
@@ -13,6 +13,8 @@ const JoliePinkLogin = ({navigation}) =>{
 
     return(
         <View style = {styles.container}>
+            <ImageBackground source = {require ("../../assets/FondoInicio.jpg")}
+            style = {styles.image} >
             <View style = {styles.contenedorImagen}>
                 <Image style= {styles.imagenLogo} source = {require("../../assets/Logo.png")}/>
             </View>
@@ -29,6 +31,7 @@ const JoliePinkLogin = ({navigation}) =>{
             <View style= {styles.contenedorBoton}>
             <Button title = "Iniciar Sesion" callback ={() => {navigation.navigate("Home")}}/>
             </View>
+            </ImageBackground>
         </View>
     );
 
@@ -42,24 +45,30 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "center"
     },
+    image: {
+        flex : 1,
+        justifyContent : "center",
+        alignItems: "center",
+        width: width * 1,
+        height: height * 1
+    },
     contenedorInformacion:{
         backgroundColor: "#fff",
         width: width * 0.70,
-        height: height * 0.30,
+        height: height * 0.20,
         justifyContent: "center"
     },
     contenedorImagen: {
-        backgroundColor: "#fff",
-        width: width * 0.50,
-        height: height * 0.28,
+        width: width * 0.52,
+        height: height * 0.35,
         alignItems: "center",
         justifyContent: "center",
-        marginBottom: 10,
-        borderRadius: 110  
+        marginBottom: 5,  
+        marginTop: -100
     },
     imagenLogo:{
-        width: width * 0.50,
-        height: height * 0.25
+        width: width * 0.52,
+        height: height * 0.29
     },
     contenedorRegistro: {
         backgroundColor: "#fff",
