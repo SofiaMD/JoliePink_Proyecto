@@ -29,7 +29,7 @@ const JoliePinkLogin = ({navigation}) =>{
             />
             </View>
             <View style= {styles.contenedorBoton}>
-            <Button title = "Iniciar Sesion" callback ={() => {navigation.navigate("Home")}}/>
+            <Button title = "Iniciar Sesion" callback ={() => {navigation.navigate("Category")}}/>
             </View>
             </ImageBackground>
         </View>
