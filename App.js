@@ -45,6 +45,9 @@ export default function App() {
         }}/>
          <Stack.Screen name = "Register" component = {JoliePinkRegister} options = {{ title: "Register"
         }}/>
+         <Stack.Screen name = "Profile" component = {JoliePinkProfile} options = {{headerShown: false}}/>
+         <Stack.Screen name = "SpecificCategory" component = {JoliePinkSpecificCategory} options = {{headerShown: false}}/>
+
       </Stack.Navigator>
     </NavigationContainer>
 
