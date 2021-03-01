@@ -1,22 +1,23 @@
 import React from "react";
-import { StyleSheet, View, Text, Dimensions } from "react-native";
+import { StyleSheet, View, Text, Dimensions, ImageBackground } from "react-native";
 import { Input, } from 'react-native-elements';
+
+import Button from "../components/Button";
 
 const {width, height} = Dimensions.get("window");
 
 
 
-const JoliePinkRegister = () =>{
+const JoliePinkRegister = ({navigation}) =>{
     return(
         <View style = {styles.container}>
-            <Text style= {styles.texto}>Registrate</Text>
+             <ImageBackground source = {require ("../../assets/FondoInicio.jpg")}
+                style = {styles.image}>
+                <Text style={styles.texto}>Registrate</Text>
             <View style= {styles.contenedorCentral}>
-                <View style= {styles.contenedorInformacion}>
+                
                 <Input
                 placeholder= "Nombre:"
-                style={styles.input}/>
-                <Input
-                placeholder= "Correo Electronico:"
                 style={styles.input}/>
                 <Input
                 placeholder= "Correo Electronico:"
@@ -25,7 +26,7 @@ const JoliePinkRegister = () =>{
                 placeholder= "Contraseña:"
                 style={styles.input}/>
                 <Input
-                placeholder= "Confirmar Contraseña::"
+                placeholder= "Confirmar Contraseña:"
                 style={styles.input}/>
                 <Input
                 placeholder= "Telefono:"
@@ -33,9 +34,12 @@ const JoliePinkRegister = () =>{
                 <Input
                 placeholder= "Dirección:"
                 style={styles.input}/>
-                </View>
+               
             </View>
-            <Text>Boton</Text>
+            <View style= {styles.contenedorBoton}>
+            <Button title = "Registrarse" callback ={() => {navigation.navigate("Home")}}/>
+            </View>
+        </ImageBackground>
         </View>
     );
 }
@@ -53,28 +57,42 @@ const styles = StyleSheet.create({
 
     contenedorCentral:{
         backgroundColor: "#ffff",
-        width: width * 0.90,
-        height: height *0.65,
-    },
-    
-    contenedorInformacion:{
+        width: width * 0.80,
+        height: height *0.50,
         justifyContent: "center",
         alignItems: "center",
-        marginTop: 10,
-       
+        marginBottom: 30
     },
+    
+    contenedorBoton:{
+       justifyContent: "center",
+       alignItems: "center",
+     
+    },
+
     input:{
-        width: width * 0.30,
-        height: height *0.07,
-        
+        width: width * 0.010,
+        height: height *0.03,
+        fontSize: 15,
     },
 
     texto:{
-        marginBottom: 30,
+       
         fontSize: 25,
         fontWeight: "bold",
-        color: "#843d3b"
-    }
+        color: "#843d3b",
+        marginBottom: 20,
+        marginTop: -80
+        
+    },
+
+    image: {
+        flex : 1,
+        justifyContent : "center",
+        alignItems: "center",
+        width: width * 1,
+        height: height * 1
+    },
 });
 
 export default JoliePinkRegister;

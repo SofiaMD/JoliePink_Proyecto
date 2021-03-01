@@ -1,30 +1,37 @@
 import React from "react";
-import { StyleSheet, View, Text, Dimensions } from "react-native";
+import { ImageBackground } from "react-native";
+import { StyleSheet, View, Text, Dimensions,Image } from "react-native";
 import { Header } from 'react-native-elements';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
+
+import Button from "../components/Button";
 
 const {width, height} = Dimensions.get("window");
 
 const JoliePinkHome = () =>{
     return(
-        <SafeAreaProvider >
-            
+        <SafeAreaProvider>
             <Header 
                 centerComponent={{ text: 'JoliePink', style: { color: '#f9ece9', fontSize: 25 }}}
                 containerStyle = { {backgroundColor : '#bd787d' , justifyContent : 'space-around', 
                   } }
             />
             <View style={styles.container}> 
-            <View style={styles.contenedorRopa}> 
-                Contenedor Rapa
-            </View>
-            <View style={styles.contenedorBotones}>
-                Contenedor Botones
-            </View>
-            <View style={styles.contendorImagen}>
-                contendor Imagen
-            </View>
+                <View style={styles.contenedorRopa}> 
+                    <Image style= {styles.imagenropa} source = {require("../../assets/ropa1.jpg")}/>
+                    <Image style= {styles.imagenropa} source = {require("../../assets/ropa2.jpg")}/>
+                    <Image style= {styles.imagenropa} source = {require("../../assets/ropa3.jpg")}/>
+                </View>
+                <Text style={styles.textoNueva}>Nueva Colección</Text>
+                    <View style={styles.contenedorBotones}>
+                    <Button title="Lo mas Vendido" callback ={() => {navigation.navigate("Home")}}/>
+                    <Button title="Nueva Colección" callback ={() => {navigation.navigate("Home")}}/>
+                    </View>
+                    <View style={styles.contenedorImagen}>
+                        <Image style= {styles.imagenRopa} source = {require("../../assets/ropa.jpg")}/>
+                        <Image style= {styles.imagenRopa} source = {require("../../assets/ropa4.jpg")}/>
+                    </View>
             </View>
         </SafeAreaProvider> 
     );
@@ -40,21 +47,39 @@ const styles = StyleSheet.create({
     },
 
     contenedorRopa:{
-        backgroundColor: "#ded1db",
+        flexDirection: "row",
         width: width * 1,
-        height: height *0.30,
+        height: height *0.40,
     },
 
     contenedorBotones:{
-        backgroundColor: "#d4b2b3",
         width: width * 1,
         height: height *0.30,
+        flexDirection: "row",
     },
     
     contenedorImagen:{
-        backgroundColor: "#bd787d",
+        flexDirection: "row",
         width: width * 1,
+        height: height *0.40,
+    },
+
+    imagenropa:{
+        width: width * 0.37,
         height: height *0.30,
+    },
+
+    imagenRopa:{
+        width: width * 0.50,
+        height: height *0.30,
+    },
+
+    textoNueva: {
+        color: "#21130d",
+        fontSize: 25,
+        alignItems: "center",
+        justifyContent: "center",
+
     }
 });
 
