@@ -2,7 +2,7 @@ import React from "react";
 import { StyleSheet, View, Text, Dimensions, ImageBackground } from "react-native";
 import { Input, } from 'react-native-elements';
 
-import Button from "../components/Button";
+import Button from "../../components/shared/Button";
 
 const {width, height} = Dimensions.get("window");
 
@@ -11,7 +11,7 @@ const {width, height} = Dimensions.get("window");
 const JoliePinkRegister = ({navigation}) =>{
     return(
         <View style = {styles.container}>
-             <ImageBackground source = {require ("../../assets/FondoInicio.jpg")}
+             <ImageBackground source = {require ("../../../assets/FondoInicio.jpg")}
                 style = {styles.image}>
                 <Text style={styles.texto}>Registrate</Text>
             <View style= {styles.contenedorCentral}>

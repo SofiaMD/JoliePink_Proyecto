@@ -8,17 +8,17 @@ import { NavigationContainer} from "@react-navigation/native";
 import { createStackNavigator} from "@react-navigation/stack";
 
 
-import Button from "./src/components/Button";
+import Button from "../JoliePink_Proyecto/src/components/shared/Button";
 
 
 /// Importacion de las pantallas de la aplicacion
 
-import JoliePinkLogin from "./src/screens/JoliePinkLogin";
-import JoliePinkRegister from "./src/screens/JoliePinkRegister";
-import JoliePinkHome from "./src/screens/JoliePinkHome";
-import JoliePinkCategory from "./src/screens/JoliePinkCategory";
-import JoliePinkProfile from "./src/screens/JoliePinkProfile";
-import JoliePinkSpecificCategory from "./src/screens/JoliePinkSpecificCategory";
+import JoliePinkLogin from "./src/components/screens/JoliePinkLogin";
+import JoliePinkRegister from "./src/components/screens/JoliePinkRegister";
+import JoliePinkHome from "./src/components/screens/JoliePinkHome";
+import JoliePinkCategory from "./src/components/screens/JoliePinkCategory";
+import JoliePinkProfile from "./src/components/screens/JoliePinkProfile";
+import JoliePinkSpecificCategory from "./src/components/screens/JoliePinkSpecificCategory";
 
 
 const Stack = createStackNavigator();

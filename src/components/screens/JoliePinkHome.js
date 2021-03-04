@@ -5,7 +5,7 @@ import { Header } from 'react-native-elements';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 
-import Button from "../components/Button";
+import Button from "../../components/shared/Button";
 
 const {width, height} = Dimensions.get("window");
 
@@ -19,9 +19,9 @@ const JoliePinkHome = () =>{
             />
             <View style={styles.container}> 
                 <View style={styles.contenedorRopa}> 
-                    <Image style= {styles.imagenropa} source = {require("../../assets/ropa1.jpg")}/>
-                    <Image style= {styles.imagenropa} source = {require("../../assets/ropa2.jpg")}/>
-                    <Image style= {styles.imagenropa} source = {require("../../assets/ropa3.jpg")}/>
+                    <Image style= {styles.imagenropa} source = {require("../../../assets/ropa1.jpg")}/>
+                    <Image style= {styles.imagenropa} source = {require("../../../assets/ropa2.jpg")}/>
+                    <Image style= {styles.imagenropa} source = {require("../../../assets/ropa3.jpg")}/>
                 </View>
                 <Text style={styles.textoNueva}>Nueva Colección</Text>
                     <View style={styles.contenedorBotones}>
@@ -29,8 +29,8 @@ const JoliePinkHome = () =>{
                     <Button title="Nueva Colección" callback ={() => {navigation.navigate("Home")}}/>
                     </View>
                     <View style={styles.contenedorImagen}>
-                        <Image style= {styles.imagenRopa} source = {require("../../assets/ropa.jpg")}/>
-                        <Image style= {styles.imagenRopa} source = {require("../../assets/ropa4.jpg")}/>
+                        <Image style= {styles.imagenRopa} source = {require("../../../assets/ropa.jpg")}/>
+                        <Image style= {styles.imagenRopa} source = {require("../../../assets/ropa4.jpg")}/>
                     </View>
             </View>
         </SafeAreaProvider> 

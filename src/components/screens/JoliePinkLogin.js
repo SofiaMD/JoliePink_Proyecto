@@ -5,7 +5,7 @@ import {
     Input
 } from "react-native-elements";
 
- import Button from "../components/Button"
+import Button from "../../components/shared/Button";
 
 const {width, height} = Dimensions.get("screen");
 
@@ -13,10 +13,10 @@ const JoliePinkLogin = ({navigation}) =>{
 
     return(
         <View style = {styles.container}>
-            <ImageBackground source = {require ("../../assets/FondoInicio.jpg")}
+            <ImageBackground source = {require ("../../../assets/FondoInicio.jpg")}
             style = {styles.image} >
             <View style = {styles.contenedorImagen}>
-                <Image style= {styles.imagenLogo} source = {require("../../assets/Logo.png")}/>
+                <Image style= {styles.imagenLogo} source = {require("../../../assets/Logo.png")}/>
             </View>
             <View style = {styles.contenedorInformacion}>
             <Input
