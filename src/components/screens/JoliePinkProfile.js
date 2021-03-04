@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, View, Text, Dimensions,Image, ImageBackground} from "react-native";
 
- import Button from "../components/Button"
+ import Button from "../shared/Button"
  
 
 
@@ -9,10 +9,10 @@ const {width, height} = Dimensions.get("screen");
 
 const JoliePinkProfile = ({navigation}) =>{
     return(
-        <ImageBackground source = {require ("../../assets/FondoPerfil.jpg")}
+        <ImageBackground source = {require ("../../../assets/FondoPerfil.jpg")}
          style = {styles.image} >
          <View style = {styles.contenedorImagen}>
-             <Image style= {styles.imagenLogo} source = {require("../../assets/Logo.png")}/>
+             <Image style= {styles.imagenLogo} source = {require("../../../assets/Logo.png")}/>
          </View>
          <View style = {styles.contenedorInformacion}>
              <Text>Sofia Duarte</Text>
