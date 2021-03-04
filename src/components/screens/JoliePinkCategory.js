@@ -1,11 +1,6 @@
 import React from "react";
 import { StyleSheet, View, Text } from "react-native";
 
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-
-import TabBar from "../components/TabBar"
-
-const Tab = createBottomTabNavigator();
 
 const JoliePinkCategory = ({navigation}) =>{
     return(
@@ -16,7 +11,7 @@ const JoliePinkCategory = ({navigation}) =>{
             <Text>
                 Estas Categoria Son
             </Text>
-            <TabBar callback ={() => {navigation.navigate("Home")}}/>
+            {/* <TabBar callback ={() => {navigation.navigate("Home")}}/> */}
         </View>
     );
 }

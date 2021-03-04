@@ -1,41 +1,40 @@
 import React from "react";
-import { StyleSheet, View, Text, Dimensions, Image, ImageBackground} from "react-native";
+import { StyleSheet, View,Dimensions, Image, ImageBackground} from "react-native";
 
 import {
     Input
 } from "react-native-elements";
 
- import Button from "../components/Button"
+// Importacion de componentes compatidos
+
+import Button from "../../components/Button";
 
 const {width, height} = Dimensions.get("screen");
 
-const JoliePinkLogin = ({navigation}) =>{
-
-    return(
+const Login = () => {
+    return (
         <View style = {styles.container}>
-            <ImageBackground source = {require ("../../assets/FondoInicio.jpg")}
+            <ImageBackground source = {require ("../../../assets/FondoInicio.jpg")}
             style = {styles.image} >
             <View style = {styles.contenedorImagen}>
-                <Image style= {styles.imagenLogo} source = {require("../../assets/Logo.png")}/>
+                <Image style= {styles.imagenLogo} source = {require("../../../assets/Logo.png")}/>
             </View>
             <View style = {styles.contenedorInformacion}>
             <Input
-                placeholder='Usuario'
+                placeholder='Correo Electronico'
                 style = {styles.inputUsuario}
+                leftIcon={{ name: 'email' }}
             />
             <Input
                 placeholder='Contraseña'
                 style = {styles.inputUsuario}
+                leftIcon={{ name: 'lock' }}
             />
-            </View>
-            <View style= {styles.contenedorBoton}>
-            <Button title = "Iniciar Sesion" callback ={() => {navigation.navigate("Category")}}/>
             </View>
             </ImageBackground>
         </View>
     );
-
-}
+};
 
 const styles = StyleSheet.create({
     container:{
@@ -74,11 +73,11 @@ const styles = StyleSheet.create({
         backgroundColor: "#fff",
         width: width * 0.50,
         height: height * 0.10
-    },
-    contenedorBoton:{
-        marginTop: 30
     }
   
 
 });
-export default JoliePinkLogin;
+
+export default Login;
+
+
