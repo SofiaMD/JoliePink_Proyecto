@@ -10,12 +10,12 @@ import { createStackNavigator} from "@react-navigation/stack";
 
 // Importacion de componentes
 
-import Button from "./src/components/shared/Button";
+import Button from "../JoliePink_Proyecto/src/components/shared/Button";
 
 
 /// Importacion de las pantallas de la aplicacion
 
-import JoliePinkLogin from "./src/components/screens/JoliePinkLogin"
+import JoliePinkLogin from "./src/components/screens/JoliePinkLogin";
 import JoliePinkRegister from "./src/components/screens/JoliePinkRegister";
 import JoliePinkHome from "./src/components/screens/JoliePinkHome";
 import JoliePinkCategory from "./src/components/screens/JoliePinkCategory";
@@ -24,7 +24,7 @@ import JoliePinkSpecificCategory from "./src/components/screens/JoliePinkSpecifi
 
 const Stack = createStackNavigator();
 
-export default function App() {
+export default function App({navigation}) {
   return (
     <SafeAreaProvider>
      <NavigationContainer>
@@ -61,6 +61,7 @@ export default function App() {
     </SafeAreaProvider>
   );
 }
+
 
 const styles = StyleSheet.create({
   container: {

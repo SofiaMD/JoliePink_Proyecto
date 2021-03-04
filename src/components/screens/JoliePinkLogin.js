@@ -53,6 +53,40 @@ const JoliePinkLogin = ({navigation}) =>{
 
 }
 
+// Importacion de componentes compatidos
+
+import Button from "../../components/Button";
+
+const {width, height} = Dimensions.get("screen");
+
+const Login = () => {
+    return (
+        <View style = {styles.container}>
+            <ImageBackground source = {require ("../../../assets/FondoInicio.jpg")}
+            style = {styles.image} >
+            <View style = {styles.contenedorImagen}>
+                <Image style= {styles.imagenLogo} source = {require("../../../assets/Logo.png")}/>
+            </View>
+            <View style = {styles.contenedorInformacion}>
+            <Input
+                placeholder='Correo Electronico'
+                style = {styles.inputUsuario}
+                leftIcon={{ name: 'email' }}
+            />
+            <Input
+                placeholder='Contraseña'
+                style = {styles.inputUsuario}
+                leftIcon={{ name: 'lock' }}
+            />
+            </View>
+            <View style= {styles.contenedorBoton}>
+            <Button title = "Iniciar Sesion" callback ={() => {navigation.navigate("Register")}}/>
+            </View>
+            </ImageBackground>
+        </View>
+    );
+};
+
 const styles = StyleSheet.create({
     container:{
         flex: 1,
@@ -67,7 +101,8 @@ const styles = StyleSheet.create({
         alignItems: "center",
         width: width * 1,
         height: height * 1,
-        resizeMode: "contain"
+        resizeMode: "contain",
+        height: height * 1
     },
     contenedorInformacion:{
         backgroundColor: "#fff",
@@ -77,6 +112,7 @@ const styles = StyleSheet.create({
     },
     contenedorImagen: {
         width: width * 0.60,
+        width: width * 0.52,
         height: height * 0.35,
         alignItems: "center",
         justifyContent: "center",
@@ -86,7 +122,9 @@ const styles = StyleSheet.create({
     imagenLogo:{
         width: width * 0.58,
         height: height * 0.29,
-        resizeMode: "contain"
+        resizeMode: "contain",
+        width: width * 0.52,
+        height: height * 0.29
     },
     contenedorRegistro: {
         backgroundColor: "#fff",

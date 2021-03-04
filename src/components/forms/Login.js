@@ -5,7 +5,11 @@ import {
     Input
 } from "react-native-elements";
 
+<<<<<<< HEAD:src/components/forms/Login.js
 // Importacion de componentes compatidos
+=======
+import Button from "../../components/shared/Button";
+>>>>>>> 097cd422870ed3397370168a0034d3a2b2841427:src/components/screens/JoliePinkLogin.js
 
 import Button from "../../components/Button";
 
@@ -31,6 +35,12 @@ const Login = () => {
                 leftIcon={{ name: 'lock' }}
             />
             </View>
+<<<<<<< HEAD:src/components/forms/Login.js
+=======
+            <View style= {styles.contenedorBoton}>
+            <Button title = "Iniciar Sesion" callback ={() => {navigation.navigate("Register")}}/>
+            </View>
+>>>>>>> 097cd422870ed3397370168a0034d3a2b2841427:src/components/screens/JoliePinkLogin.js
             </ImageBackground>
         </View>
     );
