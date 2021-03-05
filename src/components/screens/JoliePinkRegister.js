@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
     },
 
     texto:{
-        
+        color:"#ffff",
         fontSize: 25,
         fontWeight: "bold",
         color: "#843d3b",
