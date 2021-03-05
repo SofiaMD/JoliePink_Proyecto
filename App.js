@@ -5,8 +5,9 @@ import {SafeAreaProvider} from "react-native-safe-area-context";
 
 /// Importacion de react navigation componente bottom-tabs;
 
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-
+// import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
 
 /// Importacion de React Navigation
 import { NavigationContainer} from "@react-navigation/native";
@@ -30,30 +31,41 @@ import JoliePinkSpecificCategory from "./src/components/screens/JoliePinkSpecifi
 
 // Declaracion de variables para componentes de navegacion
 const Stack = createStackNavigator();
-const Tab = createBottomTabNavigator();
+// const Tab = createBottomTabNavigator();
+const Tab = createMaterialBottomTabNavigator();
 
 const myTabBar =() =>{
 
   return(
-    <Tab.Navigator tabBarOptions = {{
-      style:{
-        backgroundColor: "#fff"
-      },
-      activeBackgroundColor: "#e8e8e8",
-      inactiveTintColor:"#aaa",
-      labelStyle:{
-        fontSize: 15
-      }
-    }}>
+    <Tab.Navigator 
+    barStyle={{backgroundColor: "#DED1DB"}}>
       <Tab.Screen   name = "Home" 
           component = {JoliePinkHome}
+          options={{
+            tabBarLabel: 'Inicio',
+            tabBarIcon: ({ color}) => (
+              <MaterialCommunityIcons name="home" color={color} size={26} />
+            ),
+          }}
           />
       <Tab.Screen   name = "Category" 
           component = {JoliePinkCategory} 
-          options = {{ title: "Category"}}/>
+          options={{
+            tabBarLabel: 'Compras',
+            tabBarIcon: ({ color }) => (
+              <MaterialCommunityIcons name="cart" color={color} size={26} />
+            ),
+          }}
+          />
       <Tab.Screen   name = "SpecificCategory" 
           component = {JoliePinkSpecificCategory} 
-          options = {{ title: "SpecificCategory"}}/>
+          options={{
+            tabBarLabel: 'Perfil',
+            tabBarIcon: ({ color }) => (
+              <MaterialCommunityIcons name="account" color={color} size={26} />
+            ),
+          }}
+         />
     </Tab.Navigator>
   )
 }
@@ -80,17 +92,17 @@ export default function App({navigation}) {
           <Stack.Screen 
             name = "Home" 
             component = {myTabBar} 
-            options = {{ title: "Home"}}
+            options = {{ headerShown: false}}
           />
           <Stack.Screen 
             name = "Register" 
             component = {JoliePinkRegister} 
-            options = {{ title: "Register"}}
+            options = {{ headerShown: false}}
           />
           <Stack.Screen 
             name = "Category" 
             component = {myTabBar} 
-            options = {{ title: "Category"}}
+            options = {{headerShown: false}}
           />
           <Stack.Screen 
             name = "SpecificCategory" 

@@ -1,29 +1,24 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import { StyleSheet, View,Dimensions, Image, ImageBackground} from "react-native";
 
 import {
     Input
 } from "react-native-elements";
 
-<<<<<<< HEAD:src/components/forms/Login.js
-<<<<<<< HEAD:src/components/forms/Login.js
 // Importacion de componentes compatidos
-=======
 import Button from "../../components/shared/Button";
->>>>>>> 097cd422870ed3397370168a0034d3a2b2841427:src/components/screens/JoliePinkLogin.js
-=======
-import Button from "../../components/shared/Button";
->>>>>>> develop:src/components/screens/JoliePinkLogin.js
-
-import Button from "../../components/Button";
 
 const {width, height} = Dimensions.get("screen");
 
 const Login = () => {
+
+    const [correoElectronio, setCorreoElectronico] = useState("");
+
+    const [contrasena, setContrasena] = useState("");
+
+    const [error, setError] = useState("");
     return (
-        <View style = {styles.container}>
-            <ImageBackground source = {require ("../../../assets/FondoInicio.jpg")}
-            style = {styles.image} >
+        <View>
             <View style = {styles.contenedorImagen}>
                 <Image style= {styles.imagenLogo} source = {require("../../../assets/Logo.png")}/>
             </View>
@@ -32,20 +27,17 @@ const Login = () => {
                 placeholder='Correo Electronico'
                 style = {styles.inputUsuario}
                 leftIcon={{ name: 'email' }}
+                value = {correoElectronio}
+                onChange = {setCorreoElectronico}
             />
             <Input
                 placeholder='Contraseña'
                 style = {styles.inputUsuario}
                 leftIcon={{ name: 'lock' }}
+                value = {contrasena}
+                onChange = {setContrasena}
             />
             </View>
-<<<<<<< HEAD:src/components/forms/Login.js
-=======
-            <View style= {styles.contenedorBoton}>
-            <Button title = "Iniciar Sesion" callback ={() => {navigation.navigate("Register")}}/>
-            </View>
->>>>>>> 097cd422870ed3397370168a0034d3a2b2841427:src/components/screens/JoliePinkLogin.js
-            </ImageBackground>
         </View>
     );
 };
@@ -63,16 +55,19 @@ const styles = StyleSheet.create({
         justifyContent : "center",
         alignItems: "center",
         width: width * 1,
+        height: height * 1,
+        resizeMode: "contain",
         height: height * 1
     },
     contenedorInformacion:{
         backgroundColor: "#fff",
         width: width * 0.70,
         height: height * 0.20,
-        justifyContent: "center"
+        justifyContent: "center",
+        alignItems: "center",
     },
     contenedorImagen: {
-        width: width * 0.52,
+        width: width * 0.70,
         height: height * 0.35,
         alignItems: "center",
         justifyContent: "center",
@@ -80,13 +75,25 @@ const styles = StyleSheet.create({
         marginTop: -100
     },
     imagenLogo:{
-        width: width * 0.52,
-        height: height * 0.29
+        width: width * 0.58,
+        height: height * 0.29,
+        resizeMode: "contain",
+        // marginLeft: 80,
+        // marginRight:80
     },
     contenedorRegistro: {
         backgroundColor: "#fff",
         width: width * 0.50,
         height: height * 0.10
+    },
+    contenedorBoton:{
+        marginTop: 30,
+      alignItems: "center",
+      justifyContent: "center",
+    },
+    texto:{
+        alignItems: "center",
+        justifyContent: "center",
     }
   
 

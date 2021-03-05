@@ -8,6 +8,7 @@ import {
 // Importacion de componentes
 
  import Button from "../shared/Button";
+ import Login from "../forms/Login"
 //  import Login from "../shared/Login";
 
 const {width, height} = Dimensions.get("screen");
@@ -15,40 +16,22 @@ const {width, height} = Dimensions.get("screen");
 const JoliePinkLogin = ({navigation}) =>{
 
 
-    const [correoElectronio, setCorreoElectronico] = useState("");
+    // const [correoElectronio, setCorreoElectronico] = useState("");
 
-    const [contrasena, setContrasena] = useState("");
+    // const [contrasena, setContrasena] = useState("");
 
-    const [error, setError] = useState("");
+    // const [error, setError] = useState("");
 
     return(
         <View style = {styles.container}>
             <ImageBackground source = {require ("../../../assets/FondoInicio.jpg")}
                 style = {styles.image} >
-                <View style = {styles.contenedorImagen}>
-                    <Image style= {styles.imagenLogo} source = {require("../../../assets/Logo.png")}/>
-                </View>
-                <View style = {styles.contenedorInformacion}>
-                <Input
-                    placeholder='Correo Electronico'
-                    style = {styles.inputUsuario}
-                    leftIcon={{ name: 'email' }}
-                    value = {correoElectronio}
-                    onChange = {setCorreoElectronico}
-                />
-                <Input
-                    placeholder='Contraseña'
-                    style = {styles.inputUsuario}
-                    leftIcon={{ name: 'lock' }}
-                    value = {contrasena}
-                    onChange = {setContrasena}
-                />
+                    <Login/>
                 <TouchableOpacity style= {styles.texto}>
                     <Text>¿Has olvidado tu contraseña?</Text>
                 </TouchableOpacity>
-                </View>
                 <View style= {styles.contenedorBoton}>
-                    <Button title = "Iniciar Sesion" callback ={() => {navigation.navigate("Category")}}/>
+                    <Button title = "Iniciar Sesion" callback ={() => {navigation.navigate("Register")}}/>
                 </View>
             </ImageBackground>
         </View>
@@ -110,6 +93,7 @@ const styles = StyleSheet.create({
     texto:{
         alignItems: "center",
         justifyContent: "center",
+        marginTop: 10
     }
   
 

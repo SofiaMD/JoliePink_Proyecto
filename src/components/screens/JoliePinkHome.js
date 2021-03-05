@@ -1,5 +1,13 @@
 import React from "react";
-import { StyleSheet, View, Text } from "react-native";
+import { ImageBackground } from "react-native";
+import { StyleSheet, View, Text, Dimensions,Image } from "react-native";
+import { Header } from 'react-native-elements';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+
+const {width, height} = Dimensions.get("window");
+
+
+import Button from "../../components/shared/Button";
 
 const JoliePinkHome = () =>{
     return(
@@ -34,6 +42,41 @@ const styles = StyleSheet.create({
     container:{
         flex: 1,
         flexDirection: "column"
+    },
+    contenedorRopa:{
+        flexDirection: "row",
+        width: width * 1,
+        height: height *0.40,
+    },
+
+    contenedorBotones:{
+        width: width * 1,
+        height: height *0.30,
+        flexDirection: "row",
+    },
+    
+    contenedorImagen:{
+        flexDirection: "row",
+        width: width * 1,
+        height: height *0.40,
+    },
+
+    imagenropa:{
+        width: width * 0.37,
+        height: height *0.30,
+    },
+
+    imagenRopa:{
+        width: width * 0.50,
+        height: height *0.30,
+    },
+
+    textoNueva: {
+        color: "#21130d",
+        fontSize: 25,
+        alignItems: "center",
+        justifyContent: "center",
+
     }
 
 });

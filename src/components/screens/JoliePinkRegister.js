@@ -1,37 +1,20 @@
 import React from "react";
-import { StyleSheet, View, Text } from "react-native";
+import { StyleSheet, View, Dimensions, ImageBackground } from "react-native";
+import { Input,Text} from 'react-native-elements';
 
-const JoliePinkRegister = ({}) =>{
+import Button from "../../components/shared/Button";
+import Register from "../forms/Register";
+
+const {width, height} = Dimensions.get("window");
+
+const JoliePinkRegister = ({navigation}) =>{
     return(
         <View style = {styles.container}>
-             <ImageBackground source = {require ("../../../assets/FondoInicio.jpg")}
+            <ImageBackground source = {require ("../../../assets/FondoInicio.jpg")}
                 style = {styles.image}>
-                <Text style={styles.texto}>Registrate</Text>
-            <View style= {styles.contenedorCentral}>
-                <Input
-                placeholder= "Nombre:"
-                style={styles.input}/>
-                <Input
-                placeholder= "Correo Electronico:"
-                style={styles.input}/>
-               <Input
-                placeholder= "Contraseña:"
-                style={styles.input}/>
-                <Input
-                placeholder= "Confirmar Contraseña:"
-                style={styles.input}/>
-                <Input
-                placeholder= "Telefono:"
-                style={styles.input}/>
-                <Input
-                placeholder= "Dirección:"
-                style={styles.input}/>
-               
-            </View>
-            <View style= {styles.contenedorBoton}>
-            <Button title = "Registrarse" callback ={() => {navigation.navigate("Pay")}}/>
-            </View>
-        </ImageBackground>
+                <Register/>
+                    <Button title = "Registrarse" callback ={() => {navigation.navigate("Home")}}/>
+            </ImageBackground>
         </View>
     );
 }
@@ -41,8 +24,8 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: "column",
         backgroundColor: "#f2d3ce",
-        alignItems: "center",
-        justifyContent: "center"
+        justifyContent: "center",
+        padding: 10
 
     },
 
@@ -51,14 +34,12 @@ const styles = StyleSheet.create({
         width: width * 0.80,
         height: height *0.50,
         justifyContent: "center",
-        alignItems: "center",
-        marginBottom: 30
+        alignItems: "center"
     },
     
     contenedorBoton:{
        justifyContent: "center",
        alignItems: "center",
-     
     },
 
     input:{
@@ -75,6 +56,18 @@ const styles = StyleSheet.create({
         marginBottom: 20,
         marginTop: -80
         
+    },
+    image: {
+        flex : 1,
+        justifyContent : "center",
+        alignItems: "center",
+        width: width * 1,
+        height: height * 1,
+        resizeMode: "contain"
+    },
+    contenedorBoton:{
+      alignItems: "center",
+      justifyContent: "center",
     },
 
 });
