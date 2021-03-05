@@ -39,8 +39,43 @@ const JoliePinkRegister = ({}) =>{
 const styles = StyleSheet.create({
     container:{
         flex: 1,
-        flexDirection: "column"
-    }
+        flexDirection: "column",
+        backgroundColor: "#f2d3ce",
+        alignItems: "center",
+        justifyContent: "center"
+
+    },
+
+    contenedorCentral:{
+        backgroundColor: "#ffff",
+        width: width * 0.80,
+        height: height *0.50,
+        justifyContent: "center",
+        alignItems: "center",
+        marginBottom: 30
+    },
+    
+    contenedorBoton:{
+       justifyContent: "center",
+       alignItems: "center",
+     
+    },
+
+    input:{
+        width: width * 0.010,
+        height: height *0.03,
+        fontSize: 15,
+    },
+
+    texto:{
+        
+        fontSize: 25,
+        fontWeight: "bold",
+        color: "#843d3b",
+        marginBottom: 20,
+        marginTop: -80
+        
+    },
 
 });
 
