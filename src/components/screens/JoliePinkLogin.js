@@ -5,7 +5,7 @@ import {
     Input
 } from "react-native-elements";
 
- import Button from "../shared/Button"
+import Button from "../../components/shared/Button";
 
 const {width, height} = Dimensions.get("screen");
 
@@ -29,7 +29,7 @@ const JoliePinkLogin = ({navigation}) =>{
             />
             </View>
             <View style= {styles.contenedorBoton}>
-            <Button title = "Iniciar Sesion" callback ={() => {navigation.navigate("SpecificCategory")}}/>
+            <Button title = "Iniciar Sesion" callback ={() => {navigation.navigate("Register")}}/>
             </View>
             </ImageBackground>
         </View>

@@ -8,7 +8,7 @@ import { NavigationContainer} from "@react-navigation/native";
 import { createStackNavigator} from "@react-navigation/stack";
 
 
-import Button from "./src/components/shared/Button";
+import Button from "../JoliePink_Proyecto/src/components/shared/Button";
 
 
 /// Importacion de las pantallas de la aplicacion
@@ -16,15 +16,15 @@ import Button from "./src/components/shared/Button";
 import JoliePinkLogin from "./src/components/screens/JoliePinkLogin";
 import JoliePinkRegister from "./src/components/screens/JoliePinkRegister";
 import JoliePinkHome from "./src/components/screens/JoliePinkHome";
+import JoliePinkPay from "./src/components/screens/JoliePinkPay";
 import JoliePinkCategory from "./src/components/screens/JoliePinkCategory";
 import JoliePinkProfile from "./src/components/screens/JoliePinkProfile";
 import JoliePinkSpecificCategory from "./src/components/screens/JoliePinkSpecificCategory";
-import JoliePinkMenu from './src/components/screens/JoliePinkMenu';
 
 
 const Stack = createStackNavigator();
 
-export default function App() {
+export default function App({navigation}) {
   return (
     <NavigationContainer>
       <Stack.Navigator>
@@ -42,9 +42,11 @@ export default function App() {
           )
         }}
         />
-        <Stack.Screen name = "Home" component = {JoliePinkHome} options = {{ title: "Home"
+        <Stack.Screen name = "Home" component = {JoliePinkHome} options = {{headerShown: false
         }}/>
-         <Stack.Screen name = "Register" component = {JoliePinkRegister} options = {{ title: "Register"
+        <Stack.Screen name = "Register" component = {JoliePinkRegister} options = {{headerShown: false
+        }}/>
+        <Stack.Screen name = "Pay" component = {JoliePinkPay} options = {{headerShown: false
         }}/>
          <Stack.Screen name = "Profile" component = {JoliePinkProfile} options = {{headerShown: false}}/>
          <Stack.Screen name = "SpecificCategory" component = {JoliePinkSpecificCategory} options = {{headerShown: false}}/>
@@ -56,14 +58,15 @@ export default function App() {
 
 
   //  <JoliePinkLogin></JoliePinkLogin>
-  // <JoliePinkRegister></JoliePinkRegister>
-  // <JoliePinkHome></JoliePinkHome>
+  //<JoliePinkRegister></JoliePinkRegister>options = {{headerShown: false
+  //<JoliePinkHome></JoliePinkHome>
   // <JoliePinkCategory></JoliePinkCategory>
   // <JoliePinkProfile></JoliePinkProfile>
   // <JoliePinkSpecificCategory></JoliePinkSpecificCategory>
 
   );
 }
+
 
 const styles = StyleSheet.create({
   container: {
