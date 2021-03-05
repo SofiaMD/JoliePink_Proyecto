@@ -1,8 +1,9 @@
 import React, {useState, useEffect} from "react";
-import { StyleSheet, View, Text, Dimensions, Image, ImageBackground} from "react-native";
+import { StyleSheet, View, Dimensions, Image, ImageBackground, TouchableOpacity} from "react-native";
 
 import {
-    Input
+    Input,
+    Text
 } from "react-native-elements";
 // Importacion de componentes
 
@@ -42,6 +43,9 @@ const JoliePinkLogin = ({navigation}) =>{
                     value = {contrasena}
                     onChange = {setContrasena}
                 />
+                <TouchableOpacity style= {styles.texto}>
+                    <Text>¿Has olvidado tu contraseña?</Text>
+                </TouchableOpacity>
                 </View>
                 <View style= {styles.contenedorBoton}>
                     <Button title = "Iniciar Sesion" callback ={() => {navigation.navigate("Category")}}/>
@@ -102,6 +106,10 @@ const styles = StyleSheet.create({
         marginTop: 30,
       alignItems: "center",
       justifyContent: "center",
+    },
+    texto:{
+        alignItems: "center",
+        justifyContent: "center",
     }
   
 

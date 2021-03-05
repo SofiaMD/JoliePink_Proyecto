@@ -22,6 +22,7 @@ import Button from "./src/components/shared/Button";
 import JoliePinkLogin from "./src/components/screens/JoliePinkLogin";
 import JoliePinkRegister from "./src/components/screens/JoliePinkRegister";
 import JoliePinkHome from "./src/components/screens/JoliePinkHome";
+import JoliePinkPay from "./src/components/screens/JoliePinkPay";
 import JoliePinkCategory from "./src/components/screens/JoliePinkCategory";
 import JoliePinkProfile from "./src/components/screens/JoliePinkProfile";
 import JoliePinkSpecificCategory from "./src/components/screens/JoliePinkSpecificCategory";
