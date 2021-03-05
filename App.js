@@ -16,6 +16,7 @@ import Button from "../JoliePink_Proyecto/src/components/shared/Button";
 import JoliePinkLogin from "./src/components/screens/JoliePinkLogin";
 import JoliePinkRegister from "./src/components/screens/JoliePinkRegister";
 import JoliePinkHome from "./src/components/screens/JoliePinkHome";
+import JoliePinkPay from "./src/components/screens/JoliePinkPay";
 import JoliePinkCategory from "./src/components/screens/JoliePinkCategory";
 import JoliePinkProfile from "./src/components/screens/JoliePinkProfile";
 import JoliePinkSpecificCategory from "./src/components/screens/JoliePinkSpecificCategory";
@@ -44,6 +45,8 @@ export default function App({navigation}) {
         <Stack.Screen name = "Home" component = {JoliePinkHome} options = {{headerShown: false
         }}/>
         <Stack.Screen name = "Register" component = {JoliePinkRegister} options = {{headerShown: false
+        }}/>
+        <Stack.Screen name = "Pay" component = {JoliePinkPay} options = {{headerShown: false
         }}/>
       </Stack.Navigator>
     </NavigationContainer>
