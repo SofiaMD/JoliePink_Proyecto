@@ -6,10 +6,14 @@ import {
 } from "react-native-elements";
 
 <<<<<<< HEAD:src/components/forms/Login.js
+<<<<<<< HEAD:src/components/forms/Login.js
 // Importacion de componentes compatidos
 =======
 import Button from "../../components/shared/Button";
 >>>>>>> 097cd422870ed3397370168a0034d3a2b2841427:src/components/screens/JoliePinkLogin.js
+=======
+import Button from "../../components/shared/Button";
+>>>>>>> develop:src/components/screens/JoliePinkLogin.js
 
 import Button from "../../components/Button";
 

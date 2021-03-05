@@ -4,7 +4,6 @@ import { StyleSheet, View, Text, Dimensions, Image, ImageBackground} from "react
 import {
     Input
 } from "react-native-elements";
-
 // Importacion de componentes
 
  import Button from "../shared/Button";
@@ -53,39 +52,7 @@ const JoliePinkLogin = ({navigation}) =>{
 
 }
 
-// Importacion de componentes compatidos
 
-// import Button from "../../components/Button";
-
-// const {width, height} = Dimensions.get("screen");
-
-const Login = () => {
-    return (
-        <View style = {styles.container}>
-            <ImageBackground source = {require ("../../../assets/FondoInicio.jpg")}
-            style = {styles.image} >
-            <View style = {styles.contenedorImagen}>
-                <Image style= {styles.imagenLogo} source = {require("../../../assets/Logo.png")}/>
-            </View>
-            <View style = {styles.contenedorInformacion}>
-            <Input
-                placeholder='Correo Electronico'
-                style = {styles.inputUsuario}
-                leftIcon={{ name: 'email' }}
-            />
-            <Input
-                placeholder='Contraseña'
-                style = {styles.inputUsuario}
-                leftIcon={{ name: 'lock' }}
-            />
-            </View>
-            <View style= {styles.contenedorBoton}>
-            <Button title = "Iniciar Sesion" callback ={() => {navigation.navigate("Register")}}/>
-            </View>
-            </ImageBackground>
-        </View>
-    );
-};
 
 const styles = StyleSheet.create({
     container:{

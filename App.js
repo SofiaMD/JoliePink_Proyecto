@@ -27,7 +27,6 @@ import JoliePinkProfile from "./src/components/screens/JoliePinkProfile";
 import JoliePinkSpecificCategory from "./src/components/screens/JoliePinkSpecificCategory";
 
 
-
 // Declaracion de variables para componentes de navegacion
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
