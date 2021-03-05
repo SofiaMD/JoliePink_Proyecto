@@ -55,9 +55,9 @@ const JoliePinkLogin = ({navigation}) =>{
 
 // Importacion de componentes compatidos
 
-import Button from "../../components/Button";
+// import Button from "../../components/Button";
 
-const {width, height} = Dimensions.get("screen");
+// const {width, height} = Dimensions.get("screen");
 
 const Login = () => {
     return (
