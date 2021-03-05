@@ -15,7 +15,6 @@ const JoliePinkRegister = ({navigation}) =>{
                 style = {styles.image}>
                 <Text style={styles.texto}>Registrate</Text>
             <View style= {styles.contenedorCentral}>
-                
                 <Input
                 placeholder= "Nombre:"
                 style={styles.input}/>
@@ -37,7 +36,7 @@ const JoliePinkRegister = ({navigation}) =>{
                
             </View>
             <View style= {styles.contenedorBoton}>
-            <Button title = "Registrarse" callback ={() => {navigation.navigate("Home")}}/>
+            <Button title = "Registrarse" callback ={() => {navigation.navigate("Pay")}}/>
             </View>
         </ImageBackground>
         </View>
