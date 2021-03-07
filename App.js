@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from 'react-native';
 
 
 /// Importacion de React Navigation
-import { NavigationContainer} from "@react-navigation/native";
+import { NavigationContainer, ThemeProvider} from "@react-navigation/native";
 import { createStackNavigator} from "@react-navigation/stack";
 
 
@@ -20,13 +20,14 @@ import JoliePinkPay from "./src/components/screens/JoliePinkPay";
 import JoliePinkCategory from "./src/components/screens/JoliePinkCategory";
 import JoliePinkProfile from "./src/components/screens/JoliePinkProfile";
 import JoliePinkSpecificCategory from "./src/components/screens/JoliePinkSpecificCategory";
-
+import theme from "./src/theme";
 
 const Stack = createStackNavigator();
 
 export default function App({navigation}) {
   return (
-    <NavigationContainer>
+   <ThemeProvider theme={theme}>
+     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name = "Login" component = {JoliePinkLogin} options ={{
             title : "",
@@ -49,7 +50,9 @@ export default function App({navigation}) {
         <Stack.Screen name = "Pay" component = {JoliePinkPay} options = {{headerShown: false
         }}/>
       </Stack.Navigator>
-    </NavigationContainer>
+        </NavigationContainer>
+   </ThemeProvider>
+    
 
 
 
