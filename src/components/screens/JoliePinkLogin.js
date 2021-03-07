@@ -1,6 +1,9 @@
 import React, {useState, useEffect} from "react";
 import { StyleSheet, View, Dimensions, Image, ImageBackground, TouchableOpacity} from "react-native";
 
+import { Header } from 'react-native-elements';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+
 import {
     Input,
     Text
@@ -11,30 +14,30 @@ import {
  import Login from "../forms/Login"
 //  import Login from "../shared/Login";
 
-const {width, height} = Dimensions.get("screen");
+const {width, height} = Dimensions.get("window");
 
 const JoliePinkLogin = ({navigation}) =>{
 
-
-    // const [correoElectronio, setCorreoElectronico] = useState("");
-
-    // const [contrasena, setContrasena] = useState("");
-
-    // const [error, setError] = useState("");
-
     return(
-        <View style = {styles.container}>
+        <SafeAreaProvider>
+            <Header
+                placement="right"
+                rightComponent = {<Button title = "Registrate" callback ={() => {navigation.navigate("Register")}}/>}
+                containerStyle = {{backgroundColor : "#f2d3ce" , justifyContent : 'space-around',  border: 0, borderBottomColor: "#f2d3ce"} }
+            />
+            <View style = {styles.container}>
             <ImageBackground source = {require ("../../../assets/FondoInicio.jpg")}
                 style = {styles.image} >
                     <Login/>
-                <TouchableOpacity style= {styles.texto}>
-                    <Text>¿Has olvidado tu contraseña?</Text>
+                <TouchableOpacity style= {styles.texto}
+                    onPress ={() => {navigation.navigate("Login")}}>
                 </TouchableOpacity>
-                <View style= {styles.contenedorBoton}>
-                    <Button title = "Iniciar Sesion" callback ={() => {navigation.navigate("Register")}}/>
-                </View>
+                <TouchableOpacity style = {styles.contenedorBoton} 
+                    onPress ={() => {navigation.navigate("Register")}} >
+                </TouchableOpacity>
             </ImageBackground>
         </View>
+        </SafeAreaProvider>
     );
 
 }
@@ -86,14 +89,23 @@ const styles = StyleSheet.create({
         height: height * 0.10
     },
     contenedorBoton:{
-        marginTop: 30,
+      marginTop: 10,
       alignItems: "center",
       justifyContent: "center",
+      padding: 10,
+      borderRadius: 50,
+      width: width * 0.55,
+      height: height * 0.07,
+    //   backgroundColor: "#fff",
+
     },
     texto:{
         alignItems: "center",
         justifyContent: "center",
-        marginTop: 10
+        marginTop: -75,
+        // backgroundColor: "#fff",
+        width: width * 0.55,
+        height: height * 0.03
     }
   
 

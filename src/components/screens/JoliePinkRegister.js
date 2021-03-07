@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, View, Dimensions, ImageBackground } from "react-native";
+import { StyleSheet, View, Dimensions, ImageBackground, TouchableOpacity } from "react-native";
 import { Input,Text} from 'react-native-elements';
 
 import Button from "../../components/shared/Button";
@@ -13,7 +13,9 @@ const JoliePinkRegister = ({navigation}) =>{
             <ImageBackground source = {require ("../../../assets/FondoInicio.jpg")}
                 style = {styles.image}>
                 <Register/>
-                    <Button title = "Registrarse" callback ={() => {navigation.navigate("Home")}}/>
+                {/* <TouchableOpacity style = {styles.contenedorBoton} 
+                    onPress ={() => {navigation.navigate("Home")}} >
+                </TouchableOpacity> */}
             </ImageBackground>
         </View>
     );
@@ -66,8 +68,14 @@ const styles = StyleSheet.create({
         resizeMode: "contain"
     },
     contenedorBoton:{
-      alignItems: "center",
-      justifyContent: "center",
+        marginTop: -50,
+        alignItems: "center",
+        justifyContent: "center",
+        padding: 10,
+        borderRadius: 50,
+        width: width * 0.55,
+        height: height * 0.07,
+        // backgroundColor: "#fff"
     },
 
 });
