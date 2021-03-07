@@ -14,8 +14,7 @@ const JoliePinkHome = () =>{
         <SafeAreaProvider>
             <Header 
                 centerComponent={{ text: 'JoliePink', style: { color: '#f9ece9', fontSize: 25 }}}
-                containerStyle = { {backgroundColor : '#bd787d' , justifyContent : 'space-around', 
-                  } }
+                containerStyle = { {backgroundColor : '#bd787d' , justifyContent : 'space-around'} }
             />
             <View style={styles.container}> 
                 <View style={styles.contenedorRopa}> 

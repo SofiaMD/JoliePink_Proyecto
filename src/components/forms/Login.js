@@ -2,13 +2,14 @@ import React, {useState, useEffect} from "react";
 import { StyleSheet, View,Dimensions, Image, ImageBackground} from "react-native";
 
 import {
-    Input
+    Input,
+    Text
 } from "react-native-elements";
 
 // Importacion de componentes compatidos
 import Button from "../../components/shared/Button";
 
-const {width, height} = Dimensions.get("screen");
+const {width, height} = Dimensions.get("window");
 
 const Login = () => {
 
@@ -16,7 +17,12 @@ const Login = () => {
 
     const [contrasena, setContrasena] = useState("");
 
-    const [error, setError] = useState("");
+    const [error, setError] = useState(false);
+    
+    const handlerSignUP =()=>{
+
+    }
+
     return (
         <View>
             <View style = {styles.contenedorImagen}>
@@ -28,15 +34,21 @@ const Login = () => {
                 style = {styles.inputUsuario}
                 leftIcon={{ name: 'email' }}
                 value = {correoElectronio}
-                onChange = {setCorreoElectronico}
+                onChangeText = {setCorreoElectronico}
             />
             <Input
                 placeholder='Contraseña'
                 style = {styles.inputUsuario}
                 leftIcon={{ name: 'lock' }}
                 value = {contrasena}
-                onChange = {setContrasena}
+                onChangeText= {setContrasena}
             />
+            </View>
+            <View style= {styles.texto}>
+                    <Text>¿Has olvidado tu contraseña?</Text>
+            </View>
+            <View style= {styles.contenedorBoton}>
+                 <Button title = "Iniciar Sesion" callback ={handlerSignUP}/>
             </View>
         </View>
     );
@@ -87,13 +99,14 @@ const styles = StyleSheet.create({
         height: height * 0.10
     },
     contenedorBoton:{
-        marginTop: 30,
+        marginTop: 10,
       alignItems: "center",
       justifyContent: "center",
     },
     texto:{
         alignItems: "center",
         justifyContent: "center",
+        marginTop: 10
     }
   
 
