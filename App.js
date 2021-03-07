@@ -29,9 +29,7 @@ import JoliePinkProfile from "./src/components/screens/JoliePinkProfile";
 import JoliePinkSpecificCategory from "./src/components/screens/JoliePinkSpecificCategory";
 
 
-// Declaracion de variables para componentes de navegacion
 const Stack = createStackNavigator();
-// const Tab = createBottomTabNavigator();
 const Tab = createMaterialBottomTabNavigator();
 
 const myTabBar =() =>{
@@ -75,20 +73,7 @@ export default function App({navigation}) {
     <SafeAreaProvider>
      <NavigationContainer>
        <Stack.Navigator>
-        <Stack.Screen name = "Login" component = {JoliePinkLogin} options ={{
-            title : "",
-            headerStyle: {
-              backgroundColor: "#f2d3ce",
-              border: 0,
-              borderBottomColor: "#f2d3ce"
-            },
-            headerRight: () => (
-              <Button title = "Registrarse" 
-              callback ={() => {navigation.navigate("Register")}}
-              />
-          )
-        }}
-        />
+        <Stack.Screen name = "Login" component = {JoliePinkLogin} options ={{ headerShown: false}}/>
           <Stack.Screen 
             name = "Home" 
             component = {myTabBar} 
