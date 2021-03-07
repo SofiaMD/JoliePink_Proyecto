@@ -20,6 +20,9 @@ import JoliePinkPay from "./src/components/screens/JoliePinkPay";
 import JoliePinkCategory from "./src/components/screens/JoliePinkCategory";
 import JoliePinkProfile from "./src/components/screens/JoliePinkProfile";
 import JoliePinkSpecificCategory from "./src/components/screens/JoliePinkSpecificCategory";
+import JoliePinkMenu from "./src/components/screens/JoliePinkMenu";
+import JoliePinkForgotPassword from './src/components/screens/JoliePinkForgotPassword';
+import JoliePinkChangePassword from './src/components/screens/JoliePinkChangePassword';
 
 
 const Stack = createStackNavigator();
@@ -51,6 +54,9 @@ export default function App({navigation}) {
          <Stack.Screen name = "Profile" component = {JoliePinkProfile} options = {{headerShown: false}}/>
          <Stack.Screen name = "SpecificCategory" component = {JoliePinkSpecificCategory} options = {{headerShown: false}}/>
          <Stack.Screen name = "Menu" component = {JoliePinkMenu} options = {{headerShown: false}}/>
+         <Stack.Screen name = "Category" component = {JoliePinkCategory} options = {{headerShown: false}}/>
+         <Stack.Screen name = "ForgotPassword" component = {JoliePinkForgotPassword} options = {{headerShown: false}}/>
+         <Stack.Screen name = "ChangePassword" component = {JoliePinkChangePassword} options = {{headerShown: false}}/>
 
       </Stack.Navigator>
     </NavigationContainer>
