@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, Dimensions, TouchableOpacity, Touchable} from "react-native";
 
-const {width,heigth} = Dimensions.get("screen");
+const {width,heigth} = Dimensions.get("window");
 
 const Button = ({title, callback}) => {
 
@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
         padding: 10,
         borderRadius: 50,
         width: width * 0.50,
-        heigth: heigth * 2
+        // heigth: heigth * 1
     },
     botonTexto:{
         color: "#f2ebe8",
