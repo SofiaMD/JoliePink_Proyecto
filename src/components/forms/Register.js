@@ -53,7 +53,7 @@ const Register = () => {
     const handlerSignUP = () =>{
         firebase
             .auth()
-            .signInWithEmailAndPassword(correoElectronico, contraseña)
+            .createUserWithEmailAndPassword(correoElectronico, contraseña)
             .then((response) => console.log(response))
             .catch((error) => {
             setError(error.message);
