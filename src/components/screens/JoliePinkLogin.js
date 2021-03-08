@@ -30,11 +30,11 @@ const JoliePinkLogin = ({navigation}) =>{
                 style = {styles.image} >
                     <Login/>
                 <TouchableOpacity style= {styles.texto}
-                    onPress ={() => {navigation.navigate("Login")}}>
+                    onPress ={() => {navigation.navigate("Home")}}>
                 </TouchableOpacity>
-                <TouchableOpacity style = {styles.contenedorBoton} 
+                {/* <TouchableOpacity style = {styles.contenedorBoton} 
                     onPress ={() => {navigation.navigate("Register")}} >
-                </TouchableOpacity>
+                </TouchableOpacity> */}
             </ImageBackground>
         </View>
         </SafeAreaProvider>
