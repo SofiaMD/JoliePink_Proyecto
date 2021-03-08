@@ -9,7 +9,7 @@ import { validate } from "email-validator";
 
 const {width, height} = Dimensions.get("window");
 
-const Register = () => {
+const Register = ({navigation}) => {
 
     // Variables a utilizar 
     const [nombreCompleto, setNombreCompleto] = useState("");
@@ -52,12 +52,36 @@ const Register = () => {
 
     const handlerSignUP = () =>{
         firebase
-            .auth()
-            .signInWithEmailAndPassword(correoElectronico, contraseña)
-            .then((response) => console.log(response))
+        .auth()
+        .createUserWithEmailAndPassword(correoElectronico, contraseña)
+        .then((response) => {
+          // Obtener el Unique Identifier generado para cada usuario
+          // Firebase -> Authentication
+          const uid = response.user.uid;
+  
+          // Construir el objeto que le enviaremos a la collección de "users"
+          const data = {
+            id: uid,
+            email,
+            fullname,
+          };
+  
+          // Obtener la colección desde Firebase
+          const usersRef = firebase.firestore().collection("users");
+  
+          // Almacenar la información del usuario que se registra en Firestore
+          usersRef
+            .doc(uid)
+            .set(data)
+            .then(() => {
+              navigation.navigate("Home");
+            })
             .catch((error) => {
-            setError(error.message);
+              console.log(error);
+              setError(error.message);
             });
+        })
+        .catch((error) => setError(error.message));
     }
 
     return(
