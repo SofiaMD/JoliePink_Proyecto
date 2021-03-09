@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
+import React,{useState, useEffect} from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import {SafeAreaProvider} from "react-native-safe-area-context";
 
@@ -17,6 +17,9 @@ import { createStackNavigator} from "@react-navigation/stack";
 
 import Button from "./src/components/shared/Button";
 
+import PersistLogin from "./src/utils/persistLogin";
+
+
 
 /// Importacion de las pantallas de la aplicacion
 
@@ -31,6 +34,7 @@ import JoliePinkSpecificCategory from "./src/components/screens/JoliePinkSpecifi
 
 const Stack = createStackNavigator();
 const Tab = createMaterialBottomTabNavigator();
+
 
 const myTabBar =() =>{
 
@@ -68,7 +72,17 @@ const myTabBar =() =>{
   )
 }
 
-export default function App({navigation}) {
+export default function App() {
+
+  const [user, setUser] = useState({});
+
+  // Verificar si ya existen credenciales de autenticación
+  useEffect(() => {
+    const userData = PersistLogin();
+    setUser(userData);
+  }, []);
+
+
   return (
     <SafeAreaProvider>
      <NavigationContainer>
@@ -78,6 +92,7 @@ export default function App({navigation}) {
             name = "Home" 
             component = {myTabBar} 
             options = {{ headerShown: false}}
+            initialParams={{ user: user }}
           />
           <Stack.Screen 
             name = "Register" 
