@@ -27,6 +27,7 @@ const JoliePinkLogin = ({navigation}) =>{
                 rightComponent = {<Button title = "Registrate" callback ={() => {navigation.navigate("Register")}}/>}
                 containerStyle = {{backgroundColor : "#f2d3ce" , justifyContent : 'space-around',  border: 0, borderBottomColor: "#f2d3ce"} }
             />
+<<<<<<< HEAD
             <View style = {styles.container}>
             <ImageBackground source = {require ("../../../assets/FondoInicio.jpg")}
                 style = {styles.image} >
@@ -37,6 +38,12 @@ const JoliePinkLogin = ({navigation}) =>{
                 <TouchableOpacity style = {styles.contenedorBoton} 
                     onPress ={() => {navigation.navigate("Register")}} >
                 </TouchableOpacity>
+=======
+            </View>
+            <View style= {styles.contenedorBoton}>
+            <Button title = "Iniciar Sesion" callback ={() => {navigation.navigate("ForgotPassword")}}/>
+            </View>
+>>>>>>> d5d5b235a54d5c46c21702c1edbd1c4f63a69e5f
             </ImageBackground>
         </View>
         </SafeAreaProvider>

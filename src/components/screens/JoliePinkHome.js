@@ -1,4 +1,5 @@
 import React from "react";
+<<<<<<< HEAD
 import { ImageBackground } from "react-native";
 import { StyleSheet, View, Text, Dimensions,Image } from "react-native";
 import { Header, } from 'react-native-elements';
@@ -34,6 +35,17 @@ const JoliePinkHome = () =>{
                     </View>
             </View>
         </SafeAreaProvider> 
+=======
+import { StyleSheet, View, Text } from "react-native";
+
+const JoliePinkHome = () =>{
+    return(
+        <View style = {styles.container}>
+            <Text>
+                Holis Este es el inicio
+            </Text>
+        </View>
+>>>>>>> d5d5b235a54d5c46c21702c1edbd1c4f63a69e5f
     );
 }
 
@@ -41,6 +53,7 @@ const styles = StyleSheet.create({
     container:{
         flex: 1,
         flexDirection: "column"
+<<<<<<< HEAD
     },
     contenedorRopa:{
         flexDirection: "row",
@@ -76,6 +89,8 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "center",
 
+=======
+>>>>>>> d5d5b235a54d5c46c21702c1edbd1c4f63a69e5f
     }
 
 });
