@@ -62,8 +62,8 @@ const Register = ({navigation}) => {
           // Construir el objeto que le enviaremos a la collección de "users"
           const data = {
             id: uid,
-            email,
-            fullname,
+            correoElectronico,
+            nombreCompleto,
           };
   
           // Obtener la colección desde Firebase

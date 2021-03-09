@@ -16,7 +16,7 @@ import Button from "../../components/shared/Button";
 
 const {width, height} = Dimensions.get("window");
 
-const Login = () => {
+const Login = ({navigation}) => {
 
     const [correoElectronico, setCorreoElectronico] = useState("");
 
@@ -25,14 +25,38 @@ const Login = () => {
     // Errores de las variables
     const [correoElectronicoError, setCorreoElectronicoError] = useState(false);
     const [contrasenaError, setContrasenaError] = useState(false);
-    const [error, setError] = useState(false);
+    const [error, setError] = useState("");
     
     const handlerSignIn =()=>{
         firebase
         .auth()
         .signInWithEmailAndPassword(correoElectronico, contrasena)
-        .then((response) => console.log(response))
+        .then((response) => {
+            // Obtener el Unique Identifier generado para cada usuario
+            // Firebase -> Authentication
+            const uid = response.user.uid;
+
+            // Obtener la colección desde Firebase
+            const usersRef = firebase.firestore().collection("users");
+
+            // Verificar que el usuario existe en Firebase authentication
+            // y también está almacenado en la colección de usuarios.
+            usersRef
+            .doc(uid)
+            .get()
+            .then((firestoreDocument) => {
+                if (!firestoreDocument.exists) {
+                setError("User does not exist in the database!");
+                return;
+                }
+
+                // Obtener la información del usuario y enviarla a la pantalla Home
+                const user = firestoreDocument.data();
+                navigation.navigate("Home", {user});
+            });
+        })
         .catch((error) => {
+            console.log(error);
             setError(error.message);
         });
     };
