@@ -6,9 +6,9 @@ import {
     Text
 } from "react-native-elements";
 
-// Importacion de componentes compatidos
+// Importacion de componentes compartidos
 import Button from "../../components/shared/Button";
-
+import Alert from "../shared/Alert";
 const {width, height} = Dimensions.get("window");
 
 const Login = () => {
@@ -20,11 +20,42 @@ const Login = () => {
     const [error, setError] = useState(false);
     
     const handlerSignUP =()=>{
+        firebase
+      .auth()
+      .signInWithEmailAndPassword(email, password)
+      .then((response) => {
+        // Obtener el Unique Identifier generado para cada usuario
+        // Firebase -> Authentication
+        const uid = response.user.uid;
 
+        // Obtener la colección desde Firebase
+        const usersRef = firebase.firestore().collection("users");
+
+        // Verificar que el usuario existe en Firebase authentication
+        // y también está almacenado en la colección de usuarios.
+        usersRef
+          .doc(uid)
+          .get()
+          .then((firestoreDocument) => {
+            if (!firestoreDocument.exists) {
+              setError("User does not exist in the database!");
+              return;
+            }
+
+            // Obtener la información del usuario y enviarla a la pantalla Home
+            const user = firestoreDocument.data();
+
+            navigation.navigate("Home", { user });
+          });
+        })
+      .catch((error) => {
+        setError(error.message);
+      });
     }
 
     return (
         <View>
+            {error ? <Alert title={error} type="error"/> : null} 
             <View style = {styles.contenedorImagen}>
                 <Image style= {styles.imagenLogo} source = {require("../../../assets/Logo.png")}/>
             </View>

@@ -13,6 +13,8 @@ import {
  import Button from "../shared/Button";
  import Login from "../forms/Login"
 //  import Login from "../shared/Login";
+import theme from "../../theme";
+
 
 const {width, height} = Dimensions.get("window");
 
@@ -50,7 +52,8 @@ const styles = StyleSheet.create({
         flexDirection: "column",
         backgroundColor : "#f2d3ce",
         alignItems: "center",
-        justifyContent: "center"
+        justifyContent: "center",
+        backgroundColor: theme.colors.backgroundWhite,
     },
     image: {
         flex : 1,

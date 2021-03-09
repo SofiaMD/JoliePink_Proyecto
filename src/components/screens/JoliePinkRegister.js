@@ -4,14 +4,20 @@ import { Input,Text} from 'react-native-elements';
 
 import Button from "../../components/shared/Button";
 import Register from "../forms/Register";
+import theme from "../../theme";
+import Alert from "../shared/Alert";
 
 const {width, height} = Dimensions.get("window");
 
-const JoliePinkRegister = ({navigation}) =>{
+const JoliePinkRegister = ({navigation, route}) =>{
+    const { userCreated } = route.params;
     return(
         <View style = {styles.container}>
             <ImageBackground source = {require ("../../../assets/FondoInicio.jpg")}
                 style = {styles.image}>
+                   {userCreated ? (
+                       <Alert type="success" title="Creado por el usuario! Ahora puedes iniciar sesión!" />
+                    ) : null} 
                 <Register/>
                 {/* <TouchableOpacity style = {styles.contenedorBoton} 
                     onPress ={() => {navigation.navigate("Home")}} >
@@ -27,8 +33,8 @@ const styles = StyleSheet.create({
         flexDirection: "column",
         backgroundColor: "#f2d3ce",
         justifyContent: "center",
-        padding: 10
-
+        padding: 10,
+        backgroundColor: theme.colors.backgroundWhite,
     },
 
     contenedorCentral:{

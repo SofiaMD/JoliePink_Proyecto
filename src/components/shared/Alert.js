@@ -12,7 +12,7 @@ const Alert = ({ type,title }) => {
         Icon = "warnig";
     } else if (type === "info"){
         Icon = "info-circle";
-    } else if (type === "succces"){
+    } else if (type === "success"){
         Icon = "check-circle";
     }
 
