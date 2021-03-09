@@ -1,21 +1,20 @@
 import React from "react";
 import { ImageBackground } from "react-native";
 import { StyleSheet, View, Text, Dimensions,Image } from "react-native";
-import { Header } from 'react-native-elements';
+import { Header, } from 'react-native-elements';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+
+const {width, height} = Dimensions.get("window");
 
 
 import Button from "../../components/shared/Button";
-
-const {width, height} = Dimensions.get("window");
 
 const JoliePinkHome = () =>{
     return(
         <SafeAreaProvider>
             <Header 
                 centerComponent={{ text: 'JoliePink', style: { color: '#f9ece9', fontSize: 25 }}}
-                containerStyle = { {backgroundColor : '#bd787d' , justifyContent : 'space-around', 
-                  } }
+                containerStyle = { {backgroundColor : '#bd787d' , justifyContent : 'space-around'} }
             />
             <View style={styles.container}> 
                 <View style={styles.contenedorRopa}> 
@@ -41,12 +40,8 @@ const JoliePinkHome = () =>{
 const styles = StyleSheet.create({
     container:{
         flex: 1,
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        backgroundColor: "#f9ece9"
+        flexDirection: "column"
     },
-
     contenedorRopa:{
         flexDirection: "row",
         width: width * 1,
@@ -82,6 +77,7 @@ const styles = StyleSheet.create({
         justifyContent: "center",
 
     }
+
 });
 
 export default JoliePinkHome;

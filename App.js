@@ -1,14 +1,21 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import {SafeAreaProvider} from "react-native-safe-area-context";
 
+/// Importacion de react navigation componente bottom-tabs;
+
+// import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
 
 /// Importacion de React Navigation
-import { NavigationContainer} from "@react-navigation/native";
+import { NavigationContainer, ThemeProvider} from "@react-navigation/native";
 import { createStackNavigator} from "@react-navigation/stack";
 
+// Importacion de componentes
 
-import Button from "../JoliePink_Proyecto/src/components/shared/Button";
+import Button from "./src/components/shared/Button";
 
 
 /// Importacion de las pantallas de la aplicacion
@@ -20,46 +27,76 @@ import JoliePinkPay from "./src/components/screens/JoliePinkPay";
 import JoliePinkCategory from "./src/components/screens/JoliePinkCategory";
 import JoliePinkProfile from "./src/components/screens/JoliePinkProfile";
 import JoliePinkSpecificCategory from "./src/components/screens/JoliePinkSpecificCategory";
-
+import theme from "./src/theme";
 
 const Stack = createStackNavigator();
+const Tab = createMaterialBottomTabNavigator();
+
+const myTabBar =() =>{
+
+  return(
+    <Tab.Navigator 
+    barStyle={{backgroundColor: "#DED1DB"}}>
+      <Tab.Screen   name = "Home" 
+          component = {JoliePinkHome}
+          options={{
+            tabBarLabel: 'Inicio',
+            tabBarIcon: ({ color}) => (
+              <MaterialCommunityIcons name="home" color={color} size={26} />
+            ),
+          }}
+          />
+      <Tab.Screen   name = "Category" 
+          component = {JoliePinkCategory} 
+          options={{
+            tabBarLabel: 'Compras',
+            tabBarIcon: ({ color }) => (
+              <MaterialCommunityIcons name="cart" color={color} size={26} />
+            ),
+          }}
+          />
+      <Tab.Screen   name = "SpecificCategory" 
+          component = {JoliePinkSpecificCategory} 
+          options={{
+            tabBarLabel: 'Perfil',
+            tabBarIcon: ({ color }) => (
+              <MaterialCommunityIcons name="account" color={color} size={26} />
+            ),
+          }}
+         />
+    </Tab.Navigator>
+  )
+}
 
 export default function App({navigation}) {
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name = "Login" component = {JoliePinkLogin} options ={{
-            title : "",
-            headerStyle: {
-              backgroundColor: '#f2d3ce',
-              border: 0,
-              borderBottomColor: '#f2d3ce'
-            },
-            headerRight: () => (
-              <Button title = "Registrarse" 
-              callback ={() => {navigation.navigate("Register")}}
-              />
-          )
-        }}
-        />
-        <Stack.Screen name = "Home" component = {JoliePinkHome} options = {{headerShown: false
-        }}/>
-        <Stack.Screen name = "Register" component = {JoliePinkRegister} options = {{headerShown: false
-        }}/>
-        <Stack.Screen name = "Pay" component = {JoliePinkPay} options = {{headerShown: false
-        }}/>
-      </Stack.Navigator>
-    </NavigationContainer>
-
-
-
-  //  <JoliePinkLogin></JoliePinkLogin>
-  //<JoliePinkRegister></JoliePinkRegister>options = {{headerShown: false
-  //<JoliePinkHome></JoliePinkHome>
-  // <JoliePinkCategory></JoliePinkCategory>
-  // <JoliePinkProfile></JoliePinkProfile>
-  // <JoliePinkSpecificCategory></JoliePinkSpecificCategory>
-
+    <SafeAreaProvider>
+     <NavigationContainer>
+       <Stack.Navigator>
+        <Stack.Screen name = "Login" component = {JoliePinkLogin} options ={{ headerShown: false}}/>
+          <Stack.Screen 
+            name = "Home" 
+            component = {myTabBar} 
+            options = {{ headerShown: false}}
+          />
+          <Stack.Screen 
+            name = "Register" 
+            component = {JoliePinkRegister} 
+            options = {{ headerShown: false}}
+          />
+          <Stack.Screen 
+            name = "Category" 
+            component = {myTabBar} 
+            options = {{headerShown: false}}
+          />
+          <Stack.Screen 
+            name = "SpecificCategory" 
+            component = {myTabBar} 
+            options = {{headerShown: false}}/>
+       
+        </Stack.Navigator>
+      </NavigationContainer>
+    </SafeAreaProvider>
   );
 }
 
