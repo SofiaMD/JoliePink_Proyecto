@@ -8,7 +8,6 @@ import Alert from "../shared/Alert";
 const {width, height} = Dimensions.get("window");
 
 const JoliePinkRegister = ({navigation, route}) =>{
-    const { userCreated } = route.params;
     return(
         <View style = {styles.container}>
             <ImageBackground source = {require ("../../../assets/FondoInicio.jpg")}
@@ -17,17 +16,17 @@ const JoliePinkRegister = ({navigation, route}) =>{
                    {userCreated ? (
                        <Alert type="success" title="Creado por el usuario! Ahora puedes iniciar sesión!" />
                     ) : null} 
-                <Register/>
+                <Register navigation= {navigation}/>
                 {/* <TouchableOpacity style = {styles.contenedorBoton} 
                     onPress ={() => {navigation.navigate("Home")}} >
                 </TouchableOpacity> */}
-                <TouchableOpacity
+                {/* <TouchableOpacity
                 onPress={() => {
                 navigation.goBack();
                 }}
                     >
                 <Text>Already got an account? Sign in</Text>
-            </TouchableOpacity>
+            </TouchableOpacity> */}
             </ImageBackground>
             </View>
 )}

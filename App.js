@@ -87,7 +87,12 @@ export default function App() {
     <SafeAreaProvider>
      <NavigationContainer>
        <Stack.Navigator>
-        <Stack.Screen name = "Login" component = {JoliePinkLogin} options ={{ headerShown: false}}/>
+        <Stack.Screen 
+          name = "Login" 
+          component = {JoliePinkLogin} 
+          options ={{ headerShown: false}}
+          initialParams={{ userCreated: false }}
+        />
           <Stack.Screen 
             name = "Home" 
             component = {myTabBar} 

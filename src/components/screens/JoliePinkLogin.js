@@ -18,8 +18,8 @@ import theme from "../../theme";
 
 const {width, height} = Dimensions.get("window");
 
-const JoliePinkLogin = ({navigation}) =>{
-
+const JoliePinkLogin = ({navigation, route}) =>{
+    const { userCreated } = route.params;
     return(
         <SafeAreaProvider>
             <Header
@@ -31,6 +31,9 @@ const JoliePinkLogin = ({navigation}) =>{
             <ImageBackground source = {require ("../../../assets/FondoInicio.jpg")}
                 style = {styles.image} >
                     <Login navigation={navigation}/>
+                    {userCreated ? (
+                <Alert type="success" title="User created! You can now sign in!" />
+            ) : null}
             </ImageBackground>
         </View>
         </SafeAreaProvider>

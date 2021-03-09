@@ -9,6 +9,9 @@ import {
 // Importacion de componentes compartidos
 import Button from "../../components/shared/Button";
 import Alert from "../shared/Alert";
+
+import { firebase } from "../../firebase";
+import { validate } from "email-validator";
 const {width, height} = Dimensions.get("window");
 
 const Login = ({navigation}) => {
@@ -24,44 +27,55 @@ const Login = ({navigation}) => {
     
     const handlerSignUP =()=>{
         firebase
-      .auth()
-      .signInWithEmailAndPassword(email, password)
-      .then((response) => {
-        // Obtener el Unique Identifier generado para cada usuario
-        // Firebase -> Authentication
-        const uid = response.user.uid;
+        .auth()
+        .signInWithEmailAndPassword(correoElectronico, contrasena)
+        .then((response) => {
+            // Obtener el Unique Identifier generado para cada usuario
+            // Firebase -> Authentication
+            const uid = response.user.uid;
 
-        // Obtener la colección desde Firebase
-        const usersRef = firebase.firestore().collection("users");
+            // Obtener la colección desde Firebase
+            const usersRef = firebase.firestore().collection("users");
 
-        // Verificar que el usuario existe en Firebase authentication
-        // y también está almacenado en la colección de usuarios.
-        usersRef
-          .doc(uid)
-          .get()
-          .then((firestoreDocument) => {
-            if (!firestoreDocument.exists) {
-              setError("User does not exist in the database!");
-              return;
-            }
+            // Verificar que el usuario existe en Firebase authentication
+            // y también está almacenado en la colección de usuarios.
+            usersRef
+            .doc(uid)
+            .get()
+            .then((firestoreDocument) => {
+                if (!firestoreDocument.exists) {
+                setError("User does not exist in the database!");
+                return;
+                }
 
-            // Obtener la información del usuario y enviarla a la pantalla Home
-            const user = firestoreDocument.data();
-
-            navigation.navigate("Home", { user });
-          });
+                // Obtener la información del usuario y enviarla a la pantalla Home
+                const user = firestoreDocument.data();
+                navigation.navigate("Home", {user});
+            });
         })
-      .catch((error) => {
-        setError(error.message);
-      });
-    }
+        .catch((error) => {
+            console.log(error);
+            setError(error.message);
+        });
+    };
+
+    const handleVerify = (input) => {
+        if (input === "correoElectronico") {
+          if (!correoElectronico) setCorreoElectronicoError(true);
+          else if (!validate(correoElectronico)) setCorreoElectronicoError(true);
+          else setCorreoElectronicoError(false);
+        } else if (input === "contrasena") {
+          if (!contrasena) setContrasenaError(true);
+          else setContrasenaError(false);
+        }
+      };
 
     return (
         <View>
-            {error ? <Alert title={error} type="error"/> : null} 
             <View style = {styles.contenedorImagen}>
                 <Image style= {styles.imagenLogo} source = {require("../../../assets/Logo.png")}/>
             </View>
+            {error ? <Alert type="error" title={error} /> : null}
             <View style = {styles.contenedorInformacion}>
             <Input
                 placeholder='Correo Electronico'

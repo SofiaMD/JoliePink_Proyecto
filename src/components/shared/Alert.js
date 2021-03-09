@@ -4,23 +4,23 @@ import Icon from "react-native-vector-icons/FontAwesome";
 
 const Alert = ({ type,title }) => {
     let background = "";
-    let Icon = "";
+    let icon = "";
 
     if (type === "error"){
-        Icon = "tomes-circle";
+        icon = "tomes-circle";
     } else if (type === "warning"){
-        Icon = "warnig";
+        icon = "warnig";
     } else if (type === "info"){
-        Icon = "info-circle";
+        icon = "info-circle";
     } else if (type === "success"){
-        Icon = "check-circle";
+        icon = "check-circle";
     }
 
     return(
-        <View style={[styles.container]}>
-            <Icon name={icon} style={styles.icon}/>
-            <Text>{title}</Text>
-        </View>
+    <View style={[styles.container, { backgroundColor: background }]}>
+      <Icon name={icon} style={styles.icon} />
+        <Text>{title}</Text>
+    </View>
     );
 };
 
