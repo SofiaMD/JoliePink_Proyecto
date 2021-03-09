@@ -11,13 +11,16 @@ import Button from "../../components/shared/Button";
 import Alert from "../shared/Alert";
 const {width, height} = Dimensions.get("window");
 
-const Login = () => {
+const Login = ({navigation}) => {
 
-    const [correoElectronio, setCorreoElectronico] = useState("");
+    const [correoElectronico, setCorreoElectronico] = useState("");
 
     const [contrasena, setContrasena] = useState("");
 
-    const [error, setError] = useState(false);
+    // Errores de las variables
+    const [correoElectronicoError, setCorreoElectronicoError] = useState(false);
+    const [contrasenaError, setContrasenaError] = useState(false);
+    const [error, setError] = useState("");
     
     const handlerSignUP =()=>{
         firebase
@@ -64,8 +67,16 @@ const Login = () => {
                 placeholder='Correo Electronico'
                 style = {styles.inputUsuario}
                 leftIcon={{ name: 'email' }}
-                value = {correoElectronio}
+                value = {correoElectronico}
                 onChangeText = {setCorreoElectronico}
+                onBlur={() => {
+                    handleVerify("correoElectronico");
+                  }}
+                  errorMessage={
+                   correoElectronicoError
+                      ? "Por favor ingresa tu cuenta de correo electrónico"
+                      : null
+                  }
             />
             <Input
                 placeholder='Contraseña'
@@ -73,6 +84,14 @@ const Login = () => {
                 leftIcon={{ name: 'lock' }}
                 value = {contrasena}
                 onChangeText= {setContrasena}
+                onBlur={() => {
+                    handleVerify("contrasena");
+                  }}
+                  errorMessage={
+                   contrasenaError
+                      ? "Por favor ingresa tu cuenta de correo electrónico"
+                      : null
+                  }
             />
             </View>
             <View style= {styles.texto}>

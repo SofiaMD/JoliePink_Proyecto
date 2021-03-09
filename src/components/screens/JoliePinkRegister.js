@@ -1,9 +1,6 @@
 import React from "react";
-<<<<<<< HEAD
 import { StyleSheet, View, Dimensions, ImageBackground, TouchableOpacity } from "react-native";
 import { Input,Text} from 'react-native-elements';
-
-import Button from "../../components/shared/Button";
 import Register from "../forms/Register";
 import theme from "../../theme";
 import Alert from "../shared/Alert";
@@ -16,6 +13,7 @@ const JoliePinkRegister = ({navigation, route}) =>{
         <View style = {styles.container}>
             <ImageBackground source = {require ("../../../assets/FondoInicio.jpg")}
                 style = {styles.image}>
+
                    {userCreated ? (
                        <Alert type="success" title="Creado por el usuario! Ahora puedes iniciar sesión!" />
                     ) : null} 
@@ -23,25 +21,21 @@ const JoliePinkRegister = ({navigation, route}) =>{
                 {/* <TouchableOpacity style = {styles.contenedorBoton} 
                     onPress ={() => {navigation.navigate("Home")}} >
                 </TouchableOpacity> */}
+                <TouchableOpacity
+                onPress={() => {
+                navigation.goBack();
+                }}
+                    >
+                <Text>Already got an account? Sign in</Text>
+            </TouchableOpacity>
             </ImageBackground>
-=======
-import { StyleSheet, View, Text } from "react-native";
+            </View>
+)}
 
-const JoliePinkRegister = () =>{
-    return(
-        <View style = {styles.container}>
-            <Text>
-                Holis Registrate
-            </Text>
->>>>>>> d5d5b235a54d5c46c21702c1edbd1c4f63a69e5f
-        </View>
-    );
-}
 
 const styles = StyleSheet.create({
     container:{
         flex: 1,
-<<<<<<< HEAD
         flexDirection: "column",
         backgroundColor: "#f2d3ce",
         justifyContent: "center",
@@ -95,10 +89,6 @@ const styles = StyleSheet.create({
         height: height * 0.07,
         // backgroundColor: "#fff"
     },
-=======
-        flexDirection: "column"
-    }
->>>>>>> d5d5b235a54d5c46c21702c1edbd1c4f63a69e5f
 
 });
 
