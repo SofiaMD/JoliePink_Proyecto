@@ -28,10 +28,10 @@ const JoliePinkLogin = ({navigation}) =>{
             <View style = {styles.container}>
             <ImageBackground source = {require ("../../../assets/FondoInicio.jpg")}
                 style = {styles.image} >
-                    <Login/>
-                <TouchableOpacity style= {styles.texto}
+                    <Login navigation={navigation}/>
+                {/* <TouchableOpacity style= {styles.texto}
                     onPress ={() => {navigation.navigate("Home")}}>
-                </TouchableOpacity>
+                </TouchableOpacity> */}
                 {/* <TouchableOpacity style = {styles.contenedorBoton} 
                     onPress ={() => {navigation.navigate("Register")}} >
                 </TouchableOpacity> */}

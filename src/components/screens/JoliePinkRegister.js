@@ -1,8 +1,6 @@
 import React from "react";
 import { StyleSheet, View, Dimensions, ImageBackground, TouchableOpacity } from "react-native";
 import { Input,Text} from 'react-native-elements';
-
-import Button from "../../components/shared/Button";
 import Register from "../forms/Register";
 
 const {width, height} = Dimensions.get("window");
@@ -12,10 +10,17 @@ const JoliePinkRegister = ({navigation}) =>{
         <View style = {styles.container}>
             <ImageBackground source = {require ("../../../assets/FondoInicio.jpg")}
                 style = {styles.image}>
-                <Register/>
+                <Register navigation={navigation}/>
                 {/* <TouchableOpacity style = {styles.contenedorBoton} 
                     onPress ={() => {navigation.navigate("Home")}} >
                 </TouchableOpacity> */}
+                <TouchableOpacity
+                onPress={() => {
+                navigation.goBack();
+                }}
+                    >
+                <Text>Already got an account? Sign in</Text>
+            </TouchableOpacity>
             </ImageBackground>
         </View>
     );
