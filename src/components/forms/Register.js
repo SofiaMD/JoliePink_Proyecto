@@ -74,7 +74,7 @@ const Register = ({navigation}) => {
             .set(data)
             .then(() => {
 
-              navigation.navigate("Verification", {correoElectronico});
+              navigation.navigate("Home", {correoElectronico});
             })
             .catch((error) => {
               console.log(error);

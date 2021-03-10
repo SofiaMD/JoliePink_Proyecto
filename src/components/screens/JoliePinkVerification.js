@@ -39,15 +39,6 @@ const JoliePinkVerification = ({navigation, route})=>{
                 .catch(error => {
                 console.log(error)
                 });
-
-                    //         const auth = firebase.auth();
-                    // auth.sendSignInLinkToEmail(correoElectronico)
-                    // .then(function(){
-                    //     console.log("Se mando un correo");
-                    //     navigation.navigate("Login");
-                    // },function(error){
-                    //     console.log(error)
-                    // })
         }
   
     return(
