@@ -113,7 +113,11 @@ export default function App() {
             name = "SpecificCategory" 
             component = {myTabBar} 
             options = {{headerShown: false}}/>
-       
+          <Stack.Screen 
+            name = "Profile" 
+            component = {JoliePinkProfile} 
+            options = {{headerShown: false}}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>
