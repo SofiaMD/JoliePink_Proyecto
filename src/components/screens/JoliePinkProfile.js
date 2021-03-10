@@ -1,11 +1,21 @@
 import React from "react";
 import { StyleSheet, View, Text, Dimensions,Image, ImageBackground} from "react-native";
 
-import Button from "../shared/Button"
+import Button from "../shared/Button";
+import { firebase }  from "../../firebase";
 
 const {width, height} = Dimensions.get("screen");
 
 const JoliePinkProfile = ({navigation}) =>{
+    const SignOff = () =>{
+        firebase.auth().signOut().then(() => {
+            navigation.navigate("Login");
+            // Sign-out successful.
+          }).catch((error) => {
+            console.log(error);
+            // An error happened.
+        });
+    };
     return(
         <ImageBackground source = {require ("../../../assets/FondoPerfil.jpg")}
          style = {styles.image} >
@@ -19,7 +29,7 @@ const JoliePinkProfile = ({navigation}) =>{
              <Text>Siguatepeque, Comayagua</Text>
          </View>
          <View style= {styles.contenedorBoton}>
-         <Button title = "Cerrar sesion" callback ={() => {navigation.navigate("Login")}}/>
+         <Button title = "Cerrar sesion" callback ={SignOff}/>
          </View>
          </ImageBackground> 
     );
