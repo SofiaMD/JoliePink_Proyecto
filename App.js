@@ -30,7 +30,11 @@ import JoliePinkPay from "./src/components/screens/JoliePinkPay";
 import JoliePinkCategory from "./src/components/screens/JoliePinkCategory";
 import JoliePinkProfile from "./src/components/screens/JoliePinkProfile";
 import JoliePinkSpecificCategory from "./src/components/screens/JoliePinkSpecificCategory";
+
 import theme from "./src/theme";
+
+import JoliePinkVerification from "./src/components/screens/JoliePinkVerification";
+import VerificationUser from './src/utils/verificationUser';
 
 const Stack = createStackNavigator();
 const Tab = createMaterialBottomTabNavigator();
@@ -59,8 +63,8 @@ const myTabBar =() =>{
             ),
           }}
           />
-      <Tab.Screen   name = "SpecificCategory" 
-          component = {JoliePinkSpecificCategory} 
+      <Tab.Screen   name = "Profile" 
+          component = {JoliePinkProfile} 
           options={{
             tabBarLabel: 'Perfil',
             tabBarIcon: ({ color }) => (
@@ -75,6 +79,7 @@ const myTabBar =() =>{
 export default function App() {
 
   const [user, setUser] = useState({});
+
 
   // Verificar si ya existen credenciales de autenticación
   useEffect(() => {
@@ -103,6 +108,7 @@ export default function App() {
             name = "Register" 
             component = {JoliePinkRegister} 
             options = {{ headerShown: false}}
+            // initialParams={{ user: userVeri }}
           />
           <Stack.Screen 
             name = "Category" 
@@ -112,8 +118,23 @@ export default function App() {
           <Stack.Screen 
             name = "SpecificCategory" 
             component = {myTabBar} 
-            options = {{headerShown: false}}/>
-       
+            options = {{headerShown: false}}
+          />
+          <Stack.Screen 
+            name = "Verification" 
+            component = {JoliePinkVerification} 
+            options = {{ headerShown: false}}
+          />
+           <Stack.Screen 
+            name = "Pay" 
+            component = {JoliePinkPay} 
+            options = {{ headerShown: false}}
+          />
+          <Stack.Screen 
+            name = "Profile" 
+            component = {JoliePinkProfile} 
+            options = {{headerShown: false}}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>

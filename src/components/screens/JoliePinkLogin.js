@@ -32,8 +32,11 @@ const JoliePinkLogin = ({navigation, route}) =>{
                 style = {styles.image} >
                     <Login navigation={navigation}/>
                     {userCreated ? (
-                <Alert type="success" title="User created! You can now sign in!" />
+                <Alert type="success" title="Usuario Creado! ya puedes iniciar sesion!" />
             ) : null}
+                <TouchableOpacity style= {styles.texto}
+                    onPress ={() => {navigation.navigate("Home")}}>
+                </TouchableOpacity>
             </ImageBackground>
         </View>
         </SafeAreaProvider>
@@ -102,7 +105,8 @@ const styles = StyleSheet.create({
     texto:{
         alignItems: "center",
         justifyContent: "center",
-        marginTop: -75,
+        marginTop: -80,
+        marginBottom: 10,
         // backgroundColor: "#fff",
         width: width * 0.55,
         height: height * 0.03

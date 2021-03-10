@@ -1,6 +1,6 @@
 import React from "react";
-import { StyleSheet, View, Dimensions, ImageBackground, TouchableOpacity } from "react-native";
-import { Input,Text} from 'react-native-elements';
+import { StyleSheet, View, Dimensions,Text, ImageBackground, TouchableOpacity } from "react-native";
+import { Input} from 'react-native-elements';
 import Register from "../forms/Register";
 import theme from "../../theme";
 import Alert from "../shared/Alert";
@@ -17,18 +17,14 @@ const JoliePinkRegister = ({navigation, route}) =>{
                        <Alert type="success" title="Creado por el usuario! Ahora puedes iniciar sesión!" />
                     ) : null} 
                 <Register navigation= {navigation}/>
-                {/* <TouchableOpacity style = {styles.contenedorBoton} 
-                    onPress ={() => {navigation.navigate("Home")}} >
-                </TouchableOpacity> */}
-                {/* <TouchableOpacity
-                onPress={() => {
-                navigation.goBack();
-                }}
-                    >
-                <Text>Already got an account? Sign in</Text>
-            </TouchableOpacity> */}
+                 <TouchableOpacity
+                        onPress={() => {
+                        navigation.goBack();
+                        }}>
+                        <Text style= {styles.texto1}>Si ya tienes una cuenta, inicia sesión</Text>
+                </TouchableOpacity>
             </ImageBackground>
-            </View>
+        </View>
 )}
 
 
@@ -88,6 +84,14 @@ const styles = StyleSheet.create({
         height: height * 0.07,
         // backgroundColor: "#fff"
     },
+    texto1:{
+        alignItems: "center",
+        justifyContent: "center",
+        marginTop: 10,
+        // backgroundColor: "#fff",
+        width: width * 0.55,
+        height: height * 0.03
+    }
 
 });
 

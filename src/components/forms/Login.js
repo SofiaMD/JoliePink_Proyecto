@@ -52,6 +52,7 @@ const Login = ({navigation}) => {
                 const user = firestoreDocument.data();
                 navigation.navigate("Home", {user});
             });
+            
         })
         .catch((error) => {
             console.log(error);
@@ -98,6 +99,8 @@ const Login = ({navigation}) => {
                 leftIcon={{ name: 'lock' }}
                 value = {contrasena}
                 onChangeText= {setContrasena}
+                secureTextEntry
+                autoCapitalize ="none"
                 onBlur={() => {
                     handleVerify("contrasena");
                   }}
@@ -138,9 +141,10 @@ const styles = StyleSheet.create({
     contenedorInformacion:{
         backgroundColor: "#fff",
         width: width * 0.70,
-        height: height * 0.20,
+        height: height * 0.18,
         justifyContent: "center",
         alignItems: "center",
+        marginBottom: 5
     },
     contenedorImagen: {
         width: width * 0.70,
@@ -163,7 +167,7 @@ const styles = StyleSheet.create({
         height: height * 0.10
     },
     contenedorBoton:{
-        marginTop: 10,
+        marginTop: 15,
       alignItems: "center",
       justifyContent: "center",
     },
