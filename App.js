@@ -31,7 +31,7 @@ import JoliePinkCategory from "./src/components/screens/JoliePinkCategory";
 import JoliePinkProfile from "./src/components/screens/JoliePinkProfile";
 import JoliePinkSpecificCategory from "./src/components/screens/JoliePinkSpecificCategory";
 import JoliePinkVerification from "./src/components/screens/JoliePinkVerification";
-import VerificationUser from './src/utils/VerificationUser';
+import VerificationUser from './src/utils/verificationUser';
 
 
 const Stack = createStackNavigator();

@@ -4,11 +4,11 @@
     "slug": "JoliePink",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/LogoSplash.png",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/LogoSplash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#f2d3ce"
     },
     "updates": {
       "fallbackToCacheTimeout": 0

@@ -6,8 +6,6 @@ import Button from "../../components/shared/Button";
 
 const {width, height} = Dimensions.get("window");
 
-
-
 const JoliePinkPay = () =>{
     return(
         <View style = {styles.container}>
