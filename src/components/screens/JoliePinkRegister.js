@@ -1,5 +1,4 @@
 import React from "react";
-<<<<<<< HEAD
 import { StyleSheet, View, Dimensions, ImageBackground, TouchableOpacity } from "react-native";
 import { Input,Text} from 'react-native-elements';
 
@@ -24,16 +23,6 @@ const JoliePinkRegister = ({navigation, route}) =>{
                     onPress ={() => {navigation.navigate("Home")}} >
                 </TouchableOpacity> */}
             </ImageBackground>
-=======
-import { StyleSheet, View, Text } from "react-native";
-
-const JoliePinkRegister = () =>{
-    return(
-        <View style = {styles.container}>
-            <Text>
-                Holis Registrate
-            </Text>
->>>>>>> d5d5b235a54d5c46c21702c1edbd1c4f63a69e5f
         </View>
     );
 }
@@ -41,7 +30,6 @@ const JoliePinkRegister = () =>{
 const styles = StyleSheet.create({
     container:{
         flex: 1,
-<<<<<<< HEAD
         flexDirection: "column",
         backgroundColor: "#f2d3ce",
         justifyContent: "center",
@@ -95,10 +83,6 @@ const styles = StyleSheet.create({
         height: height * 0.07,
         // backgroundColor: "#fff"
     },
-=======
-        flexDirection: "column"
-    }
->>>>>>> d5d5b235a54d5c46c21702c1edbd1c4f63a69e5f
 
 });
 
