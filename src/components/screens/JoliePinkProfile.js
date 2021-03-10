@@ -25,8 +25,6 @@ const JoliePinkProfile = ({navigation}) =>{
          <View style = {styles.contenedorInformacion}>
              <Text>Sofia Duarte</Text>
              <Text>sofiaduarte@gmail.com</Text>
-             <Text>99468291</Text>
-             <Text>Siguatepeque, Comayagua</Text>
          </View>
          <View style= {styles.contenedorBoton}>
          <Button title = "Cerrar sesion" callback ={SignOff}/>
@@ -60,7 +58,8 @@ const styles = StyleSheet.create({
     },
     imagenLogo:{
         width: width * 0.52,
-        height: height * 0.29
+        height: height * 0.29,
+        resizeMode: "contain",
     },
     contenedorBoton:{
         marginTop: 30

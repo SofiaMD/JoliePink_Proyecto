@@ -8,6 +8,7 @@ import Alert from "../shared/Alert";
 const {width, height} = Dimensions.get("window");
 
 const JoliePinkRegister = ({navigation, route}) =>{
+    const { userCreated } = route.params;
     return(
         <View style = {styles.container}>
             <ImageBackground source = {require ("../../../assets/FondoInicio.jpg")}

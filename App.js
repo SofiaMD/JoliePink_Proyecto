@@ -10,12 +10,13 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
 
 /// Importacion de React Navigation
-import { NavigationContainer, ThemeProvider} from "@react-navigation/native";
+import { NavigationContainer} from "@react-navigation/native";
 import { createStackNavigator} from "@react-navigation/stack";
 
 // Importacion de componentes
 
 import Button from "./src/components/shared/Button";
+import { ThemeProvider } from "react-native-elements";
 
 import PersistLogin from "./src/utils/persistLogin";
 
@@ -30,6 +31,8 @@ import JoliePinkPay from "./src/components/screens/JoliePinkPay";
 import JoliePinkCategory from "./src/components/screens/JoliePinkCategory";
 import JoliePinkProfile from "./src/components/screens/JoliePinkProfile";
 import JoliePinkSpecificCategory from "./src/components/screens/JoliePinkSpecificCategory";
+import JoliePinkForgotPassword from "./src/components/screens/JoliePinkForgotPassword";
+import JoliePinkChangePassword from "./src/components/screens/JoliePinkChangePassword";
 
 import theme from "./src/theme";
 
@@ -89,55 +92,68 @@ export default function App() {
 
 
   return (
-    <SafeAreaProvider>
-     <NavigationContainer>
-       <Stack.Navigator>
+    <ThemeProvider theme={theme}>
+      <SafeAreaProvider>
+      <NavigationContainer>
+        <Stack.Navigator>
         <Stack.Screen 
-          name = "Login" 
-          component = {JoliePinkLogin} 
-          options ={{ headerShown: false}}
-          initialParams={{ userCreated: false }}
-        />
-          <Stack.Screen 
-            name = "Home" 
-            component = {myTabBar} 
-            options = {{ headerShown: false}}
-            initialParams={{ user: user }}
+              name = "Login" 
+              component = {JoliePinkLogin} 
+              options ={{ headerShown: false}}
+              initialParams={{ userCreated: false }}
           />
-          <Stack.Screen 
-            name = "Register" 
-            component = {JoliePinkRegister} 
-            options = {{ headerShown: false}}
-            // initialParams={{ user: userVeri }}
-          />
-          <Stack.Screen 
-            name = "Category" 
-            component = {myTabBar} 
-            options = {{headerShown: false}}
-          />
-          <Stack.Screen 
-            name = "SpecificCategory" 
-            component = {myTabBar} 
-            options = {{headerShown: false}}
-          />
-          <Stack.Screen 
-            name = "Verification" 
-            component = {JoliePinkVerification} 
-            options = {{ headerShown: false}}
-          />
-           <Stack.Screen 
-            name = "Pay" 
-            component = {JoliePinkPay} 
-            options = {{ headerShown: false}}
-          />
-          <Stack.Screen 
-            name = "Profile" 
-            component = {JoliePinkProfile} 
-            options = {{headerShown: false}}
-          />
-        </Stack.Navigator>
-      </NavigationContainer>
-    </SafeAreaProvider>
+            <Stack.Screen 
+              name = "Home" 
+              component = {myTabBar} 
+              options = {{ headerShown: false}}
+              initialParams={{ user: user }}
+            />
+            <Stack.Screen 
+              name = "Register" 
+              component = {JoliePinkRegister} 
+              options = {{ headerShown: false}}
+              initialParams={{ userCreated: false }}
+              // initialParams={{ user: userVeri }}
+            />
+            <Stack.Screen 
+              name = "Category" 
+              component = {myTabBar} 
+              options = {{headerShown: false}}
+            />
+            <Stack.Screen 
+              name = "SpecificCategory" 
+              component = {myTabBar} 
+              options = {{headerShown: false}}
+            />
+            <Stack.Screen 
+              name = "Verification" 
+              component = {JoliePinkVerification} 
+              options = {{ headerShown: false}}
+            />
+            <Stack.Screen 
+              name = "Pay" 
+              component = {JoliePinkPay} 
+              options = {{ headerShown: false}}
+            />
+            <Stack.Screen 
+              name = "Profile" 
+              component = {JoliePinkProfile} 
+              options = {{headerShown: false}}
+            />
+            <Stack.Screen 
+              name = "ForgotPassword" 
+              component = {JoliePinkForgotPassword} 
+              options = {{headerShown: false}}
+            />
+            <Stack.Screen 
+              name = "ChangePassword" 
+              component = {JoliePinkChangePassword} 
+              options = {{headerShown: false}}
+            />
+          </Stack.Navigator>
+        </NavigationContainer>
+      </SafeAreaProvider>
+    </ThemeProvider>
   );
 }
 

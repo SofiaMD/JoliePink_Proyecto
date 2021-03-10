@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import { StyleSheet, View,Dimensions, Image, ImageBackground} from "react-native";
+import { StyleSheet, View,Dimensions, Image, ImageBackground, TouchableOpacity} from "react-native";
 
 import {
     Input,
@@ -71,6 +71,10 @@ const Login = ({navigation}) => {
         }
       };
 
+      const forgotPass= ()=> {
+        navigation.navigate("ForgotPassword");
+      }
+
     return (
         <View>
             <View style = {styles.contenedorImagen}>
@@ -112,7 +116,10 @@ const Login = ({navigation}) => {
             />
             </View>
             <View style= {styles.texto}>
-                    <Text>¿Has olvidado tu contraseña?</Text>
+            <TouchableOpacity style= {styles.texto}
+                    onPress ={forgotPass}>
+                        <Text>¿Has olvidado tu contraseña?</Text>
+                </TouchableOpacity>  
             </View>
             <View style= {styles.contenedorBoton}>
                  <Button title = "Iniciar Sesion" callback ={handlerSignUP}/>

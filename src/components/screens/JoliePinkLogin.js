@@ -34,9 +34,9 @@ const JoliePinkLogin = ({navigation, route}) =>{
                     {userCreated ? (
                 <Alert type="success" title="Usuario Creado! ya puedes iniciar sesion!" />
             ) : null}
-                <TouchableOpacity style= {styles.texto}
-                    onPress ={() => {navigation.navigate("Home")}}>
-                </TouchableOpacity>
+                {/* <TouchableOpacity style= {styles.texto}
+                    onPress ={() => {navigation.navigate("ChangePassword")}}>
+                </TouchableOpacity> */}
             </ImageBackground>
         </View>
         </SafeAreaProvider>
