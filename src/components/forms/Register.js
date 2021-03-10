@@ -49,7 +49,6 @@ const Register = ({navigation}) => {
         }
     };
 
-
     const handlerSignUP = () =>{
         firebase
         .auth()
@@ -74,7 +73,8 @@ const Register = ({navigation}) => {
             .doc(uid)
             .set(data)
             .then(() => {
-              navigation.navigate("Home");
+
+              navigation.navigate("Verification", {correoElectronico});
             })
             .catch((error) => {
               console.log(error);

@@ -29,12 +29,9 @@ const JoliePinkLogin = ({navigation}) =>{
             <ImageBackground source = {require ("../../../assets/FondoInicio.jpg")}
                 style = {styles.image} >
                     <Login navigation={navigation}/>
-                {/* <TouchableOpacity style= {styles.texto}
+                <TouchableOpacity style= {styles.texto}
                     onPress ={() => {navigation.navigate("Home")}}>
-                </TouchableOpacity> */}
-                {/* <TouchableOpacity style = {styles.contenedorBoton} 
-                    onPress ={() => {navigation.navigate("Register")}} >
-                </TouchableOpacity> */}
+                </TouchableOpacity>
             </ImageBackground>
         </View>
         </SafeAreaProvider>
@@ -102,7 +99,8 @@ const styles = StyleSheet.create({
     texto:{
         alignItems: "center",
         justifyContent: "center",
-        marginTop: -75,
+        marginTop: -80,
+        marginBottom: 10,
         // backgroundColor: "#fff",
         width: width * 0.55,
         height: height * 0.03

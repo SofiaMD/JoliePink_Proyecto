@@ -1,6 +1,6 @@
 import React from "react";
-import { StyleSheet, View, Dimensions, ImageBackground, TouchableOpacity } from "react-native";
-import { Input,Text} from 'react-native-elements';
+import { StyleSheet, View, Dimensions,Text, ImageBackground, TouchableOpacity } from "react-native";
+import { Input} from 'react-native-elements';
 import Register from "../forms/Register";
 
 const {width, height} = Dimensions.get("window");
@@ -18,8 +18,8 @@ const JoliePinkRegister = ({navigation}) =>{
                 onPress={() => {
                 navigation.goBack();
                 }}
-                    >
-                <Text>Already got an account? Sign in</Text>
+                >
+                <Text style= {styles.texto1}>Si ya tienes una cuenta, inicia sesión</Text>
             </TouchableOpacity>
             </ImageBackground>
         </View>
@@ -33,7 +33,6 @@ const styles = StyleSheet.create({
         backgroundColor: "#f2d3ce",
         justifyContent: "center",
         padding: 10
-
     },
 
     contenedorCentral:{
@@ -82,6 +81,14 @@ const styles = StyleSheet.create({
         height: height * 0.07,
         // backgroundColor: "#fff"
     },
+    texto1:{
+        alignItems: "center",
+        justifyContent: "center",
+        marginTop: 10,
+        // backgroundColor: "#fff",
+        width: width * 0.55,
+        height: height * 0.03
+    }
 
 });
 

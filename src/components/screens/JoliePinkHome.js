@@ -9,7 +9,7 @@ const {width, height} = Dimensions.get("window");
 
 import Button from "../../components/shared/Button";
 
-const JoliePinkHome = () =>{
+const JoliePinkHome = ({navigation}) =>{
     return(
         <SafeAreaProvider>
             <Header 
@@ -25,7 +25,7 @@ const JoliePinkHome = () =>{
                 </View>
                 <Text style={styles.textoNueva}>Nueva Colección</Text>
                     <View style={styles.contenedorBotones}>
-                    <Button title="Lo mas Vendido" callback ={() => {navigation.navigate("Home")}}/>
+                    <Button title="Lo mas Vendido" callback ={() => {navigation.navigate("Pay")}}/>
                     <Button title="Nueva Colección" callback ={() => {navigation.navigate("Home")}}/>
                     </View>
                     <View style={styles.contenedorImagen}>
@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
 
     contenedorBotones:{
         width: width * 1,
-        height: height *0.30,
+        height: height *0.20,
         flexDirection: "row",
     },
     
