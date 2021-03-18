@@ -2,29 +2,32 @@ import React from "react";
 import { StyleSheet, View, Dimensions,Text, ImageBackground, TouchableOpacity } from "react-native";
 import { Input} from 'react-native-elements';
 import Register from "../forms/Register";
+import theme from "../../theme";
+import Alert from "../shared/Alert";
 
 const {width, height} = Dimensions.get("window");
 
-const JoliePinkRegister = ({navigation}) =>{
+const JoliePinkRegister = ({navigation, route}) =>{
+    const { userCreated } = route.params;
     return(
         <View style = {styles.container}>
             <ImageBackground source = {require ("../../../assets/FondoInicio.jpg")}
                 style = {styles.image}>
-                <Register navigation={navigation}/>
-                {/* <TouchableOpacity style = {styles.contenedorBoton} 
-                    onPress ={() => {navigation.navigate("Home")}} >
-                </TouchableOpacity> */}
-                <TouchableOpacity
-                onPress={() => {
-                navigation.goBack();
-                }}
-                >
-                <Text style= {styles.texto1}>Si ya tienes una cuenta, inicia sesión</Text>
-            </TouchableOpacity>
+
+                   {userCreated ? (
+                       <Alert type="success" title="Creado por el usuario! Ahora puedes iniciar sesión!" />
+                    ) : null} 
+                <Register navigation= {navigation}/>
+                 <TouchableOpacity
+                        onPress={() => {
+                        navigation.goBack();
+                        }}>
+                        <Text style= {styles.texto1}>Si ya tienes una cuenta, inicia sesión</Text>
+                </TouchableOpacity>
             </ImageBackground>
         </View>
-    );
-}
+)}
+
 
 const styles = StyleSheet.create({
     container:{
@@ -32,7 +35,8 @@ const styles = StyleSheet.create({
         flexDirection: "column",
         backgroundColor: "#f2d3ce",
         justifyContent: "center",
-        padding: 10
+        padding: 10,
+        backgroundColor: theme.colors.backgroundWhite,
     },
 
     contenedorCentral:{

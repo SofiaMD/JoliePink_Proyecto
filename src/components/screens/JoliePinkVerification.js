@@ -29,10 +29,10 @@ const JoliePinkVerification = ({navigation, route})=>{
             };
                 firebase
                 .auth()
-                .sendSignInLinkToEmail(correoElectronico, actionCodeSettings)
+                .sendSignInLinkToEmail(correoElectronico)
                 .then(() => {
                 console.log('sent')
-                window.localStorage.setItem('emailForSignIn', correoElectronico);
+                window.localStorage.setItem();
                 navigation.navigate("Home");
 
                 })
@@ -46,7 +46,7 @@ const JoliePinkVerification = ({navigation, route})=>{
             {/* <Text>{correoElectronico}</Text> */}
             <Text style= {styles.texto}>Pantalla de Verificación</Text>
             <Text style= {styles.textoCorreo}>{correoElectronico}</Text>
-            <Button title="Verificar Correo Electronico" callback ={Verificacion()}/>
+            <Button title="Verificar Correo Electronico" callback ={Verificacion}/>
         </View>
     );
 };

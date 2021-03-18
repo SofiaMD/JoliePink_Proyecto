@@ -1,7 +1,7 @@
 import React from "react";
 import { ImageBackground } from "react-native";
 import { StyleSheet, View, Text, Dimensions,Image } from "react-native";
-import { Header } from 'react-native-elements';
+import { Header, } from 'react-native-elements';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 const {width, height} = Dimensions.get("window");

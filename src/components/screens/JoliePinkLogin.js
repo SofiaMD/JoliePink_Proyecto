@@ -13,11 +13,13 @@ import {
  import Button from "../shared/Button";
  import Login from "../forms/Login"
 //  import Login from "../shared/Login";
+import theme from "../../theme";
+
 
 const {width, height} = Dimensions.get("window");
 
-const JoliePinkLogin = ({navigation}) =>{
-
+const JoliePinkLogin = ({navigation, route}) =>{
+    const { userCreated } = route.params;
     return(
         <SafeAreaProvider>
             <Header
@@ -29,9 +31,12 @@ const JoliePinkLogin = ({navigation}) =>{
             <ImageBackground source = {require ("../../../assets/FondoInicio.jpg")}
                 style = {styles.image} >
                     <Login navigation={navigation}/>
-                <TouchableOpacity style= {styles.texto}
-                    onPress ={() => {navigation.navigate("Home")}}>
-                </TouchableOpacity>
+                    {userCreated ? (
+                <Alert type="success" title="Usuario Creado! ya puedes iniciar sesion!" />
+            ) : null}
+                {/* <TouchableOpacity style= {styles.texto}
+                    onPress ={() => {navigation.navigate("ChangePassword")}}>
+                </TouchableOpacity> */}
             </ImageBackground>
         </View>
         </SafeAreaProvider>
@@ -47,7 +52,8 @@ const styles = StyleSheet.create({
         flexDirection: "column",
         backgroundColor : "#f2d3ce",
         alignItems: "center",
-        justifyContent: "center"
+        justifyContent: "center",
+        backgroundColor: theme.colors.backgroundWhite,
     },
     image: {
         flex : 1,

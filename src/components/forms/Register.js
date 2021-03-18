@@ -6,7 +6,7 @@ import Button from "../../components/shared/Button";
 
 import { firebase } from "../../firebase";
 import { validate } from "email-validator";
-
+import Alert from "../shared/Alert";
 const {width, height} = Dimensions.get("window");
 
 const Register = ({navigation}) => {
@@ -74,7 +74,7 @@ const Register = ({navigation}) => {
             .set(data)
             .then(() => {
 
-              navigation.navigate("Verification", {correoElectronico});
+              navigation.navigate("Home", {correoElectronico});
             })
             .catch((error) => {
               console.log(error);
@@ -86,6 +86,7 @@ const Register = ({navigation}) => {
 
     return(
         <View>
+            {error ? <Alert title={error} type="error"/> : null} 
             <View style= {styles.contenedorTexto}> 
                 <Text style={styles.texto}>Registrate</Text>
             </View>

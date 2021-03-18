@@ -1,19 +1,17 @@
 import React, {useState, useEffect} from "react";
-import { StyleSheet, View,Dimensions, Image, ImageBackground} from "react-native";
+import { StyleSheet, View,Dimensions, Image, ImageBackground, TouchableOpacity} from "react-native";
 
 import {
     Input,
     Text
 } from "react-native-elements";
 
+// Importacion de componentes compartidos
+import Button from "../../components/shared/Button";
+import Alert from "../shared/Alert";
 
 import { firebase } from "../../firebase";
 import { validate } from "email-validator";
-
-
-// Importacion de componentes compatidos
-import Button from "../../components/shared/Button";
-
 const {width, height} = Dimensions.get("window");
 
 const Login = ({navigation}) => {
@@ -27,7 +25,7 @@ const Login = ({navigation}) => {
     const [contrasenaError, setContrasenaError] = useState(false);
     const [error, setError] = useState("");
     
-    const handlerSignIn =()=>{
+    const handlerSignUP =()=>{
         firebase
         .auth()
         .signInWithEmailAndPassword(correoElectronico, contrasena)
@@ -73,11 +71,16 @@ const Login = ({navigation}) => {
         }
       };
 
+      const forgotPass= ()=> {
+        navigation.navigate("ForgotPassword");
+      }
+
     return (
         <View>
             <View style = {styles.contenedorImagen}>
                 <Image style= {styles.imagenLogo} source = {require("../../../assets/Logo.png")}/>
             </View>
+            {error ? <Alert type="error" title={error} /> : null}
             <View style = {styles.contenedorInformacion}>
             <Input
                 placeholder='Correo Electronico'
@@ -113,10 +116,13 @@ const Login = ({navigation}) => {
             />
             </View>
             <View style= {styles.texto}>
-                    <Text>¿Has olvidado tu contraseña?</Text>
+            <TouchableOpacity style= {styles.texto}
+                    onPress ={forgotPass}>
+                        <Text>¿Has olvidado tu contraseña?</Text>
+                </TouchableOpacity>  
             </View>
             <View style= {styles.contenedorBoton}>
-                 <Button title = "Iniciar Sesion" callback ={handlerSignIn}/>
+                 <Button title = "Iniciar Sesion" callback ={handlerSignUP}/>
             </View>
         </View>
     );
