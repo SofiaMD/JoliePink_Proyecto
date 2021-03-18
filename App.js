@@ -12,7 +12,7 @@ import { createMaterialBottomTabNavigator } from "@react-navigation/material-bot
 /// Importacion de React Navigation
 import { NavigationContainer} from "@react-navigation/native";
 import { createStackNavigator} from "@react-navigation/stack";
-
+import { createDrawerNavigator } from '@react-navigation/drawer';
 // Importacion de componentes
 
 import Button from "./src/components/shared/Button";
@@ -32,11 +32,12 @@ import JoliePinkProfile from "./src/components/screens/JoliePinkProfile";
 import JoliePinkSpecificCategory from "./src/components/screens/JoliePinkSpecificCategory";
 import JoliePinkVerification from "./src/components/screens/JoliePinkVerification";
 import VerificationUser from './src/utils/verificationUser';
+// import { Drawer } from 'react-native-paper';
 
 
 const Stack = createStackNavigator();
 const Tab = createMaterialBottomTabNavigator();
-
+const Drawer = createDrawerNavigator();
 
 const myTabBar =() =>{
 
@@ -73,6 +74,29 @@ const myTabBar =() =>{
     </Tab.Navigator>
   )
 }
+
+
+const menu = () =>{
+     return(
+      <Drawer.Navigator>
+        <Drawer.Screen
+        name = "Home" 
+        component = {JoliePinkHome}/>
+         <Drawer.Screen
+        name = "Profile" 
+        component = {JoliePinkProfile}/>
+      </Drawer.Navigator>
+     )
+}
+  // const menu = createDrawerNavigator({
+  //   Category: {
+  //     screen: JoliePinkCategory
+  //   },
+  //   Profile: {
+  //     screen: JoliePinkProfile
+  //   }
+  // })
+
 
 export default function App() {
 
