@@ -1,21 +1,25 @@
 import React from "react";
 import { StyleSheet, View, Text, Dimensions,Image, ImageBackground} from "react-native";
-import { useWindowDimensions } from 'react-native';
+// import { useWindowDimensions } from 'react-native';
+const {width, height} = Dimensions.get("window").width * 0.80,
 
 
-import JoliePinkProfile from "../screens/JoliePinkProfile";
+// import JoliePinkProfile from "../screens/JoliePinkProfile";
 
-import { createDrawerNavigator } from '@react-navigation/drawer';
+// import { createDrawerNavigator } from '@react-navigation/drawer';
 
 const Drawer = createDrawerNavigator();
 
 const JoliePinkMenu = () => {
-    const dimensions = useWindowDimensions();
+    // const dimensions = useWindowDimensions();
     return(
-        <Drawer.Navigator 
-     drawerType={dimensions.width >= 768 ? 'permanent' : 'front'}>
-         <Drawer.Screen name="Menu" component={JoliePinkMenu} />
-    </Drawer.Navigator>
+    //     <Drawer.Navigator 
+    //  drawerType={dimensions.width >= 768 ? 'permanent' : 'front'}>
+    //      <Drawer.Screen name="Menu" component={JoliePinkMenu} />
+    // </Drawer.Navigator>
+    <View> 
+        <Text>Holis</Text>
+    </View>
     )
 }
 const styles = StyleSheet.create({

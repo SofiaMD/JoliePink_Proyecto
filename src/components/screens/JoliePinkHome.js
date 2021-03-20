@@ -21,7 +21,6 @@ const JoliePinkHome = ({navigation}) =>{
                     <Image style= {styles.imagenropa} source = {require("../../../assets/ropa1.jpg")}/>
                     <Image style= {styles.imagenropa} source = {require("../../../assets/ropa2.jpg")}/>
                     <Image style= {styles.imagenropa} source = {require("../../../assets/ropa3.jpg")}/>
-                    <Image style= {styles.imagenropa} source = {require("../../../assets/ropa3.jpg")}/>
                 </View>
                 <Text style={styles.textoNueva}>Nueva Colección</Text>
                     <View style={styles.contenedorBotones}>

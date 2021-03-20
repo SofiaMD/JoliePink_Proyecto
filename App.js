@@ -2,6 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import React,{useState, useEffect} from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import {SafeAreaProvider} from "react-native-safe-area-context";
+import {Header} from "react-native-elements";
 
 /// Importacion de react navigation componente bottom-tabs;
 
@@ -11,8 +12,9 @@ import { createMaterialBottomTabNavigator } from "@react-navigation/material-bot
 
 /// Importacion de React Navigation
 import { NavigationContainer} from "@react-navigation/native";
-import { createStackNavigator} from "@react-navigation/stack";
+import { createStackNavigator, HeaderTitle} from "@react-navigation/stack";
 import { createDrawerNavigator } from '@react-navigation/drawer';
+
 // Importacion de componentes
 
 import Button from "./src/components/shared/Button";
@@ -58,8 +60,17 @@ const myTabBar =() =>{
             ),
           }}
           />
-      <Tab.Screen   name = "Category" 
+          <Tab.Screen   name = "Category" 
           component = {JoliePinkCategory} 
+          options={{
+            tabBarLabel: 'Categoria',
+            tabBarIcon: ({ color }) => (
+              <MaterialCommunityIcons name="tshirt-v" color={color} size={26} />
+            ),
+          }}
+         />
+      <Tab.Screen   name = "Pay" 
+          component = {JoliePinkPay} 
           options={{
             tabBarLabel: 'Compras',
             tabBarIcon: ({ color }) => (
@@ -93,15 +104,16 @@ const menu = () =>{
       </Drawer.Navigator>
      )
 }
-  // const menu = createDrawerNavigator({
-  //   Category: {
-  //     screen: JoliePinkCategory
-  //   },
-  //   Profile: {
-  //     screen: JoliePinkProfile
-  //   }
-  // })
 
+
+function HeaderJolie(){
+  return(
+    <View style={{flex:1, marginTop: 5}}> 
+        <Text style = {styles.textoJolie}>JoliePink</Text>
+    </View>
+   
+  );
+}
 
 export default function App() {
 
@@ -120,12 +132,26 @@ export default function App() {
       <SafeAreaProvider>
       <NavigationContainer>
         <Stack.Navigator>
-        <Stack.Screen 
+        {/* <Stack.Screen 
+              name = "Category" 
+              component = {JoliePinkCategory} 
+              options = {{headerShown: false}}
+            /> */}
+        {/* <Stack.Screen 
               name = "Login" 
               component = {JoliePinkLogin} 
               options ={{ headerShown: false}}
               initialParams={{ userCreated: false }}
-          />
+          /> */}
+          <Stack.Screen 
+              name = "SpecificCategory" 
+              component = {JoliePinkSpecificCategory} 
+              options={{ headerTitle: props => <HeaderJolie {...props}/>,
+                headerStyle: {
+                  backgroundColor: "#bd787d",
+
+                }}}
+            />
             <Stack.Screen 
               name = "Home" 
               component = {myTabBar} 
@@ -139,16 +165,16 @@ export default function App() {
               initialParams={{ userCreated: false }}
               // initialParams={{ user: userVeri }}
             />
-            <Stack.Screen 
-              name = "Category" 
-              component = {myTabBar} 
-              options = {{headerShown: false}}
-            />
-            <Stack.Screen 
+              <Stack.Screen 
+                name = "Category" 
+                component = {myTabBar} 
+                options = {{headerShown: false}}
+              />
+            {/* <Stack.Screen 
               name = "SpecificCategory" 
-              component = {myTabBar} 
-              options = {{headerShown: false}}
-            />
+              component = {JoliePinkSpecificCategory} 
+              // options = {{headerShown: false}}
+            /> */}
             <Stack.Screen 
               name = "Verification" 
               component = {JoliePinkVerification} 
@@ -191,5 +217,12 @@ const styles = StyleSheet.create({
   },
   botonRegistro:{
     marginRight: 15
+  },
+  textoJolie:{
+    justifyContent: "center",
+    alignSelf: "center",
+    color: "#fff",
+    fontSize: 30,
+    fontWeight: "bold"
   }
 });
