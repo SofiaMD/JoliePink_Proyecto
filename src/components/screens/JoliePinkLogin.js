@@ -18,8 +18,8 @@ import theme from "../../theme";
 
 const {width, height} = Dimensions.get("window");
 
-const JoliePinkLogin = ({navigation, route}) =>{
-    const { userCreated } = route.params;
+const JoliePinkLogin = ({navigation}) =>{
+    // const { userCreated } = route.params;
     return(
         <SafeAreaProvider>
             <Header
@@ -31,9 +31,9 @@ const JoliePinkLogin = ({navigation, route}) =>{
             <ImageBackground source = {require ("../../../assets/FondoInicio.jpg")}
                 style = {styles.image} >
                     <Login navigation={navigation}/>
-                    {userCreated ? (
+                    {/* {userCreated ? (
                 <Alert type="success" title="Usuario Creado! ya puedes iniciar sesion!" />
-            ) : null}
+            ) : null} */}
                 {/* <TouchableOpacity style= {styles.texto}
                     onPress ={() => {navigation.navigate("ChangePassword")}}>
                 </TouchableOpacity> */}

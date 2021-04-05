@@ -1,15 +1,20 @@
-import React from "react";
+import React, {useContext}from "react";
 import { ImageBackground } from "react-native";
-import { StyleSheet, View, Text, Dimensions,Image } from "react-native";
+import { StyleSheet, View, Text, Dimensions,Image, TouchableOpacity } from "react-native";
 import { Header, } from 'react-native-elements';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+
+import { Context as  AuthContext} from "../../providers/AuthContext";
 
 const {width, height} = Dimensions.get("window");
 
 
 import Button from "../../components/shared/Button";
+// import { useContext } from "react";
 
 const JoliePinkHome = ({navigation}) =>{
+
+    const { signout } = useContext(AuthContext);
     return(
         <SafeAreaProvider>
             <Header 
@@ -24,13 +29,15 @@ const JoliePinkHome = ({navigation}) =>{
                 </View>
                 <Text style={styles.textoNueva}>Nueva Colección</Text>
                     <View style={styles.contenedorBotones}>
-                    <Button title="Lo mas Vendido" callback ={() => {navigation.navigate("Pay")}}/>
-                    <Button title="Nueva Colección" callback ={() => {navigation.navigate("Home")}}/>
+                    <Button title="Lo más vendido" callback ={() => {navigation.navigate("Pay")}}/>
+                    <Button title="Nueva colección" callback ={() => {navigation.navigate("Home")}}/>
                     </View>
                     <View style={styles.contenedorImagen}>
                         <Image style= {styles.imagenRopa} source = {require("../../../assets/ropa.jpg")}/>
                         <Image style= {styles.imagenRopa} source = {require("../../../assets/ropa4.jpg")}/>
                     </View>
+                  
+                    
             </View>
         </SafeAreaProvider> 
     );
@@ -44,13 +51,14 @@ const styles = StyleSheet.create({
     contenedorRopa:{
         flexDirection: "row",
         width: width * 1,
-        height: height *0.40,
+        height: height *0.30,
+        marginTop: 10
     },
 
     contenedorBotones:{
         width: width * 1,
-        height: height *0.20,
-        flexDirection: "row",
+        height: height *0.12,
+        flexDirection: "row"
     },
     
     contenedorImagen:{
@@ -66,15 +74,17 @@ const styles = StyleSheet.create({
 
     imagenRopa:{
         width: width * 0.50,
-        height: height *0.30,
+        height: height *0.40,
     },
 
     textoNueva: {
         color: "#21130d",
-        fontSize: 25,
         alignItems: "center",
         justifyContent: "center",
+        textAlign: "center",
+        marginTop: 4,
 
+        fontSize: 25
     }
 
 });

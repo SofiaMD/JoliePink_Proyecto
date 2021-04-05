@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
     contenedorTitulo:{
         
         fontWeight: "bold",
-        fontSize: "70",
+        fontSize: 70,
         backgroundColor: "#DED1DB",
         height: height * 0.06,
         borderColor: "#DED1DB"

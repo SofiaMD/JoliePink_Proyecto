@@ -2,7 +2,7 @@ import React from "react";
 import {StyleSheet, Text, Dimensions, TouchableOpacity} from "react-native";
 
 import {Button} from "react-native-elements";
-const {width,heigth} = Dimensions.get("window");
+const {width, height} = Dimensions.get("window");
 
 const ButtonCategory = ({title, callback}) => {
     return (
@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
         backgroundColor : "#bd787d", 
         justifyContent: "center",
         width: width * 0.45,
-        heigth: heigth * 0.05,
+        height: height * 0.05,
         marginTop: 10,
         marginBottom: 10,
         marginLeft: 10,

@@ -7,16 +7,16 @@ import Alert from "../shared/Alert";
 
 const {width, height} = Dimensions.get("window");
 
-const JoliePinkRegister = ({navigation, route}) =>{
-    const { userCreated } = route.params;
+const JoliePinkRegister = ({navigation}) =>{
+    // const { userCreated } = route.params;
     return(
         <View style = {styles.container}>
             <ImageBackground source = {require ("../../../assets/FondoInicio.jpg")}
                 style = {styles.image}>
 
-                   {userCreated ? (
+                   {/* {userCreated ? (
                        <Alert type="success" title="Creado por el usuario! Ahora puedes iniciar sesión!" />
-                    ) : null} 
+                    ) : null}  */}
                 <Register navigation= {navigation}/>
                  <TouchableOpacity
                         onPress={() => {

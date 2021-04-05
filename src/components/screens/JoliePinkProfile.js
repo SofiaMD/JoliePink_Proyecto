@@ -7,6 +7,7 @@ import { firebase }  from "../../firebase";
 const {width, height} = Dimensions.get("screen");
 
 const JoliePinkProfile = ({navigation}) =>{
+    
     const SignOff = () =>{
         firebase.auth().signOut().then(() => {
             navigation.navigate("Login");
