@@ -17,7 +17,7 @@ const Button = ({title, callback}) => {
 
 const styles = StyleSheet.create({
     boton :{
-        backgroundColor: "#843d3b",
+        backgroundColor: "#bd787d",
         alignSelf: "center",
         padding: 10,
         borderRadius: 50,
@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
     botonTexto:{
         color: "#f2ebe8",
         fontSize: 20,
-        fontWeight: "bold",
+        // fontWeight: "bold",
         textAlign: "center"
     }
 })

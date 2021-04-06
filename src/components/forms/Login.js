@@ -1,5 +1,8 @@
-import React, {useState, useEffect} from "react";
-import { StyleSheet, View,Dimensions, Image, ImageBackground} from "react-native";
+import React, {useState, useContext, useEffect} from "react";
+import { StyleSheet, View,Dimensions, Image, ImageBackground, TouchableOpacity} from "react-native";
+import { Context as AuthContext } from "../../providers/AuthContext";
+
+
 
 import {
     Input,
@@ -9,63 +12,90 @@ import {
 // Importacion de componentes compartidos
 import Button from "../../components/shared/Button";
 import Alert from "../shared/Alert";
+
+import { firebase } from "../../firebase";
+import { validate } from "email-validator";
 const {width, height} = Dimensions.get("window");
 
-const Login = () => {
+const Login = ({navigation}) => {
 
-    const [correoElectronio, setCorreoElectronico] = useState("");
+    const {state, signin,  clearErrorMessage } = useContext(AuthContext);
+
+    const [correoElectronico, setCorreoElectronico] = useState("");
 
     const [contrasena, setContrasena] = useState("");
 
-    const [error, setError] = useState(false);
+    // Errores de las variables
+    const [correoElectronicoError, setCorreoElectronicoError] = useState(false);
+    const [contrasenaError, setContrasenaError] = useState(false);
+    const [error, setError] = useState("");
+    
+    useEffect(() => {
+        if (state.errorMessage) clearErrorMessage();
+      }, []);
+    
+      useEffect(() => {
+        if (state.errorMessage) setError(state.errorMessage);
+      }, [state.errorMessage]);
+
+
+    // useEffect(() => {
+    //     setError(state.errorMessage);
+    //   }, [state.errorMessage]);
+    
+    // //   useEffect(() => {
+    // //     if (state.errorMessage) setError(state.errorMessage);
+    // //   }, [state.errorMessage]);
+
+    // useEffect(()=>{
+    //     console.log(state.user);
+    // },[state.user])
     
     const handlerSignUP =()=>{
-        firebase
-      .auth()
-      .signInWithEmailAndPassword(email, password)
-      .then((response) => {
-        // Obtener el Unique Identifier generado para cada usuario
-        // Firebase -> Authentication
-        const uid = response.user.uid;
+         // Iniciar sesión implementado el Contexto de autenticación
+         signin(correoElectronico, contrasena);
+        //  console.log(state.user);
+    };
+    
+    
 
-        // Obtener la colección desde Firebase
-        const usersRef = firebase.firestore().collection("users");
+    const handleVerify = (input) => {
+        if (input === "correoElectronico") {
+          if (!correoElectronico) setCorreoElectronicoError(true);
+          else if (!validate(correoElectronico)) setCorreoElectronicoError(true);
+          else setCorreoElectronicoError(false);
+        } else if (input === "contrasena") {
+          if (!contrasena) setContrasenaError(true);
+          else setContrasenaError(false);
+        }
+      };
 
-        // Verificar que el usuario existe en Firebase authentication
-        // y también está almacenado en la colección de usuarios.
-        usersRef
-          .doc(uid)
-          .get()
-          .then((firestoreDocument) => {
-            if (!firestoreDocument.exists) {
-              setError("User does not exist in the database!");
-              return;
-            }
-
-            // Obtener la información del usuario y enviarla a la pantalla Home
-            const user = firestoreDocument.data();
-
-            navigation.navigate("Home", { user });
-          });
-        })
-      .catch((error) => {
-        setError(error.message);
-      });
-    }
+      const forgotPass= ()=> {
+        navigation.navigate("ForgotPassword");
+        
+      };
 
     return (
         <View>
-            {error ? <Alert title={error} type="error"/> : null} 
             <View style = {styles.contenedorImagen}>
                 <Image style= {styles.imagenLogo} source = {require("../../../assets/Logo.png")}/>
             </View>
+            {error ? <Alert type="error" title={error} /> : null}
             <View style = {styles.contenedorInformacion}>
             <Input
                 placeholder='Correo Electronico'
                 style = {styles.inputUsuario}
                 leftIcon={{ name: 'email' }}
-                value = {correoElectronio}
+                value = {correoElectronico}
                 onChangeText = {setCorreoElectronico}
+                onBlur={() => {
+                    handleVerify("correoElectronico");
+                  }}
+                  errorMessage={
+                   correoElectronicoError
+                      ? "Por favor ingresa tu cuenta de correo electrónico"
+                      : null
+                  }
             />
             <Input
                 placeholder='Contraseña'
@@ -73,10 +103,23 @@ const Login = () => {
                 leftIcon={{ name: 'lock' }}
                 value = {contrasena}
                 onChangeText= {setContrasena}
+                secureTextEntry
+                autoCapitalize ="none"
+                onBlur={() => {
+                    handleVerify("contrasena");
+                  }}
+                  errorMessage={
+                   contrasenaError
+                      ? "Por favor ingresa tu cuenta de correo electrónico"
+                      : null
+                  }
             />
             </View>
             <View style= {styles.texto}>
-                    <Text>¿Has olvidado tu contraseña?</Text>
+            <TouchableOpacity style= {styles.texto}
+                    onPress ={forgotPass}>
+                        <Text>¿Has olvidado tu contraseña?</Text>
+                </TouchableOpacity>  
             </View>
             <View style= {styles.contenedorBoton}>
                  <Button title = "Iniciar Sesion" callback ={handlerSignUP}/>
@@ -105,9 +148,10 @@ const styles = StyleSheet.create({
     contenedorInformacion:{
         backgroundColor: "#fff",
         width: width * 0.70,
-        height: height * 0.20,
+        height: height * 0.18,
         justifyContent: "center",
         alignItems: "center",
+        marginBottom: 5
     },
     contenedorImagen: {
         width: width * 0.70,
@@ -130,7 +174,7 @@ const styles = StyleSheet.create({
         height: height * 0.10
     },
     contenedorBoton:{
-        marginTop: 10,
+        marginTop: 15,
       alignItems: "center",
       justifyContent: "center",
     },

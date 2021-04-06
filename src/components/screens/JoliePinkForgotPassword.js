@@ -1,11 +1,26 @@
-import React from "react";
-import {StyleSheet, View, Text, Dimensions, Image, ImageBackground} from "react-native";
+import React, {useState}from "react";
+import {StyleSheet, View, Text, Dimensions, Image, ImageBackground,TouchableOpacity} from "react-native";
 import {Input} from "react-native-elements";
 import Button from "../../components/shared/Button";
+
+import { firebase } from "../../firebase";
 
 const {width, height} = Dimensions.get("screen");
 
 const JoliePinkForgotPassword = ({navigation}) =>{
+
+    const [correoElectronico, setCorreoElectronico] = useState("");
+
+    const enviarCorreo = ()=>{
+        const auth = firebase.auth();
+        auth.sendPasswordResetEmail(correoElectronico)
+        .then(function(){
+            console.log("Se mando un correo");
+            navigation.navigate("Login");
+        },function(error){
+            console.log(error)
+        })
+    }
 
     return(
         <View style = {styles.container}>
@@ -19,15 +34,17 @@ const JoliePinkForgotPassword = ({navigation}) =>{
                 <Input 
                     placeholder='Correo electronico'
                     style = {styles.inputCorreo}
-                />
-                <Input 
-                    placeholder='Confirmacion correo electronico'
-                    style = {styles.inputConfirmacionCorreo}
+                    value = {correoElectronico}
+                    onChangeText ={setCorreoElectronico}
                 />
                 </View>
                 <View style= {styles.contenedorBoton}>
-                <Button title = "Enviar codigo" callback ={() => {navigation.navigate("ChangePassword")}}/>
+                <Button title = "Enviar codigo" callback ={enviarCorreo}/>
                 </View>
+                <TouchableOpacity
+                    onPress ={() => {navigation.navigate("Login")}}>
+                         <Text style= {styles.textoMensaje}>¿No deseas cambiar contraseña?Intenta Iniciar sesion</Text>
+                </TouchableOpacity>
             </ImageBackground>
         </View>
     )
@@ -46,7 +63,8 @@ const styles = StyleSheet.create({
         justifyContent : "center",
         alignItems: "center",
         width: width * 1,
-        height: height * 1
+        height: height * 1,
+        resizeMode: "contain",
     },
     contenedorInformacion:{
         backgroundColor: "#fff",
@@ -55,23 +73,30 @@ const styles = StyleSheet.create({
         justifyContent: "center"
     },
     contenedorImagen: {
-        width: width * 0.52,
+        width: width * 0.65,
+        // width: width * 0.52,
         height: height * 0.35,
         alignItems: "center",
         justifyContent: "center",
-        marginBottom: 5,  
-        marginTop: -130
+        marginBottom: -50,  
+        // marginTop: -150,
+        
     },
     imagenLogo:{
-        width: width * 0.52,
-        height: height * 0.29
+        width: width * 0.58,
+        height: height * 0.29,
+        resizeMode: "contain",
     },
     texto:{
         color:"#ffff",
         fontSize: 25,
         fontWeight: "bold",
         color: "#843d3b",
-        marginBottom: 20 
+        marginBottom: 10,
+        marginTop: 30
+    },
+    textoMensaje:{
+        marginTop: 10
     },
     contenedorBoton:{
         marginTop: 30

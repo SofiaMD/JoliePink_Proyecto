@@ -1,15 +1,18 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect,useContext} from "react";
 import { StyleSheet, View, Text, Dimensions, ImageBackground } from "react-native";
-import { Input, } from 'react-native-elements';
+import { Input,Button } from 'react-native-elements';
+import { Context as AuthContext } from "../../providers/AuthContext";
 
-import Button from "../../components/shared/Button";
+// import Button from "../../components/shared/Button";
 
 import { firebase } from "../../firebase";
 import { validate } from "email-validator";
 import Alert from "../shared/Alert";
 const {width, height} = Dimensions.get("window");
 
-const Register = () => {
+const Register = ({navigation}) => {
+
+    const { state, signup } = useContext(AuthContext);
 
     // Variables a utilizar 
     const [nombreCompleto, setNombreCompleto] = useState("");
@@ -22,7 +25,24 @@ const Register = () => {
     const [correoError, setCorreoError] = useState(false);
     const [contraseñaError, setContraseñaError] = useState(false);
     const [confirmarContraseñaError, setConfirmarContraseñaError] = useState(false);
+    // const [direccion,setDireccion] =useState(false);
+    // const [telefono,]
     const [error, setError] = useState("");
+
+    useEffect(() => {
+        if (state.errorMessage) clearErrorMessage();
+      }, []);
+    
+      useEffect(() => {
+        if (state.errorMessage) setError(state.errorMessage);
+      }, [state.errorMessage]);
+    
+      useEffect(() => {
+        if (state.registered) navigation.navigate("Home");
+      }, [state]);
+
+
+      
 
     const handleVerify = (input) =>{
         if(input === "nombreCompleto"){
@@ -47,18 +67,23 @@ const Register = () => {
             else if (confirmarContraseña !== contraseña) setConfirmarContraseñaError(true);
             else setConfirmarContraseñaError(false);
         }
+        else if (input === "signup") {
+            if (
+              !nombreError &&
+              !correoError &&
+              !contraseñaError &&
+              !confirmarContraseñaError &&
+             nombreCompleto &&
+              correoElectronico &&
+              contraseña &&
+              confirmarContraseña
+            )
+              signup(nombreCompleto, correoElectronico,contraseña);
+            else setError("All fields are required!");
+          }
     };
 
-
-    const handlerSignUP = () =>{
-        firebase
-            .auth()
-            .createUserWithEmailAndPassword(correoElectronico, contraseña)
-            .then((response) => console.log(response))
-            .catch((error) => {
-            setError(error.message);
-            });
-    }
+    
 
     return(
         <View>
@@ -122,7 +147,14 @@ const Register = () => {
                     style={styles.input}/>
                 </View>
                 <View style= {styles.contenedorBoton}>
-                    <Button title = "Registrarse" callback ={handlerSignUP}/>
+                    {/* <Button title = "Registrarse" callback ={handleVerify()}/> */}
+                    <Button
+                      // mode="contained"
+                      style={styles.boton}
+                      onPress={() => handleVerify("signup")}
+                      title =  "Registrarse"
+                    >
+                    </Button>
                 </View>
         </View>
     );
@@ -179,6 +211,20 @@ const styles = StyleSheet.create({
         height: height * 1,
         resizeMode: "contain"
     },
+    boton :{
+      backgroundColor: "#bd787d",
+      alignSelf: "center",
+      padding: 10,
+      borderRadius: 50,
+      width: width * 0.50,
+      // heigth: heigth * 1
+    },
+    botonTexto:{
+        color: "#f2ebe8",
+        fontSize: 20,
+        // fontWeight: "bold",
+        textAlign: "center"
+    }
 
 });
 

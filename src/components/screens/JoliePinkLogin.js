@@ -19,7 +19,7 @@ import theme from "../../theme";
 const {width, height} = Dimensions.get("window");
 
 const JoliePinkLogin = ({navigation}) =>{
-
+    // const { userCreated } = route.params;
     return(
         <SafeAreaProvider>
             <Header
@@ -30,13 +30,13 @@ const JoliePinkLogin = ({navigation}) =>{
             <View style = {styles.container}>
             <ImageBackground source = {require ("../../../assets/FondoInicio.jpg")}
                 style = {styles.image} >
-                    <Login/>
-                <TouchableOpacity style= {styles.texto}
-                    onPress ={() => {navigation.navigate("Login")}}>
-                </TouchableOpacity>
-                <TouchableOpacity style = {styles.contenedorBoton} 
-                    onPress ={() => {navigation.navigate("Register")}} >
-                </TouchableOpacity>
+                    <Login navigation={navigation}/>
+                    {/* {userCreated ? (
+                <Alert type="success" title="Usuario Creado! ya puedes iniciar sesion!" />
+            ) : null} */}
+                {/* <TouchableOpacity style= {styles.texto}
+                    onPress ={() => {navigation.navigate("ChangePassword")}}>
+                </TouchableOpacity> */}
             </ImageBackground>
         </View>
         </SafeAreaProvider>
@@ -105,7 +105,8 @@ const styles = StyleSheet.create({
     texto:{
         alignItems: "center",
         justifyContent: "center",
-        marginTop: -75,
+        marginTop: -80,
+        marginBottom: 10,
         // backgroundColor: "#fff",
         width: width * 0.55,
         height: height * 0.03

@@ -5,7 +5,7 @@ import Button from "../../components/shared/Button";
 
 const {width, height} = Dimensions.get("screen");
 
-const JoliePinkChangePassword = () =>{
+const JoliePinkChangePassword = ({navigation}) =>{
 
     return(
         <View style = {styles.container}>
@@ -26,7 +26,7 @@ const JoliePinkChangePassword = () =>{
                     />
                 </View>
                 <View style= {styles.contenedorBoton}>
-                <Button title = "Listo" callback ={() => {navigation.navigate("")}}/>
+                <Button title = "Listo" callback ={() => {navigation.navigate("ForgotPassword")}}/>
                 </View>
            </ImageBackground>
         </View>
@@ -46,7 +46,8 @@ const styles = StyleSheet.create({
         justifyContent : "center",
         alignItems: "center",
         width: width * 1,
-        height: height * 1
+        height: height * 1,
+        resizeMode: "contain",
     },
     contenedorInformacion:{
         backgroundColor: "#fff",
@@ -63,8 +64,9 @@ const styles = StyleSheet.create({
         marginTop: -130
     },
     imagenLogo:{
-        width: width * 0.52,
-        height: height * 0.29
+        width: width * 0.58,
+        height: height * 0.29,
+        resizeMode: "contain",
     },
     texto:{
         color:"#ffff",

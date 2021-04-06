@@ -1,31 +1,33 @@
 import React from "react";
-import { StyleSheet, View, Dimensions, ImageBackground, TouchableOpacity } from "react-native";
-import { Input,Text} from 'react-native-elements';
-
-import Button from "../../components/shared/Button";
+import { StyleSheet, View, Dimensions,Text, ImageBackground, TouchableOpacity } from "react-native";
+import { Input} from 'react-native-elements';
 import Register from "../forms/Register";
 import theme from "../../theme";
 import Alert from "../shared/Alert";
 
 const {width, height} = Dimensions.get("window");
 
-const JoliePinkRegister = ({navigation, route}) =>{
-    const { userCreated } = route.params;
+const JoliePinkRegister = ({navigation}) =>{
+    // const { userCreated } = route.params;
     return(
         <View style = {styles.container}>
             <ImageBackground source = {require ("../../../assets/FondoInicio.jpg")}
                 style = {styles.image}>
-                   {userCreated ? (
+
+                   {/* {userCreated ? (
                        <Alert type="success" title="Creado por el usuario! Ahora puedes iniciar sesión!" />
-                    ) : null} 
-                <Register/>
-                {/* <TouchableOpacity style = {styles.contenedorBoton} 
-                    onPress ={() => {navigation.navigate("Home")}} >
-                </TouchableOpacity> */}
+                    ) : null}  */}
+                <Register navigation= {navigation}/>
+                 <TouchableOpacity
+                        onPress={() => {
+                        navigation.goBack();
+                        }}>
+                        <Text style= {styles.texto1}>Si ya tienes una cuenta, inicia sesión</Text>
+                </TouchableOpacity>
             </ImageBackground>
         </View>
-    );
-}
+)}
+
 
 const styles = StyleSheet.create({
     container:{
@@ -83,6 +85,14 @@ const styles = StyleSheet.create({
         height: height * 0.07,
         // backgroundColor: "#fff"
     },
+    texto1:{
+        alignItems: "center",
+        justifyContent: "center",
+        marginTop: 10,
+        // backgroundColor: "#fff",
+        width: width * 0.55,
+        height: height * 0.03
+    }
 
 });
 

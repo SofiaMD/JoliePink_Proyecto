@@ -6,9 +6,7 @@ import Button from "../../components/shared/Button";
 
 const {width, height} = Dimensions.get("window");
 
-
-
-const JoliePinkPay = ({navigation}) =>{
+const JoliePinkPay = () =>{
     return(
         <View style = {styles.container}>
             <ImageBackground source = {require ("../../../assets/FondoInicio.jpg")}
@@ -36,7 +34,7 @@ const JoliePinkPay = ({navigation}) =>{
                 />
             </View>
             <View style= {styles.contenedorBoton}>
-            <Button title = "Pagar" callback ={() => {navigation.navigate("Pay")}}/>
+            <Button title = "Pagar" callback ={() => {navigation.navigate("Home")}}/>
             </View>
         </ImageBackground>
         </View>
@@ -73,7 +71,8 @@ const styles = StyleSheet.create({
 
     imagenLogo:{
         width: width * 0.52,
-        height: height * 0.29
+        height: height * 0.29,
+        resizeMode: "contain",
     },
     
     contenedorBoton:{

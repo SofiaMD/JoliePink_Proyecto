@@ -1,26 +1,31 @@
 import React from "react";
 import { StyleSheet, View, Text } from "react-native";
+// import Icon from "react-native-vector-icons/FontAwesome";
 import Icon from "react-native-vector-icons/FontAwesome";
 
 const Alert = ({ type,title }) => {
     let background = "";
-    let Icon = "";
+    let icon = "";
 
     if (type === "error"){
-        Icon = "tomes-circle";
+        background = "#fdecea";
+        icon = "times-circle";
     } else if (type === "warning"){
-        Icon = "warnig";
+        background = "#fff4e5";
+        icon = "warning";
     } else if (type === "info"){
-        Icon = "info-circle";
+        background = "#e8f4fd";
+        icon = "info-circle";
     } else if (type === "success"){
-        Icon = "check-circle";
+        background = "#edf7ed";
+        icon = "check-circle";
     }
 
     return(
-        <View style={[styles.container]}>
-            <Icon name={icon} style={styles.icon}/>
-            <Text>{title}</Text>
-        </View>
+    <View style={[styles.container, { backgroundColor: background }]}>
+      <Icon name={icon} style={styles.icon} />
+        <Text>{title}</Text>
+    </View>
     );
 };
 
