@@ -37,6 +37,8 @@ import JoliePinkForgotPassword from "../screens/JoliePinkForgotPassword";
 import JoliePinkChangePassword from "../screens/JoliePinkChangePassword";
 import JoliePinkVerification from "../screens/JoliePinkVerification";
 import JoliePinkPurchasingProcess from "../screens/JoliePinkPurchasingProcess";
+import JoliePinkShoppingCart from "../screens/JoliePinkShoppingCart";
+import JoliePinkPurchasingUpdate from "../screens/JoliePinkPurchasingUpdate";
 
 
 import theme from "../../theme";
@@ -72,8 +74,8 @@ const myTabBar =() =>{
             ),
           }}
          />
-      <Tab.Screen   name = "Pay" 
-          component = {JoliePinkPay} 
+      <Tab.Screen   name = "ShoppingCart" 
+          component = {JoliePinkShoppingCart} 
           options={{
             tabBarLabel: 'Compras',
             tabBarIcon: ({ color }) => (
@@ -93,6 +95,45 @@ const myTabBar =() =>{
     </Tab.Navigator>
   )
 }
+
+
+
+const myTabBar2 =() =>{
+
+  return(
+    <Tab.Navigator 
+    barStyle={{backgroundColor: "#DED1DB"}}>
+      <Tab.Screen   name = "Home" 
+          component = {JoliePinkHome}
+          options={{
+            tabBarLabel: 'Inicio',
+            tabBarIcon: ({ color}) => (
+              <MaterialCommunityIcons name="home" color={color} size={26} />
+            ),
+          }}
+          />
+          <Tab.Screen   name = "Category" 
+          component = {JoliePinkCategory} 
+          options={{
+            tabBarLabel: 'Categoria',
+            tabBarIcon: ({ color }) => (
+              <MaterialCommunityIcons name="tshirt-v" color={color} size={26} />
+            ),
+          }}
+         />
+      <Tab.Screen   name = "Profile" 
+          component = {JoliePinkProfile} 
+          options={{
+            tabBarLabel: 'Perfil',
+            tabBarIcon: ({ color }) => (
+              <MaterialCommunityIcons name="account" color={color} size={26} />
+            ),
+          }}
+         />
+    </Tab.Navigator>
+  )
+}
+
 
 
 
@@ -176,8 +217,30 @@ const Navigation = () => {
               />
                 <Stack.Screen 
                 name = "PurchansingProcess" 
-                component = {JoliePinkPurchasingProcess} 
-                options = {{headerShown: false}}
+                component = {JoliePinkPurchasingProcess}
+                options={{ headerTitle: props => <HeaderJolie {...props}/>,
+                headerStyle: {
+                  backgroundColor: "#bd787d",
+
+                }}}
+              />
+                <Stack.Screen 
+                name = "PurchansingUpdate" 
+                component = {JoliePinkPurchasingUpdate}
+                options={{ headerTitle: props => <HeaderJolie {...props}/>,
+                headerStyle: {
+                  backgroundColor: "#bd787d",
+
+                }}}
+              />
+                <Stack.Screen 
+                name = "ShoppingCart" 
+                component = {myTabBar} 
+                options={{ headerTitle: props => <HeaderJolie {...props}/>,
+                headerStyle: {
+                  backgroundColor: "#bd787d",
+
+                }}}
               />
             </Stack.Navigator>
               ) : (

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState,useEffect } from "react";
 import { StyleSheet, View, Text, FlatList, Image, Dimensions,TouchableOpacity } from "react-native";
 
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -8,128 +8,166 @@ import {
 
 } from "react-native-elements";
 
+// import fetchJoliePinkCategories from "../../api/index";
+
+
 const {width, height} = Dimensions.get("window");
 
 import CardList from "../shared/CardList";
 
 const JoliePinkSpecificCategory = ({navigation}) =>{
+
+    const [categories, setCategories] = useState([]);
+    const [ error, setError ] = useState(false);
+
+
+    // useEffect (() => {
+     
+    //     handlerData();
+    
+    //   }, []);
+
+    // const handlerData = ()=>{
+
+    //     const getCategories = async () =>{
+
+    //         const newCategorie = await fetchJoliePinkCategories();
+             
+    //         setCategories(newCategorie);
+    
+    //         // console.log(setCategories);
+    
+    //         console.log("hola")
+               
+    //     };
+
+    //     getCategories();
+
+    // }
+
     const dress = [
-        {
-            id: 1,
-            nombre: "Traje de Baño 1",
-            talla: [
-                "xs","s","m","l","xl"
-            ],
-            precio: "700",
-            color:[
+            {
+              "id": 13435,
+              "nombre": "Bolso 1",
+              "talla": [
+                  "xs","s","m","l","xl"
+              ],
+              "precio": "800",
+              "color":[
                 "rosa",
                 "blanco",
                 "negro",
                 "amarillo"
             ],
-            imagen: "https://i.ibb.co/0VMWxZ0/bikini1.jpg"
-          },
-          {
-            id: 2,
-            nombre: "Traje de Baño 2",
-            talla: [
-                "xs","s","m","l","xl"
-            ],
-            precio: "600",
-            color:[
+              "imagen": "https://i.ibb.co/DWsgTp5/Bolso1.jpg"
+            },
+            {
+                "id": 22424,
+                "nombre": "Bolso 2",
+                "talla": [
+                    "xs","s","m","l","xl"
+                ],
+                "precio": "800",
+                "color":[
+                    "rosa",
+                    "blanco",
+                    "negro",
+                    "amarillo"
+                ],
+                "imagen": "https://i.ibb.co/jvFwpkw/Bolso2.jpg"
+            },
+            {
+              "id": 3242,
+              "nombre": "Bolso 3",
+              "talla": [
+                  "xs","s","m","l","xl"
+              ],
+              "precio": "900",
+              "color":[
+                "rosa",
+                "blanco",
+                "negro",
+                "amarillo"
+                ],
+              "imagen": "https://i.ibb.co/SV1ZGJk/Bolso3.jpg"
+            },
+            {
+              "id": 4244,
+              "nombre": "Pulsera",
+              "talla": [
+                  "xs","s","m","l","xl"
+              ],
+              "precio": "500",
+              "color":[
                 "rosa",
                 "blanco",
                 "negro",
                 "amarillo"
             ],
-            imagen: "https://i.ibb.co/G3Y2B59/bikini2.jpg"
-          },
-          {
-            id: 3,
-            nombre: "Traje de Baño 3",
-            talla: [
-                "xs","s","m","l","xl"
-            ],
-            precio: "700",
-            color:[
+              "imagen": "https://i.ibb.co/DKTk7tZ/Pulseras.jpg"
+            },
+            {
+              "id": 524242,
+              "nombre": "Sombrero 1",
+              "talla": [
+                  "xs","s","m","l","xl"
+              ],
+              "precio": "500",
+              "color":[
                 "rosa",
                 "blanco",
                 "negro",
                 "amarillo"
             ],
-            imagen: "https://i.ibb.co/vqcdNj9/bikini3.jpg"
-          },
-          {
-            id: 4,
-            nombre: "Traje de Baño 4",
-            talla: [
-                "xs","s","m","l","xl"
-            ],
-            precio: "700",
-            color:[
+              "imagen": "https://i.ibb.co/qj6jgrt/Collares1.jpg"
+            },
+            {
+              "id": 7242342,
+              "nombre": "Sombrero 2",
+              "talla": [
+                  "xs","s","m","l","xl"
+              ],
+              "precio": "1000",
+              "color":[
                 "rosa",
                 "blanco",
                 "negro",
                 "amarillo"
             ],
-            imagen: "https://i.ibb.co/jf1gpkb/bikini4.jpg"
-          },
-          {
-            id: 5,
-            nombre: "Traje de Baño 5",
-            talla: [
-                "xs","s","m","l","xl"
-            ],
-            precio: "700",
-            color:[
+              "imagen": "https://i.ibb.co/XSg3X3z/Sombrero2.jpg"
+            },
+            {
+              "id": 824242,
+              "nombre": "Collares 1",
+              "talla": [
+                  "xs","s","m","l","xl"
+              ],
+              "precio": "1000",
+              "color":[
                 "rosa",
                 "blanco",
                 "negro",
                 "amarillo"
             ],
-            imagen: "https://i.ibb.co/Jydjp2S/bikini5.jpg"
-          },
-          {
-            id: 6,
-            nombre: "Traje de Baño 6",
-            talla: [
-                "xs","s","m","l","xl"
-            ],
-            precio: "800",
-            color:[
-                "rosa",
-                "blanco",
-                "negro",
-                "amarillo"
-            ],
-            imagen: "https://i.ibb.co/Jy04vcY/bikini6.jpg"
-          },
-          {
-            id: 7,
-            nombre: "Traje de Baño 7",
-            talla : [
-                "xs","s","m","l","xl"
-            ],
-            precio: "800",
-            color:[
-                "rosa",
-                "blanco",
-                "negro",
-                "amarillo"
-            ],
-            imagen: "https://i.ibb.co/2SK2ZW5/bikini7.jpg"
-          }
+              "imagen": "https://i.ibb.co/qj6jgrt/Collares1.jpg"
+            }
+          ]
 
-    ]
+    
+        
     return(
-      
-
+    //   <View>
+    //         <Text>Hola</Text>
+    //   </View>
+        
     <FlatList
     data = {dress}
     keyExtractor = {(item) => item.id.toString()}
     renderItem ={({item}) =>{
                     return (
                         <View> 
+                            <TouchableOpacity onPress = {() => {navigation.navigate("PurchansingProcess",{id:item.id,
+                            nombre: item.nombre, img : item.imagen, precio: item.precio})}}>
                             <Card style ={styles.cardImage}>
                                 {/* <Card.Title style= {styles.contenedorTitulo}>{item.nombre}</Card.Title> */}
                                     {/* <Card.Divider/>   */}
@@ -151,16 +189,17 @@ const JoliePinkSpecificCategory = ({navigation}) =>{
                                                             color= {"#bd787d"} 
                                                             size={35} />
                                             </TouchableOpacity>
-                                            <TouchableOpacity onPress = {() => {navigation.navigate("PurchansingProcess")}}>
+                                            <TouchableOpacity>
                                                         <MaterialCommunityIcons 
                                                             name="cart"  
                                                             color= {"#bd787d"} 
                                                             size={35} />
                                             </TouchableOpacity>
                                         </View>  
-                            </View>
+                                        </View>
                            
-                            </Card>
+                                 </Card>
+                            </TouchableOpacity>
                         </View>
                     )
                 }}  
