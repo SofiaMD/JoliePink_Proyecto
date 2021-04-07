@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, View, Text, FlatList, Image, Dimensions,TouchableOpacity } from "react-native";
+import { StyleSheet, View, Text, FlatList, Image, Dimensions,TouchableOpacity,Button } from "react-native";
 
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
@@ -139,12 +139,18 @@ const JoliePinkSpecificCategory = ({navigation}) =>{
                                         style ={styles.image}/>
                                         <View style= {styles.contenedorInformacion}>
                                             <Text>{item.nombre}</Text>    
-                                            <Text>{item.precio}</Text> 
-                                            <Text>{item.talla}</Text>
-                                            
-                                            <Text>{item.talla}</Text>
+                                            <Text>Precio: {item.precio}</Text> 
+                                            <Text>Tallas: {item.talla}</Text>
+                                            {/* <Text> color: {item.color}</Text> */}
+                                            <View style={styles.contenedorBotones}>
+                                                <Text>Colores:</Text>
+                                                <Text></Text> 
+                                                <Button style={styles.botone} title= "Azul"/>
+                                                <Button style={styles.botone} title= "Azul"/>
+                                            </View>
+                                            <Text>Tallas: {item.talla}</Text>
                                         </View>    
-                                        <View style= {styles.contenedorBotones}>
+                                        <View style= {styles.botones}>
                                         <TouchableOpacity >
                                                         <MaterialCommunityIcons 
                                                             name="shopping" 
@@ -205,7 +211,18 @@ const styles = StyleSheet.create({
     },
     botonCompra:{
         marginTop: 10
-    }
+    },
+    contenedorBotones:{
+        flex: 2,
+        flexDirection: "row",
+        // backgroundColor: "#bd787d",
+        width: width * 0.1,
+        height: height * 0.01
+    },
+    botone:{
+        backgroundColor: "#bd787d",
+        borderRadius:1,
+    },
 
 });
 
