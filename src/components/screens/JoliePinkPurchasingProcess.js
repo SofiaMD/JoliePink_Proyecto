@@ -125,7 +125,7 @@ const styles= StyleSheet.create({
           fontWeight: "bold",
           color: "black"
         },
-      contenedorDetalles: {
+        contenedorDetalles: {
             flex: 1,
             flexDirection: "row",
             backgroundColor: "#DED1DB"

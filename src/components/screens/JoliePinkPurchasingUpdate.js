@@ -5,10 +5,10 @@ import {StyleSheet,View,Text,Image,Dimensions,TouchableOpacity} from "react-nati
 
 import {  
 
-    Card,
-    Input,
-    Button
-    
+  Card,
+  Input,
+  Button
+  
 } from "react-native-elements";
 
 
