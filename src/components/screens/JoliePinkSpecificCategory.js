@@ -138,32 +138,63 @@ const JoliePinkSpecificCategory = ({navigation}) =>{
                                      <Image source={{uri:`${item.imagen}`, }} 
                                         style ={styles.image}/>
                                         <View style= {styles.contenedorInformacion}>
-                                            <Text>{item.nombre}</Text>    
-                                            <Text>Precio: {item.precio}</Text> 
-                                            <Text>Tallas: {item.talla}</Text>
+                                            <Text>Nombre: {item.nombre}</Text>    
+                                            <Text>{}</Text>
+                                            <Text>Precio: L.{item.precio}</Text> 
+                                            <Text>{}</Text>
+                                            <Text>Tallas: {item.talla.map((index) =>(
+                                                <Text style={styles.texto}>
+                                                {" "}{index}
+                                                </Text>
+                                            ))}</Text>
+                                            <Text>{}</Text>
                                             {/* <Text> color: {item.color}</Text> */}
-                                            <View style={styles.contenedorBotones}>
-                                                <Text>Colores:</Text>
-                                                <Text></Text> 
-                                                <Button style={styles.botone} title= "Azul"/>
-                                                <Button style={styles.botone} title= "Azul"/>
+                                            <View style={styles.contenedorBoton} >
+                                                <Text >Colores:</Text>
+                                                <TouchableOpacity
+                                                    style={{
+                                                        margin:1,
+                                                        borderWidth:1,
+                                                        borderColor:'#bd787d',
+                                                        alignItems:'center',
+                                                        justifyContent:'center',
+                                                        width:20,
+                                                        height:20,
+                                                        backgroundColor:'#bd787d',
+                                                        borderRadius:50,
+                                                        }}
+                                                    >
+                                                </TouchableOpacity>
+                                                <TouchableOpacity
+                                                    style={{
+                                                        margin:1,
+                                                        borderWidth:1,
+                                                        borderColor:'rgba(0,0,0,0.2)',
+                                                        alignItems:'center',
+                                                        justifyContent:'center',
+                                                        width:20,
+                                                        height:20,
+                                                        backgroundColor:'#fff',
+                                                        borderRadius:50,
+                                                        }}
+                                                    >
+                                                </TouchableOpacity>
+                                                <TouchableOpacity
+                                                    style={{
+                                                        margin:1,
+                                                        borderWidth:1,
+                                                        borderColor:'rgba(0,0,0,0.2)',
+                                                        alignItems:'center',
+                                                        justifyContent:'center',
+                                                        width:20,
+                                                        height:20,
+                                                        backgroundColor:'#000000',
+                                                        borderRadius:50,
+                                                        }}
+                                                    >
+                                                </TouchableOpacity>
                                             </View>
-                                            <Text>Tallas: {item.talla}</Text>
                                         </View>    
-                                        <View style= {styles.botones}>
-                                        <TouchableOpacity >
-                                                        <MaterialCommunityIcons 
-                                                            name="shopping" 
-                                                            color= {"#bd787d"} 
-                                                            size={35} />
-                                            </TouchableOpacity>
-                                            <TouchableOpacity onPress = {() => {navigation.navigate("PurchansingProcess")}}>
-                                                        <MaterialCommunityIcons 
-                                                            name="cart"  
-                                                            color= {"#bd787d"} 
-                                                            size={35} />
-                                            </TouchableOpacity>
-                                        </View>  
                             </View>
                            
                             </Card>
@@ -212,18 +243,11 @@ const styles = StyleSheet.create({
     botonCompra:{
         marginTop: 10
     },
-    contenedorBotones:{
-        flex: 2,
+    contenedorBoton:{
         flexDirection: "row",
-        // backgroundColor: "#bd787d",
-        width: width * 0.1,
-        height: height * 0.01
+       
     },
-    botone:{
-        backgroundColor: "#bd787d",
-        borderRadius:1,
-    },
-
+    
 });
 
 export default JoliePinkSpecificCategory;
