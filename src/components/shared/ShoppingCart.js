@@ -1,5 +1,5 @@
 import React  from "react";
-import {Dimensions,StyleSheet,Text} from "react-native";
+import {Dimensions,StyleSheet,Text,Image,View} from "react-native";
 
 import {Card} from "react-native-elements"
 
@@ -10,13 +10,18 @@ const ShoppingCart = ({id,nombre,precio,cantidad,talla,color,img}) =>{
     return(
 
     <Card style={styles.container}>
-        <Text>{id}</Text>
-       <Text>{nombre}</Text>
-       <Text>{precio}</Text>
-       <Text>{cantidad}</Text>
-       <Text>{talla}</Text>
-       <Text>{color}</Text>
-       <Text>{img}</Text>
+      
+      <View style={styles.contenedorImagen}> 
+        <Image source={{uri:`${img}`, }} style ={styles.image}/>
+          <View style= {styles.contenedorInformacion}>
+            <Text>Nombre:{nombre}</Text> 
+            <Text>{"\n"}</Text>  
+            <Text>Precio:{precio}</Text> 
+            <Text>{"\n"}</Text>  
+            <Text>Talla:{talla}</Text> 
+            <Text>Color:{color}</Text>                            
+          </View>
+      </View>
     </Card>
     )
 }
@@ -34,7 +39,23 @@ const styles = StyleSheet.create({
     },
     actions: {
       justifyContent: "flex-end",
-    }
+    },
+    image: {
+      width: width * 0.40,
+      height: height * 0.20
+  },
+  contenedorInformacion:{
+    marginTop: 10,
+    flexDirection: "column",
+    marginLeft: 10
+  },
+  contenedorImagen: {
+    flex: 1,
+    flexDirection: "row",
+    backgroundColor: "#DED1DB",
+    // backgroundColor: "#bd787d",
+   
+},
   });
 
   export default ShoppingCart;

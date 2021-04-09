@@ -167,7 +167,7 @@ const JoliePinkSpecificCategory = ({navigation}) =>{
                     return (
                         <View> 
                             <TouchableOpacity onPress = {() => {navigation.navigate("PurchansingProcess",{id:item.id,
-                            nombre: item.nombre, img : item.imagen, precio: item.precio})}}>
+                            nombre: item.nombre, img : item.imagen, precio: item.precio,talla: item.talla})}}>
                             <Card style ={styles.cardImage}>
                                 {/* <Card.Title style= {styles.contenedorTitulo}>{item.nombre}</Card.Title> */}
                                     {/* <Card.Divider/>   */}
@@ -176,11 +176,15 @@ const JoliePinkSpecificCategory = ({navigation}) =>{
                                      <Image source={{uri:`${item.imagen}`, }} 
                                         style ={styles.image}/>
                                         <View style= {styles.contenedorInformacion}>
-                                            <Text>{item.nombre}</Text>    
+                                            <Text>{item.nombre}</Text> 
+                                            <Text>{"\n"}</Text>  
                                             <Text>{item.precio}</Text> 
-                                            <Text>{item.talla}</Text>
-                                            
-                                            <Text>{item.talla}</Text>
+                                            <Text>{"\n"}</Text>  
+                                            <Text>{item.talla.map((index) =>(
+                                                <Text style={styles.texto}>
+                                                {" "}{index}
+                                                </Text>
+                                            ))}</Text>
                                         </View>    
                                         <View style= {styles.contenedorBotones}>
                                         <TouchableOpacity >
@@ -196,7 +200,7 @@ const JoliePinkSpecificCategory = ({navigation}) =>{
                                                             size={35} />
                                             </TouchableOpacity>
                                         </View>  
-                                        </View>
+                                    </View>
                            
                                  </Card>
                             </TouchableOpacity>

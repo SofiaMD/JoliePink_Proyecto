@@ -61,7 +61,7 @@ const getShoppingCart = (dispatch) => (userId) => {
           });
   
           dispatch({ type: "getShoppingCart", payload: shoppingsCart });
-          dispatch({ type: "errorMessage", payload: "Your note is save!" });
+          dispatch({ type: "errorMessage", payload: "Guardaste informacion!" });
         },
         (error) => {
           dispatch({ type: "errorMessage", payload: error.message });
