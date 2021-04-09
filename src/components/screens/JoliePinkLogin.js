@@ -40,6 +40,7 @@ const JoliePinkLogin = ({navigation}) =>{
             </ImageBackground>
         </View>
         </SafeAreaProvider>
+        
     );
 
 }

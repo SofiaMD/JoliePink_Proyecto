@@ -148,7 +148,6 @@ const JoliePinkSpecificCategory = ({navigation}) =>{
                                                 </Text>
                                             ))}</Text>
                                             <Text>{}</Text>
-                                            {/* <Text> color: {item.color}</Text> */}
                                             <View style={styles.contenedorBoton} >
                                                 <Text >Colores:</Text>
                                                 <TouchableOpacity
