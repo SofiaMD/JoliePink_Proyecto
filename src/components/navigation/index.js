@@ -39,6 +39,7 @@ import JoliePinkVerification from "../screens/JoliePinkVerification";
 import JoliePinkPurchasingProcess from "../screens/JoliePinkPurchasingProcess";
 import JoliePinkShoppingCart from "../screens/JoliePinkShoppingCart";
 import JoliePinkPurchasingUpdate from "../screens/JoliePinkPurchasingUpdate";
+import JoliePinkPersonalInformation from "../screens/JoliePinkPersonalInformation";
 
 
 import theme from "../../theme";
@@ -83,8 +84,17 @@ const myTabBar =() =>{
             ),
           }}
           />
-      <Tab.Screen   name = "Profile" 
+      {/* <Tab.Screen   name = "Profile" 
           component = {JoliePinkProfile} 
+          options={{
+            tabBarLabel: 'Perfil',
+            tabBarIcon: ({ color }) => (
+              <MaterialCommunityIcons name="account" color={color} size={26} />
+            ),
+          }}
+         /> */}
+         <Tab.Screen   name = "Pay" 
+          component = {JoliePinkPay} 
           options={{
             tabBarLabel: 'Perfil',
             tabBarIcon: ({ color }) => (
@@ -203,6 +213,11 @@ const Navigation = () => {
               <Stack.Screen 
                 name = "Profile" 
                 component = {JoliePinkProfile} 
+                options = {{headerShown: false}}
+              />
+              <Stack.Screen 
+                name = "PersonalInformation" 
+                component = {JoliePinkPersonalInformation} 
                 options = {{headerShown: false}}
               />
               <Stack.Screen 
