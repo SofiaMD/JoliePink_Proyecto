@@ -230,7 +230,7 @@ const styles= StyleSheet.create({
       width: width* 0.50,
       height: height * 0.10
   },
-  contendorBotones:{
+    contendorBotones:{
       flexDirection:"row",
       alignItems:"center",
       justifyContent: "center",
