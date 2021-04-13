@@ -13,7 +13,7 @@ const {width, height} = Dimensions.get("window");
 
 const PersonalInformation =({navigation}) =>{
 
-    const {createPersonalInformation} = useContext(PersonalInformationContext);
+    const {createPersonalInformation,clearMessage} = useContext(PersonalInformationContext);
     const {state} = useContext(AuthContext);
 
     // Variables a Utilizar
@@ -47,11 +47,13 @@ const PersonalInformation =({navigation}) =>{
             else if(codigoPostal.length != 5) setCodigoPostalError(true)
             else setCodigoPostalError(false);
         }
+        clearMessage();
     }
     
 
     const  handleSaveInformation = () =>{
         createPersonalInformation(direccion,telefono,codigoPostal, state.user.id);
+        // navigation.navigate("Profile");
     }
      return (
          <View>

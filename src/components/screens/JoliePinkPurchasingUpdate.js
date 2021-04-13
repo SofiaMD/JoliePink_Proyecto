@@ -20,9 +20,9 @@ import { Context as AuthContext} from "../../providers/AuthContext";
 const {width, height} = Dimensions.get("window");
 
 
-const JoliePinkPurchasingUpdate = () =>{
+const JoliePinkPurchasingUpdate = ({navigation}) =>{
 
-    const {state:shoppingCartState,updateShoppingCart} =useContext(ShoppingCartContext);
+    const {state:shoppingCartState,updateCart} =useContext(ShoppingCartContext);
     const {state} = useContext(AuthContext);
 
     const [cantidad,setCantidad] =useState("");
@@ -32,6 +32,9 @@ const JoliePinkPurchasingUpdate = () =>{
     const [total,setTotal] = useState("");
 
     const tallas = ["xs","s", "m","l","xl"];
+
+    // talla = "xs"
+    // color= "negro"
 
     useEffect(() => {
         if (shoppingCartState.currentCart.id) {
@@ -46,6 +49,16 @@ const JoliePinkPurchasingUpdate = () =>{
         if(input != ""){
             setTotal(cantidad * precio);
         }  
+    }
+
+    const handleSaveShopping = () =>{
+        updateCart(
+            shoppingCartState.currentCart.id,
+            talla,
+            color,
+            cantidad
+
+        );
     }
 
       return(
@@ -138,7 +151,7 @@ const JoliePinkPurchasingUpdate = () =>{
             <Button
                       // mode="contained"
                       style={styles.boton}
-                      // onPress={handleSaveShopping}
+                      onPress={handleSaveShopping}
                       title =  "Agregar al Carrito"
                     //   onPress = {calcularTotal}
                     >
@@ -147,7 +160,7 @@ const JoliePinkPurchasingUpdate = () =>{
             <Button
                       // mode="contained"
                       style={styles.boton}
-                      // onPress={handleSaveShopping}
+                      onPress={()=> {navigation.navigate("Pay")}}
                       title =  "Comprar Articulo"
                     >
             </Button>
@@ -176,7 +189,7 @@ const styles= StyleSheet.create({
       marginLeft:5,
       // borderRadius: 20,
       width: width * 0.50,
-      heigth: height * 0.50
+      height: height * 0.08
     },
     botonTexto:{
         color: "#f2ebe8",

@@ -142,7 +142,7 @@ const signup = (dispatch) => (nombreCompleto, correoElectronico,  contraseña) =
         .then(() => {
           dispatch({
             type: "signup",
-            payload: { user: data, registered: true },
+            payload: { user: data,  registered: true },
           });
         })
         .catch((error) => {
@@ -172,5 +172,6 @@ const clearErrorMessage = (dispatch) => () => {
       loggedIn: false,
       loading: true,
       registered: false,
+      // datos : false
     }
   );

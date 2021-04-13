@@ -3,12 +3,16 @@ import React,{useContext,useEffect} from "react";
 import {StyleSheet,View,Text,FlatList} from "react-native";
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+
 import {Card,Header} from "react-native-elements"
 import { Context as AuthContext } from "../../providers/AuthContext";
 import {Context as ShoppingCartContext} from "../../providers/ShoppingCartContext";
 
 
 import ShoppingCartList from "../shared/shoppingCartList";
+import { Touchable } from "react-native";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 const JoliePinkShoppingCart = ({navigation}) =>{
     const { state, signout } = useContext(AuthContext);
@@ -39,6 +43,7 @@ const JoliePinkShoppingCart = ({navigation}) =>{
             containerStyle = { {backgroundColor : '#bd787d' , justifyContent : 'space-around'} }
         />
         <View style= {styles.container}>
+           
             <ShoppingCartList shoppingsCart={shoppingCartState.shoppingsCart} navigation={navigation} />
         </View>
         </SafeAreaProvider>

@@ -31,7 +31,8 @@ const Login = ({navigation}) => {
     const [error, setError] = useState("");
     
     useEffect(() => {
-        if (state.errorMessage) clearErrorMessage();
+        if (state.errorMessage) clearErrorMessage();    
+       
       }, []);
     
       useEffect(() => {
@@ -47,14 +48,14 @@ const Login = ({navigation}) => {
     // //     if (state.errorMessage) setError(state.errorMessage);
     // //   }, [state.errorMessage]);
 
-    // useEffect(()=>{
-    //     console.log(state.user);
-    // },[state.user])
+    useEffect(()=>{
+        console.log(state.user);
+    },[state.user])
     
     const handlerSignUP =()=>{
          // Iniciar sesión implementado el Contexto de autenticación
          signin(correoElectronico, contrasena);
-        //  console.log(state.user);
+
     };
     
     
@@ -80,7 +81,7 @@ const Login = ({navigation}) => {
             <View style = {styles.contenedorImagen}>
                 <Image style= {styles.imagenLogo} source = {require("../../../assets/Logo.png")}/>
             </View>
-            {error ? <Alert type="error" title={error} /> : null}
+            {/* {error ? <Alert type="error" title={error} /> : null} */}
             <View style = {styles.contenedorInformacion}>
             <Input
                 placeholder='Correo Electronico'
@@ -181,7 +182,8 @@ const styles = StyleSheet.create({
     texto:{
         alignItems: "center",
         justifyContent: "center",
-        marginTop: 10
+        marginTop: 10,
+        backgroundColor: "red"
     }
   
 
