@@ -1,4 +1,4 @@
-import React,{useState,useEffect}from "react";
+import React,{useState,useEffect,useContext}from "react";
 import { StyleSheet, View, Text, Dimensions, ImageBackground , Image} from "react-native";
 import { Input, Divider} from 'react-native-elements';
 
@@ -6,9 +6,19 @@ import Button from "../../components/shared/Button";
 
 const {width, height} = Dimensions.get("window");
 
-const JoliePinkPay = () =>{
+
+import { Context as AuthContext} from "../../providers/AuthContext";
+import { Context as PurchaseContext} from "../../providers/PurchaseContext";
+
+
+
+const JoliePinkPay = ({navigation,route}) =>{
+
+    const { createPurchase} = useContext(PurchaseContext);
+    const {state} = useContext(AuthContext);
 
     // Variables a utilizar
+    const {id,nombre,precio,cantidad,talla,color,img,total} = route.params;
     const [nombreTarjeta, setNombreTarjeta] = useState("");
     const [numeroTarjeta,setNumeroTarjeta] = useState("");
     const [mes, setMes] = useState("");
@@ -21,6 +31,7 @@ const JoliePinkPay = () =>{
     const [mesError, setMesError] = useState(false);
     const [añoError, setAñoError] = useState(false);
     const [CSVError, setCSVError] = useState(false);
+    const [error, setError] = useState("");
 
     const handleVerify = (input) =>{
         if(input ==="nombreTarjeta"){
@@ -44,7 +55,7 @@ const JoliePinkPay = () =>{
             let digitoAño = "year".slice(2, 4)
             console.log(year)
             if(!año) setAñoError(true)
-            else if(año < digitoAño) setAñoError(true)
+            // else if(año < digitoAño) setAñoError(true)
             else setAñoError(false);
         }
         else if (input === "CSV"){
@@ -52,6 +63,16 @@ const JoliePinkPay = () =>{
             else if(mes.length != 5) setCSVError(true)
             else setCSVError(false);
         }
+        else if (input === "purchase") {
+            if (
+              !nombreTarjetaError &&
+              !numeroTarjetaError &&
+              !mesError &&
+              !añoError 
+            )
+            createPurchase(id,nombre,precio,cantidad,talla,color,img,total, state.user.id);
+            else setError("Se requieren estos datos para continuar!");
+          }
     }
 
     return(
@@ -63,6 +84,7 @@ const JoliePinkPay = () =>{
             </View>
             <Text style={styles.texto}>Detalles Tajeta de Credito</Text>
             <View style= {styles.contenedorCentral}>
+                <Text>{img}</Text>
                 <Input
                     placeholder= "Nombre:"
                     value= {nombreTarjeta}
@@ -124,7 +146,7 @@ const JoliePinkPay = () =>{
                 />
             </View>
             <View style= {styles.contenedorBoton}>
-            <Button title = "Pagar" callback ={() => {navigation.navigate("Home")}}/>
+            <Button title = "Pagar" callback ={() => handleVerify("purchase")}/>
             </View>
         </ImageBackground>
         </View>

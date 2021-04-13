@@ -5,11 +5,13 @@ import {
     StyleSheet,
     Text,
     TouchableOpacity,
-    View
+    View,
+    Dimensions
 } from "react-native";
 
 import { Card } from "react-native-elements";
 
+const {width, height} = Dimensions.get("screen");
 
 import {Context as PersonalInformationContext} from "../../providers/PersonalInformationContext";
 
@@ -35,17 +37,32 @@ const UserInformation = ({navigation, personalsInformation}) =>{
     return(
 
         <View style={styles.container}>
+           {/* <FlatList
+            data = {users}
+            emptyFlatList = {emptyFlatList}
+            keyExtractor = {(item) => item.id.toString()}
+            renderItem={({item}) => (
+                    <>
+                    <View style ={styles.informacion}>
+                      <Text>{item.nombreCompleto}</Text>
+                      <Text>hola</Text>
+                    </View>
+                    </>   
+            )}
+            /> */}
             <FlatList
             data = {personalsInformation}
             emptyFlatList = {emptyFlatList}
             keyExtractor = {(item) => item.id.toString()}
             renderItem={({item}) => (
                     <>
-                    <Text>{item.direccion}</Text>
-                    <Text>{item.telefono}</Text>
-                    <Text>{item.codigoPostal}</Text>
+                    <View style ={styles.informacion}>
+                      <Text>{item.direccion}</Text>
+                      <Text>{item.telefono}</Text>
+                      <Text>{item.codigoPostal}</Text>
+                     
+                    </View>
                     </>   
-
             )}
             />
         </View>
@@ -54,13 +71,27 @@ const UserInformation = ({navigation, personalsInformation}) =>{
 
 const styles = StyleSheet.create({
     container: {
-      flex: 1,
+      // flex: 1,
+      justifyContent:"center",
+      alignContent:"center",
+      alignItems:"center",
+      // backgroundColor: "white",
+      width: width * 1,
+      height: height * 0.2,
+     
     },
-    emptyShoppingCart: {
+    emptyPersonalInformation: {
         flex: 1,
         justifyContent: "center",
         alignSelf: "center",
+        backgroundColor: "red"
       },
+      informacion:{
+        justifyContent:"center",
+      alignContent:"center",
+      margin: 10
+      // alignItems:"center",
+      }
 
 });
 

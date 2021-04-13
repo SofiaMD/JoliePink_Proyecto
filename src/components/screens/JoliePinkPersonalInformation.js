@@ -1,18 +1,20 @@
-import React from "react";
+import React,{useContext} from "react";
 import {StyleSheet,View,Text,ImageBackground,Dimensions} from "react-native";
 
 const {width, height} = Dimensions.get("screen");
+
+import { Context as  AuthContext} from "../../providers/AuthContext";
 
 import PersonalInformation from "../forms/PersonalInformation";
 import Logo from "../shared/Logo";
 
 const JoliePinkPersonalInformation = ({navigation}) =>{
+
+    const { signout } = useContext(AuthContext);
     return(
         <ImageBackground source = {require ("../../../assets/FondoPerfil.jpg")} style = {styles.image}>
-            {/* <View style={styles.container}> */}
                 <Logo/>
                 <PersonalInformation navigation= {navigation}/>
-            {/* </View> */}
         </ImageBackground>
     );
         

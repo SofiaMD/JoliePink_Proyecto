@@ -21,7 +21,7 @@ const JoliePinkRegister = ({navigation}) =>{
                  <TouchableOpacity
                         onPress={() => {
                         navigation.goBack();
-                        }}>
+                        }} style = {styles.botonTouch}>
                         <Text style= {styles.texto1}>Si ya tienes una cuenta, inicia sesión</Text>
                 </TouchableOpacity>
             </ImageBackground>
@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
         flexDirection: "column",
         backgroundColor: "#f2d3ce",
         justifyContent: "center",
-        padding: 10,
+        // padding: 10,
         backgroundColor: theme.colors.backgroundWhite,
     },
 
@@ -88,10 +88,16 @@ const styles = StyleSheet.create({
     texto1:{
         alignItems: "center",
         justifyContent: "center",
-        marginTop: 10,
+        alignContent: "center",
+    },
+    botonTouch:{
+        alignItems: "center",
+        justifyContent: "center",
+        alignContent: "center",
         // backgroundColor: "#fff",
-        width: width * 0.55,
-        height: height * 0.03
+        marginTop: 10,
+        width: width * 0.7,
+        height: height * 0.06
     }
 
 });

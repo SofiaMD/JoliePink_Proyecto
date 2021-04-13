@@ -84,53 +84,6 @@ const myTabBar =() =>{
             ),
           }}
           />
-      {/* <Tab.Screen   name = "Profile" 
-          component = {JoliePinkProfile} 
-          options={{
-            tabBarLabel: 'Perfil',
-            tabBarIcon: ({ color }) => (
-              <MaterialCommunityIcons name="account" color={color} size={26} />
-            ),
-          }}
-         /> */}
-         <Tab.Screen   name = "Pay" 
-          component = {JoliePinkPay} 
-          options={{
-            tabBarLabel: 'Perfil',
-            tabBarIcon: ({ color }) => (
-              <MaterialCommunityIcons name="account" color={color} size={26} />
-            ),
-          }}
-         />
-    </Tab.Navigator>
-  )
-}
-
-
-
-const myTabBar2 =() =>{
-
-  return(
-    <Tab.Navigator 
-    barStyle={{backgroundColor: "#DED1DB"}}>
-      <Tab.Screen   name = "Home" 
-          component = {JoliePinkHome}
-          options={{
-            tabBarLabel: 'Inicio',
-            tabBarIcon: ({ color}) => (
-              <MaterialCommunityIcons name="home" color={color} size={26} />
-            ),
-          }}
-          />
-          <Tab.Screen   name = "Category" 
-          component = {JoliePinkCategory} 
-          options={{
-            tabBarLabel: 'Categoria',
-            tabBarIcon: ({ color }) => (
-              <MaterialCommunityIcons name="tshirt-v" color={color} size={26} />
-            ),
-          }}
-         />
       <Tab.Screen   name = "Profile" 
           component = {JoliePinkProfile} 
           options={{
@@ -140,9 +93,19 @@ const myTabBar2 =() =>{
             ),
           }}
          />
+         {/* <Tab.Screen   name = "Pay" 
+          component = {JoliePinkPay} 
+          options={{
+            tabBarLabel: 'Perfil',
+            tabBarIcon: ({ color }) => (
+              <MaterialCommunityIcons name="account" color={color} size={26} />
+            ),
+          }}
+         /> */}
     </Tab.Navigator>
   )
 }
+
 
 
 
@@ -162,7 +125,6 @@ const Navigation = () => {
   const { state, persistLogin } = useContext(AuthContext);
 
 
-
   // Verificar si ya existen credenciales de autenticación
   useEffect(() => {
     persistLogin();
@@ -176,106 +138,106 @@ const Navigation = () => {
 
   return (
     <NavigationContainer>
-      {!state.loading && (
-          <>
-          {state.loggedIn ? (
+    {!state.loading && (
+        <>
+        {state.loggedIn ? (
+          <Stack.Navigator>
+              <Stack.Screen 
+              name = "Home" 
+              component = {myTabBar} 
+              options = {{ headerShown: false}}
+              // initialParams={{ user: user }}
+            />
+            <Stack.Screen 
+              name = "SpecificCategory" 
+              component = {JoliePinkSpecificCategory} 
+              options={{ headerTitle: props => <HeaderJolie {...props}/>,
+                headerStyle: {
+                  backgroundColor: "#bd787d",
+
+                }}}
+            />
+            <Stack.Screen 
+                name = "Category" 
+                component = {myTabBar} 
+                options = {{headerShown: false}}
+              />
+              <Stack.Screen 
+              name = "Verification" 
+              component = {JoliePinkVerification} 
+              options = {{ headerShown: false}}
+            />
+            <Stack.Screen 
+              name = "Pay" 
+              component = {JoliePinkPay} 
+              options = {{ headerShown: false}}
+            />
+            <Stack.Screen 
+              name = "Profile" 
+              component = {JoliePinkProfile} 
+              options = {{headerShown: false}}
+            />
+            <Stack.Screen 
+              name = "PersonalInformation" 
+              component = {JoliePinkPersonalInformation} 
+              options = {{headerShown: false}}
+            />
+            <Stack.Screen 
+              name = "ForgotPassword" 
+              component = {JoliePinkForgotPassword} 
+              options = {{headerShown: false}}
+            />
+            <Stack.Screen 
+              name = "ChangePassword" 
+              component = {JoliePinkChangePassword} 
+              options = {{headerShown: false}}
+            />
+              <Stack.Screen 
+              name = "PurchansingProcess" 
+              component = {JoliePinkPurchasingProcess}
+              options={{ headerTitle: props => <HeaderJolie {...props}/>,
+              headerStyle: {
+                backgroundColor: "#bd787d",
+
+              }}}
+            />
+              <Stack.Screen 
+              name = "PurchansingUpdate" 
+              component = {JoliePinkPurchasingUpdate}
+              options={{ headerTitle: props => <HeaderJolie {...props}/>,
+              headerStyle: {
+                backgroundColor: "#bd787d",
+
+              }}}
+            />
+              <Stack.Screen 
+              name = "ShoppingCart" 
+              component = {myTabBar} 
+              options={{ headerTitle: props => <HeaderJolie {...props}/>,
+              headerStyle: {
+                backgroundColor: "#bd787d",
+
+              }}}
+            />
+          </Stack.Navigator>
+            ) : (
             <Stack.Navigator>
-                <Stack.Screen 
-                name = "Home" 
-                component = {myTabBar} 
-                options = {{ headerShown: false}}
-                // initialParams={{ user: user }}
+              <Stack.Screen 
+                  name = "Login" 
+                  component = {JoliePinkLogin}
+                  // initialParams={{ userCreated: false }} 
+                  options ={{ headerShown: false}}  
               />
               <Stack.Screen 
-                name = "SpecificCategory" 
-                component = {JoliePinkSpecificCategory} 
-                options={{ headerTitle: props => <HeaderJolie {...props}/>,
-                  headerStyle: {
-                    backgroundColor: "#bd787d",
-
-                  }}}
-              />
-              <Stack.Screen 
-                  name = "Category" 
-                  component = {myTabBar} 
-                  options = {{headerShown: false}}
-                />
-                <Stack.Screen 
-                name = "Verification" 
-                component = {JoliePinkVerification} 
-                options = {{ headerShown: false}}
-              />
-              <Stack.Screen 
-                name = "Pay" 
-                component = {JoliePinkPay} 
-                options = {{ headerShown: false}}
-              />
-              <Stack.Screen 
-                name = "Profile" 
-                component = {JoliePinkProfile} 
-                options = {{headerShown: false}}
-              />
-              <Stack.Screen 
-                name = "PersonalInformation" 
-                component = {JoliePinkPersonalInformation} 
-                options = {{headerShown: false}}
-              />
-              <Stack.Screen 
-                name = "ForgotPassword" 
-                component = {JoliePinkForgotPassword} 
-                options = {{headerShown: false}}
-              />
-              <Stack.Screen 
-                name = "ChangePassword" 
-                component = {JoliePinkChangePassword} 
-                options = {{headerShown: false}}
-              />
-                <Stack.Screen 
-                name = "PurchansingProcess" 
-                component = {JoliePinkPurchasingProcess}
-                options={{ headerTitle: props => <HeaderJolie {...props}/>,
-                headerStyle: {
-                  backgroundColor: "#bd787d",
-
-                }}}
-              />
-                <Stack.Screen 
-                name = "PurchansingUpdate" 
-                component = {JoliePinkPurchasingUpdate}
-                options={{ headerTitle: props => <HeaderJolie {...props}/>,
-                headerStyle: {
-                  backgroundColor: "#bd787d",
-
-                }}}
-              />
-                <Stack.Screen 
-                name = "ShoppingCart" 
-                component = {myTabBar} 
-                options={{ headerTitle: props => <HeaderJolie {...props}/>,
-                headerStyle: {
-                  backgroundColor: "#bd787d",
-
-                }}}
-              />
+                name = "Register" 
+                component = {JoliePinkRegister}  
+                options ={{ headerShown: false}}
+              />    
             </Stack.Navigator>
-              ) : (
-              <Stack.Navigator>
-                <Stack.Screen 
-                    name = "Login" 
-                    component = {JoliePinkLogin}
-                    // initialParams={{ userCreated: false }} 
-                    options ={{ headerShown: false}}  
-                />
-                <Stack.Screen 
-                  name = "Register" 
-                  component = {JoliePinkRegister}  
-                  options ={{ headerShown: false}}
-                />    
-              </Stack.Navigator>
-          )}
-        </>
-      )}
-    </NavigationContainer>
+        )}
+      </>
+    )}
+  </NavigationContainer>
   );
 }
 

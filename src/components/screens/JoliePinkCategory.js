@@ -9,6 +9,7 @@ const {width, height} = Dimensions.get("window");
 
 
 const JoliePinkCategory = ({navigation}) =>{
+
     return(
         <SafeAreaProvider>
         <Header 
@@ -18,32 +19,32 @@ const JoliePinkCategory = ({navigation}) =>{
         <View style = {styles.container}>
             <View style = {styles.contenedores}>
                 <TouchableOpacity>
-                    <ButtonCategory title = "Blusas" callback ={() => {navigation.navigate("SpecificCategory")}}/>
+                    <ButtonCategory title = "Blusas" callback ={() => {navigation.navigate("SpecificCategory", {categoria: "blusas"})}}/>
                     <Image style = {styles.imagen} source={{uri:'https://i.ibb.co/Sc5Hhf5/Blusas5.jpg', }}/>
                 </TouchableOpacity>
                 <TouchableOpacity>
-                    <ButtonCategory title = "Vestidos" callback ={() => {navigation.navigate("SpecificCategory")}}/>
+                    <ButtonCategory title = "Vestidos" callback ={() => {navigation.navigate("SpecificCategory",{categoria: "dress"})}}/>
                     <Image style = {styles.imagen} source={{uri:'https://i.ibb.co/fvB95hC/vestidos.jpg', }}/>
                 </TouchableOpacity>
                
             </View>
             <View style = {styles.contenedores}>
                 <TouchableOpacity>
-                    <ButtonCategory title = "Pantalones" callback ={() => {navigation.navigate("SpecificCategory")}}/>
+                    <ButtonCategory title = "Pantalones" callback ={() => {navigation.navigate("SpecificCategory", {categoria: "pantalones"})}}/>
                     <Image style = {styles.imagen} source={{uri:'https://i.ibb.co/rbS6Jzx/Pantalon1.jpg', }}/>
                 </TouchableOpacity>
                 <TouchableOpacity>
-                    <ButtonCategory title = "Chaquetas" callback ={() => {navigation.navigate("SpecificCategory")}}/>
+                    <ButtonCategory title = "Chaquetas" callback ={() => {navigation.navigate("SpecificCategory" , {categoria: "chaquetas"})}}/>
                     <Image style = {styles.imagen} source={{uri:'https://i.ibb.co/vmvTGsp/Chaquetas1.jpg', }}/>
                 </TouchableOpacity>
             </View>
             <View style = {styles.contenedores}>
                 <TouchableOpacity>
-                    <ButtonCategory title = "Accesorios" callback ={() => {navigation.navigate("SpecificCategory")}}/>
+                    <ButtonCategory title = "Accesorios" callback ={() => {navigation.navigate("SpecificCategory",{categoria: "accesorios"})}}/>
                     <Image style = {styles.imagen} source={{uri:'https://i.ibb.co/F8p3SSp/Sombrero.jpg', }}/>
                 </TouchableOpacity>
                 <TouchableOpacity>
-                    <ButtonCategory title = "Trajes de Baño" callback ={() => {navigation.navigate("SpecificCategory")}}/>
+                    <ButtonCategory title = "Trajes de Baño" callback ={() => {navigation.navigate("SpecificCategory",{categoria: "bikinis"})}}/>
                     <Image style = {styles.imagen} source={{uri:'https://i.ibb.co/jf1gpkb/bikini4.jpg', }}/>
                 </TouchableOpacity>
                

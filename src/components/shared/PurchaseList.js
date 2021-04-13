@@ -6,30 +6,19 @@ import {
     Text,
     TouchableOpacity,
     View
-    
 } from "react-native";
 
 
 import {
     Card
-
-}from "react-native-elements";
-
-
-import {Context as ShoppingCartContext} from "../../providers/ShoppingCartContext";
-
-import ShoppingCart from "../shared/ShoppingCart";
+} from "react-native-elements";
 
 
-const ShoppingCartList =({navigation, shoppingsCart}) =>{
+import Purchase from "../shared/Purchase";
 
 
-    const {state, setCurrentCart} = useContext(ShoppingCartContext);
+const PurchaseList = ({navigation}) =>{
 
-    const handleSelectArticle = (shoppingCart) => {
-        setCurrentCart(shoppingCart);
-        navigation.navigate("PurchansingUpdate");
-    };
 
     const emptyFlatList = (
         <View style={styles.emptyShoppingCart}>
@@ -37,8 +26,7 @@ const ShoppingCartList =({navigation, shoppingsCart}) =>{
         </View>
       );
 
-
-    return (
+    return(
         <View style={styles.container}>
            <FlatList
             data = {shoppingsCart}
@@ -67,8 +55,8 @@ const ShoppingCartList =({navigation, shoppingsCart}) =>{
             />
     </View>
     )
-}
 
+};
 
 const styles = StyleSheet.create({
     container: {
@@ -82,5 +70,4 @@ const styles = StyleSheet.create({
       },
 
 });
-
-export default ShoppingCartList;
+export default PurchaseList;

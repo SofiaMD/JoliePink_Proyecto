@@ -4,6 +4,15 @@ import { StyleSheet, View, Text, Dimensions,Image, TouchableOpacity } from "reac
 import { Header, } from 'react-native-elements';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
+<<<<<<< HEAD
+=======
+
+import Carousel, { Pagination } from 'react-native-snap-carousel'
+
+import CarouselCardItem, { SLIDER_WIDTH, ITEM_WIDTH } from "../shared/CarouselCardItem";
+// import 'bootstrap/dist/css/bootstrap.min.css';
+// import {Carousel,CarouselItem,CarouselControl,CarouselIndicators,CarouselCaption} from 'reactstrap';
+>>>>>>> f4edfe50768bad170dc305ff3acd169729954bc6
 
 import { Context as  AuthContext} from "../../providers/AuthContext";
 
@@ -14,10 +23,9 @@ import Button from "../../components/shared/Button";
 // import { useContext } from "react";
 
 
-
-
 const JoliePinkHome = ({navigation}) =>{
     const { signout } = useContext(AuthContext);
+<<<<<<< HEAD
     // const items = [
     //     {
     //       src: 'https://i.pinimg.com/originals/a6/6c/00/a66c0067057317c71a71e517dff662c2.png',
@@ -92,8 +100,39 @@ const JoliePinkHome = ({navigation}) =>{
     //         </CarouselItem>
     //       );
     //     });
+=======
+    const [index, setIndex] = React.useState(0)
+  
+     const data = [
+        {
+          imgUrl: "https://i.ibb.co/CQwmT8T/unknown-3.png"
+        },
+            {
+            imgUrl: "https://i.ibb.co/ZzTDyh0/unknown-1.png "
+          },
+          {
+            imgUrl: "https://i.ibb.co/ZzTDyh0/unknown-2.png "
+          },
+          {
+            imgUrl: "https://i.ibb.co/ZzTDyh0/unknown-4.png "
+          },
+          {
+            imgUrl: "https://i.ibb.co/ZzTDyh0/unknown-5.png "
+          },
+          {
+            imgUrl: "https://i.ibb.co/s1WJQH7/unknown.png"
+          }
+        
+      ]
+
+      const isCarousel = React.useRef(null)
+
+
+>>>>>>> f4edfe50768bad170dc305ff3acd169729954bc6
 
     return(
+
+        
         <SafeAreaProvider>
             <Header 
                 centerComponent={{ text: 'JoliePink', style: { color: '#f9ece9', fontSize: 25 }}}
@@ -101,8 +140,21 @@ const JoliePinkHome = ({navigation}) =>{
             />
             <View style={styles.container}> 
                 <View style={styles.contenedorRopa}> 
+<<<<<<< HEAD
+=======
+                <Carousel
+                layout="tinder"
+                layoutCardOffset={9}
+                ref={isCarousel}
+                data={data}
+                renderItem={CarouselCardItem}
+                sliderWidth={SLIDER_WIDTH}
+                itemWidth={ITEM_WIDTH}
+                inactiveSlideShift={0}
+                useScrollView={true}
+              />
+>>>>>>> f4edfe50768bad170dc305ff3acd169729954bc6
                 </View>
-                
                 <Text style={styles.textoNueva}>Nueva Colección</Text>
                     <View style={styles.contenedorBotones}>
                     <Button title="Lo más vendido" callback ={() => {navigation.navigate("Pay")}}/>

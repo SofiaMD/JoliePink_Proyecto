@@ -11,7 +11,35 @@ const shoppingReducer = (state, action) => {
         case "getShoppingCart":
             return {... state, shoppingsCart: action.payload};
         case "setCurrentCart":
-            return { ...state, currentCart: action.payload };  
+            return { ...state, currentCart: action.payload };
+        case "updateCart":
+          return {
+            ...state,
+            shoppingsCart: state.shoppingsCart.map((shoppingCart) =>{
+              if(shoppingCart.id === action.payload.shoppingCart.id){
+                return {
+                  ...shoppingCart,
+                  talla: action.payload.shoppingCart.talla,
+                  color:  action.payload.shoppingCart.color,
+                  cantidad :  action.payload.shoppingCart.cantidad,
+                };
+              }
+              return shoppingCart;
+            })
+          }; 
+        case "deleteCart":
+          return {
+
+            ...state,
+            shoppingsCart: state.shoppingsCart.map((shoppingCart) =>{
+              if(shoppingCart.id === action.payload.shoppingCart.id){
+                return {
+                  ...shoppingCart
+                };
+              }
+              return shoppingCart;
+            })
+          }; 
         default:
             return state;
     }
@@ -75,10 +103,41 @@ const clearMessage = (dispatch) => () => {
 };
 
 // Establece la nota actual seleccionada
-const setCurrentCart = (dispatch) => ( shoppingCart) => {
+const setCurrentCart = (dispatch) => (shoppingCart) => {
   dispatch({ type: "setCurrentCart", payload: shoppingCart });
 };
-  
+
+
+const updateCart = (dispatch) => (id, talla, color, cantidad) => {
+  shoppingCartRef
+    .doc(id)
+    .update({ talla, color, cantidad })
+    .then(() => {
+      dispatch({
+        type: "updateCart",
+        payload: { shoppingCart: { id, talla, color, cantidad } },
+      });
+      dispatch({ type: "errorMessage", payload: "Carrito actualizado " });
+    })
+    .catch((error) => {
+      dispatch({ type: "errorMessage", payload: error.message });
+    });
+};
+
+const deleteCart = (dispatch) =>(id) =>{
+
+  shoppingCartRef
+  .doc(id)
+  .delete(id)
+  .then(()=>{
+    dispatch({ type: "errorMessage", payload: "Carrito eliminado " });
+    console.log("Document successfully deleted!");
+  })
+  .catch((error) => {
+    dispatch({ type: "errorMessage", payload: error.message });
+    console.error("Error removing document: ", error);
+  });
+}
 
 export const {Provider,Context} = createDateContext(
      shoppingReducer,
@@ -87,6 +146,8 @@ export const {Provider,Context} = createDateContext(
         getShoppingCart,
         setCurrentCart,
         clearMessage,
+        updateCart,
+        deleteCart
      },
      {
          shoppingsCart : [],

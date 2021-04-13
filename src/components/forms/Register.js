@@ -166,7 +166,9 @@ const styles = StyleSheet.create({
         flexDirection: "column",
         backgroundColor: "#f2d3ce",
         alignItems: "center",
-        justifyContent: "center"
+        justifyContent: "center",
+        resizeMode: "contain"
+        // position:"absolute"
 
     },
 

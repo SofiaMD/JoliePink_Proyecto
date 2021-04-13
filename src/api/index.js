@@ -18,6 +18,31 @@ const fetchJoliePinkCategories = async ()=>{
 
     return data;
 
+
+       // useEffect (() => {
+     
+    //     handlerData();
+    
+    //   }, []);
+
+    // const handlerData = ()=>{
+
+    //     const getCategories = async () =>{
+
+    //         const newCategorie = await fetchJoliePinkCategories();
+             
+    //         setCategories(newCategorie);
+    
+    //         // console.log(setCategories);
+    
+    //         console.log("hola")
+               
+    //     };
+
+    //     getCategories();
+
+    // }
+
     console.log(data);
 }
 
