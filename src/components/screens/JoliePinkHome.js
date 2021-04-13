@@ -3,8 +3,13 @@ import { ImageBackground } from "react-native";
 import { StyleSheet, View, Text, Dimensions,Image, TouchableOpacity } from "react-native";
 import { Header, } from 'react-native-elements';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import {Carousel,CarouselItem,CarouselControl,CarouselIndicators,CarouselCaption} from 'reactstrap';
+
+
+import Carousel, { Pagination } from 'react-native-snap-carousel'
+
+import CarouselCardItem, { SLIDER_WIDTH, ITEM_WIDTH } from "../shared/CarouselCardItem";
+// import 'bootstrap/dist/css/bootstrap.min.css';
+// import {Carousel,CarouselItem,CarouselControl,CarouselIndicators,CarouselCaption} from 'reactstrap';
 
 import { Context as  AuthContext} from "../../providers/AuthContext";
 
@@ -15,86 +20,39 @@ import Button from "../../components/shared/Button";
 // import { useContext } from "react";
 
 
-
-
 const JoliePinkHome = ({navigation}) =>{
     const { signout } = useContext(AuthContext);
-    const items = [
+    const [index, setIndex] = React.useState(0)
+  
+     const data = [
         {
-          src: 'https://i.pinimg.com/originals/a6/6c/00/a66c0067057317c71a71e517dff662c2.png',
-          altText: 'Slide 1',
-          caption: 'Slide 1'
+          imgUrl: "https://i.ibb.co/CQwmT8T/unknown-3.png"
         },
-        {
-          src: 'https://todoimagenesde.com/wp-content/uploads/2018/11/Moda2.jpg',
-          altText: 'Slide 2',
-          caption: 'Slide 2'
-        },
-        {
-          src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrquvS2XVnuCSlUwT-H-Z4OnywO4AfxzoAhw&usqp=CAU',
-          altText: 'Slide 3',
-          caption: 'Slide 3'
-        },
-        {
-            src: 'https://i.ibb.co/LN3Cv6C/slider4.png',
-            altText: 'Slide 4',
-            caption: 'Slide 4'
-        },
-        {
-            src: 'https://i.ibb.co/MNyw3gR/slider5.png',
-            altText: 'Slide 5',
-            caption: 'Slide 5'
-        },
-        {
-            src: 'https://i.ibb.co/qr8pVcm/slider6.png',
-            altText: 'Slide 6',
-            caption: 'Slide 6'
-        },
-        {
-            src: 'https://i.ibb.co/C5HKStW/slider7.png',
-            altText: 'Slide 7',
-            caption: 'Slide 7'
-        },
-        {
-            src: 'https://i.ibb.co/MgbwSKW/slider8.png',
-            altText: 'Slide 8',
-            caption: 'Slide 8'
-        },
-      ];
-        const [activeIndex, setActiveIndex] = useState(0);
-        const [animating, setAnimating] = useState(false);
-      
-        const next = () => {
-          if (animating) return;
-          const nextIndex = activeIndex === items.length - 1 ? 0 : activeIndex + 1;
-          setActiveIndex(nextIndex);
-        }
-      
-        const previous = () => {
-          if (animating) return;
-          const nextIndex = activeIndex === 0 ? items.length - 1 : activeIndex - 1;
-          setActiveIndex(nextIndex);
-        }
-      
-        const goToIndex = (newIndex) => {
-          if (animating) return;
-          setActiveIndex(newIndex);
-        }
-      
-        const slides = items.map((item) => {
-          return (
-            <CarouselItem
-              onExiting={() => setAnimating(true)}
-              onExited={() => setAnimating(false)}
-              key={item.src}
-            >
-              <img src={item.src} alt={item.altText} width="100%" height="100%"/>
-              <CarouselCaption captionText={item.caption} captionHeader={item.caption} />
-            </CarouselItem>
-          );
-        });
+            {
+            imgUrl: "https://i.ibb.co/ZzTDyh0/unknown-1.png "
+          },
+          {
+            imgUrl: "https://i.ibb.co/ZzTDyh0/unknown-2.png "
+          },
+          {
+            imgUrl: "https://i.ibb.co/ZzTDyh0/unknown-4.png "
+          },
+          {
+            imgUrl: "https://i.ibb.co/ZzTDyh0/unknown-5.png "
+          },
+          {
+            imgUrl: "https://i.ibb.co/s1WJQH7/unknown.png"
+          }
+        
+      ]
+
+      const isCarousel = React.useRef(null)
+
+
 
     return(
+
+        
         <SafeAreaProvider>
             <Header 
                 centerComponent={{ text: 'JoliePink', style: { color: '#f9ece9', fontSize: 25 }}}
@@ -102,19 +60,18 @@ const JoliePinkHome = ({navigation}) =>{
             />
             <View style={styles.container}> 
                 <View style={styles.contenedorRopa}> 
-                     <Carousel 
-                    activeIndex={activeIndex}
-                        next={next}
-                        previous={previous}
-                        >
-                        <CarouselIndicators items={items} activeIndex={activeIndex} onClickHandler={goToIndex} />
-                        
-                        {slides}
-                        <CarouselControl direction="prev" directionText="Previous" onClickHandler={previous} />
-                        <CarouselControl direction="next" directionText="Next" onClickHandler={next} />
-                    </Carousel>
+                <Carousel
+                layout="tinder"
+                layoutCardOffset={9}
+                ref={isCarousel}
+                data={data}
+                renderItem={CarouselCardItem}
+                sliderWidth={SLIDER_WIDTH}
+                itemWidth={ITEM_WIDTH}
+                inactiveSlideShift={0}
+                useScrollView={true}
+              />
                 </View>
-                
                 <Text style={styles.textoNueva}>Nueva Colección</Text>
                     <View style={styles.contenedorBotones}>
                     <Button title="Lo más vendido" callback ={() => {navigation.navigate("Pay")}}/>
