@@ -13,46 +13,100 @@ const FlatListAccessories = ({navigation}) =>{
 
     const accessories = [
         {
-          "id": 13435, "nombre": "Bolso 1",
-          "talla": ["xs","s","m","l","xl"],"precio": "800",
-          "color":["rosa","blanco","negro","amarillo"],
-          "imagen": "https://i.ibb.co/DWsgTp5/Bolso1.jpg"
-        },
-        {
-            "id": 22424, "nombre": "Bolso 2",
-            "talla": ["xs","s","m","l","xl"],"precio": "800",
+            "id": 121,
+            "nombre": "Bolso con agarradera pequeña y cadena",
+            "talla": ["xs","s","m","l","xl"],
+            "precio": "800",
             "color":["rosa","blanco","negro","amarillo"],
-            "imagen": "https://i.ibb.co/jvFwpkw/Bolso2.jpg"
+            "imagen": "https://i.ibb.co/DWsgTp5/Bolso1.jpg"
+          },
+          {
+              "id": 2234,
+              "nombre": "Bolso con agarradera larga y cadena",
+              "talla": ["xs","s","m","l","xl"],
+              "precio": "800",
+              "color":["rosa","blanco","negro","amarillo"],
+              "imagen": "https://i.ibb.co/jvFwpkw/Bolso2.jpg"
+          },
+          {
+            "id": 32345,
+            "nombre": "Bolso con agarradera mediada de cadena",
+            "talla": ["xs","s","m","l","xl"],
+            "precio": "900",
+            "color":["rosa","blanco","negro","amarillo"],
+            "imagen": "https://i.ibb.co/SV1ZGJk/Bolso3.jpg"
+          },
+          {
+            "id": 423,
+            "nombre": "Conjunto de pulseras con dijes del oceano",
+            "talla": ["xs","s","m","l","xl"],
+            "precio": "500",
+            "color":["rosa","blanco","negro","amarillo"],
+            "imagen": "https://i.ibb.co/DKTk7tZ/Pulseras.jpg"
+          },
+          {
+            "id": 5232,
+            "nombre": "Sombrero playero unicolor",
+            "talla": ["xs","s","m","l","xl"],
+            "precio": "500",
+            "color":["rosa","blanco","negro","amarillo"],
+            "imagen": "https://i.ibb.co/F8p3SSp/Sombrero.jpg"
+          },
+          {
+            "id": 723,
+            "nombre": "Sombrero playero con rayas",
+            "talla": ["xs","s","m","l","xl"],
+            "precio": "1000",
+            "color":["rosa","blanco","negro","amarillo"],
+            "imagen": "https://i.ibb.co/XSg3X3z/Sombrero2.jpg"
+          },
+          {
+            "id": 237,
+            "nombre": "Conjunto de collares con pequeños dijes",
+            "talla": ["xs","s","m","l","xl"],
+            "precio": "1000",
+            "color":["rosa","blanco","negro","amarillo"],
+            "imagen": "https://i.ibb.co/qj6jgrt/Collares1.jpg"
+          },
+          {
+          "id": 823,
+          "nombre": "Diademas delagadas con perlas",
+          "talla": ["xs","s","m","l","xl"],
+          "precio": "400",
+          "color":["rosa","blanco","negro","amarillo"],
+          "imagen": "https://i.ibb.co/9r76GbV/accesorio1.jpg"
         },
         {
-          "id": 3242, "nombre": "Bolso 3",
-          "talla": ["xs","s","m","l","xl"],"precio": "900",
+          "id": 924,
+          "nombre": "Pasadores de perlas variados",
+          "talla": ["xs","s","m","l","xl"],
+          "precio": "200",
           "color":["rosa","blanco","negro","amarillo"],
-          "imagen": "https://i.ibb.co/SV1ZGJk/Bolso3.jpg"
+          "imagen": "https://i.ibb.co/4pf2G6w/accesorio2.jpg"
         },
         {
-          "id": 4244, "nombre": "Pulsera",
-          "talla": ["xs","s","m","l","xl"],"precio": "500",
+          "id": 1024,
+          "nombre": "Pasadores de oceano bañados en oro ",
+          "talla": ["xs","s","m","l","xl"],
+          "precio": "1000",
           "color":["rosa","blanco","negro","amarillo"],
-          "imagen": "https://i.ibb.co/DKTk7tZ/Pulseras.jpg"
+          "imagen": "https://i.ibb.co/M7wKWjJ/accesorio3.jpg"
         },
         {
-          "id": 524242,"nombre": "Sombrero 1",
-          "talla": ["xs","s","m","l","xl"],"precio": "500",
+          "id": 1123,
+          "nombre": "Lentes borde de punta",
+          "talla": ["xs","s","m","l","xl"],
+          "precio": "500",
           "color":["rosa","blanco","negro","amarillo"],
-          "imagen": "https://i.ibb.co/F8p3SSp/Sombrero.jpg"
+          "imagen": "https://i.ibb.co/xMNqwj1/accesorio4.jpg"
         },
         {
-          "id": 7242342,"nombre": "Sombrero 2",
-          "talla": ["xs","s","m","l","xl"],"precio": "1000",
+          "id": 1223,
+          "nombre": "Lentes con forma de labios",
+          "talla": ["xs","s","m","l","xl"],
+          "precio": "600",
           "color":["rosa","blanco","negro","amarillo"],
-          "imagen": "https://i.ibb.co/XSg3X3z/Sombrero2.jpg"
-        },
-        {
-          "id": 824242,"nombre": "Collares 1",
-          "talla": ["xs","s","m","l","xl"], "precio": "1000",
-          "color":["rosa","blanco","negro","amarillo"],
-          "imagen": "https://i.ibb.co/qj6jgrt/Collares1.jpg"
+          "imagen": "https://i.ibb.co/9pBZz4t/accesorio5.jpg"
         }
       ]
 
@@ -74,7 +128,7 @@ const FlatListAccessories = ({navigation}) =>{
                                             style ={styles.image}/>
                                             <Text>{}</Text>
                                             <View style= {styles.contenedorInformacion}>
-                                                <Text>Nombre: {item.nombre}</Text>    
+                                                <Text>{item.nombre}</Text>    
                                                 <Text>{}</Text>
                                                 <Text>Precio: L.{item.precio}</Text> 
                                                 <Text>{}</Text>

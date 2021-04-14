@@ -50,7 +50,7 @@ const ShoppingCart = ({id,nombre,precio,cantidad,talla,color,img,total,navigatio
       <View style={styles.contenedorImagen}> 
         <Image source={{uri:`${img}`, }} style ={styles.image}/>
           <View style= {styles.contenedorInformacion}>
-            <Text>Nombre:{nombre}</Text> 
+            <Text>{nombre}</Text> 
             {/* <Text>{"\n"}</Text>   */}
             <Text>Precio:{precio}</Text> 
             {/* <Text>{"\n"}</Text>   */}

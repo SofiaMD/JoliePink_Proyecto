@@ -14,60 +14,100 @@ const FlatListBlouses = ({navigation}) =>{
 
     const blouses = [
         {
-            "id": 12344332,
-            "nombre": "Blusa 1",
+            "id": 145,
+            "nombre": "Blusa brillante espalda descubierta",
             "talla": ["xs","s","m","l","xl"],
             "precio": "800",
             "color":["rosa","blanco","negro","amarillo"],
             "imagen": "https://i.ibb.co/NnSn1V3/Blusas1.jpg"
           },
           {
-            "id": 2323432,
-            "nombre": "Blusa 2",
+            "id": 2242,
+            "nombre": "Blusa brillante espalda descubierta escote prolongado",
             "talla": ["xs","s","m","l","xl"],
             "precio": "900",
             "color":["rosa","blanco","negro","amarillo"],
             "imagen": "https://i.ibb.co/rsydVMr/Blusas2.jpg"
           },
           {
-            "id": 3423422,
-            "nombre": "Blusa 3",
+            "id": 3242,
+            "nombre": "Blusa larga floreada tirantes al cuello",
             "talla": ["xs","s","m","l","xl"],
             "precio": "900",
             "color":["rosa","blanco","negro","amarillo"],
             "imagen": "https://i.ibb.co/ZKr8vz0/Blusas3.jpg"
           },
           {
-            "id": 4234324,
-            "nombre": "Blusa 4",
+            "id": 423,
+            "nombre": "Blusa larga estilo hippie",
             "talla": ["xs","s","m","l","xl"],
             "precio": "900",
             "color":["rosa","blanco","negro","amarillo"],
             "imagen": "https://i.ibb.co/sjDxSfv/Blusas4.jpg"
           },
           {
-            "id": 5232411,
-            "nombre": "Blusa 5",
+            "id": 523,
+            "nombre": "Blusa espalda descubierta bordes plizados",
             "talla": ["xs","s","m","l","xl"],
             "precio": "900",
             "color":["rosa","blanco","negro","amarillo"],
             "imagen": "https://i.ibb.co/Sc5Hhf5/Blusas5.jpg"
           },
           {
-            "id": 612312,
-            "nombre": "Blusa 6",
+            "id": 623,
+            "nombre": "Blusa manga al codo con detalles de flores",
             "talla": ["xs","s","m","l","xl"],
             "precio": "1000",
             "color":["rosa","blanco","negro","amarillo"],
             "imagen": "https://i.ibb.co/6B8SWmT/Blusas6.jpg"
           },
           {
-            "id": 7878676,
-            "nombre": "Blusa 7",
+            "id": 723,
+            "nombre": "Blusa top de seda con listones transparentes",
             "talla": ["xs","s","m","l","xl"],
             "precio": "1000",
             "color":["rosa","blanco","negro","amarillo"],
             "imagen": "https://i.ibb.co/RSXZCQ9/Blusas7.jpg"
+          },
+          {
+            "id": 823,
+            "nombre": "Blusa manga al codo hombros descubiertos",
+            "talla": ["xs","s","m","l","xl"],
+            "precio": "700",
+            "color":["rosa","blanco","negro","amarillo"],
+            "imagen": "https://i.ibb.co/NNF5zMD/blusa1.jpg"
+          },
+          {
+            "id": 923,
+            "nombre": "Blusa manga al codo un solo hombro",
+            "talla": ["xs","s","m","l","xl"],
+            "precio": "700",
+            "color":["rosa","blanco","negro","amarillo"],
+            "imagen": "https://i.ibb.co/PGhD07V/blusa2.jpg"
+          },
+          {
+            "id": 103223,
+            "nombre": "Blusa de seda manga al codo",
+            "talla": ["xs","s","m","l","xl"],
+            "precio": "900",
+            "color":["rosa","blanco","negro","amarillo"],
+            "imagen": "https://i.ibb.co/PQZny4R/blusa3.jpg"
+          },
+          {
+            "id": 1231,
+            "nombre": "Blusa floreada mangas largas al hombro",
+            "talla": ["xs","s","m","l","xl"],
+            "precio": "800",
+            "color":["rosa","blanco","negro","amarillo"],
+            "imagen": "https://i.ibb.co/37vScgp/blusa4.jpg"
+          },
+          {
+            "id": 1532,
+            "nombre": "Blusa manga a los hombros y plices en botones",
+            "talla": ["xs","s","m","l","xl"],
+            "precio": "600",
+            "color":["rosa","blanco","negro","amarillo"],
+            "imagen": "https://i.ibb.co/L5b5szt/blusa5.jpg"
           }
     ]
 
@@ -89,7 +129,7 @@ const FlatListBlouses = ({navigation}) =>{
                                             style ={styles.image}/>
                                             <Text>{}</Text>
                                             <View style= {styles.contenedorInformacion}>
-                                                <Text>Nombre: {item.nombre}</Text>    
+                                                <Text>{item.nombre}</Text>    
                                                 <Text>{}</Text>
                                                 <Text>Precio: L.{item.precio}</Text> 
                                                 <Text>{}</Text>

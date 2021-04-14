@@ -12,62 +12,102 @@ const {width, height} = Dimensions.get("window");
 const FlatListDress = ({navigation}) =>{
 
     const dress = [
-            {
-              "id": 1876523,
-              "nombre": "vestido 1",
+        {
+            "id": 1323,
+            "nombre": "Vestido corto con puntos pequeños",
+            "talla": ["xs","s","m","l","xl"],
+            "precio": "800",
+            "color":["rosa","blanco","negro","amarillo"],
+            "imagen": "https://i.ibb.co/fvB95hC/vestidos.jpg"
+          },
+          {
+              "id": 2675,
+              "nombre": "Vestido corto floreado formal",
               "talla": ["xs","s","m","l","xl"],
               "precio": "800",
               "color":["rosa","blanco","negro","amarillo"],
-              "imagen": "https://i.ibb.co/fvB95hC/vestidos.jpg"
-            },
-            {
-                "id": 2234234,
-                "nombre": "vestido 2",
-                "talla": ["xs","s","m","l","xl"],
-                "precio": "800",
-                "color":["rosa","blanco","negro","amarillo"],
-                "imagen": "https://i.ibb.co/d2pr22c/vestidos2.jpg"
-            },
-            {
-              "id": 3213232,
-              "nombre": "Vestido 3",
-              "talla": ["xs","s","m","l","xl"],
-              "precio": "900",
-              "color":["rosa","blanco","negro","amarillo"],
-              "imagen": "https://i.ibb.co/j8RJpj9/vestidos3.jpg"
-            },
-            {
-              "id": 4214234,
-              "nombre": "vestido 4",
-              "talla": ["xs","s","m","l","xl"],
-              "precio": "900",
-              "color":["rosa","blanco","negro","amarillo"],
-              "imagen": "https://i.ibb.co/vdrtwnH/vestidos4.jpg"
-            },
-            {
-              "id": 5422342,
-              "nombre": "vestido 5",
-              "talla": ["xs","s","m","l","xl"],
-              "precio": "900",
-              "color":["rosa","blanco","negro","amarillo"],
-              "imagen": "https://i.ibb.co/2ZTx3L1/vestidos5.jpg"
-            },
-            {
-              "id": 61241241,
-              "nombre": "Vestido 6",
-              "talla": ["xs","s","m","l","xl"],
-              "precio": "1000",
-              "color":["rosa","blanco","negro","amarillo"],
-              "imagen": "https://i.ibb.co/26w9R4B/vestidos6.jpg"
-            },
-            {
-              "id": 7124124,
-              "nombre": "Vestido  7",
-              "talla": ["xs","s","m","l","xl"],
-              "precio": "1000",
-              "color":["rosa","blanco","negro","amarillo"],
-              "imagen": "https://i.ibb.co/VtZTnbT/vestidos7.jpg"
-            }
+              "imagen": "https://i.ibb.co/d2pr22c/vestidos2.jpg"
+          },
+          {
+            "id": 3785,
+            "nombre": "Vestido corto manga-larga floreado casual",
+            "talla": ["xs","s","m","l","xl"],
+            "precio": "900",
+            "color":["rosa","blanco","negro","amarillo"],
+            "imagen": "https://i.ibb.co/j8RJpj9/vestidos3.jpg"
+          },
+          {
+            "id": 4343,
+            "nombre": "Vestido corto ceñido a cuerpo formal floreado",
+            "talla": ["xs","s","m","l","xl"],
+            "precio": "900",
+            "color":["rosa","blanco","negro","amarillo"],
+            "imagen": "https://i.ibb.co/vdrtwnH/vestidos4.jpg"
+          },
+          {
+            "id": 5342,
+            "nombre": "Vestido corto manga larga estilo playero",
+            "talla": ["xs","s","m","l","xl"],
+            "precio": "900",
+            "color":["rosa","blanco","negro","amarillo"],
+            "imagen": "https://i.ibb.co/2ZTx3L1/vestidos5.jpg"
+          },
+          {
+            "id": 6225,
+            "nombre": "Vestido largo estilo playero",
+            "talla": ["xs","s","m","l","xl"],
+            "precio": "1000",
+            "color":["rosa","blanco","negro","amarillo"],
+            "imagen": "https://i.ibb.co/26w9R4B/vestidos6.jpg"
+          },
+          {
+            "id": 7434,
+            "nombre": "Vestido  largo manga corta estilo playero",
+            "talla": ["xs","s","m","l","xl"],
+            "precio": "1000",
+            "color":["rosa","blanco","negro","amarillo"],
+            "imagen": "https://i.ibb.co/VtZTnbT/vestidos7.jpg"
+          },
+          {
+          "id": 823,
+          "nombre": "Vestido corto ceñido al cuerpo con tirantes",
+          "talla": ["xs","s","m","l","xl"],
+          "precio": "1000",
+          "color":["rosa","blanco","negro","amarillo"],
+          "imagen": "https://i.ibb.co/TtsqCNf/vestido1.jpg"
+        },
+        {
+          "id": 9238,
+          "nombre": "Vestido de seda corto ceñido al cuerpo con tirantes ",
+          "talla": ["xs","s","m","l","xl"],
+          "precio": "1100",
+          "color":["rosa","blanco","negro","amarillo"],
+          "imagen": "https://i.ibb.co/5jWHC8M/vestido2.jpg"
+        },
+        {
+          "id": 1390,
+          "nombre": "Vestido de seda corto ceñido al cuerpo con agarres",
+          "talla": ["xs","s","m","l","xl"],
+          "precio": "1100",
+          "color":["rosa","blanco","negro","amarillo"],
+          "imagen": "https://i.ibb.co/pXdT2yb/vestido3.jpg"
+        },
+        {
+          "id": 131,
+          "nombre": "Vestido largo ceñido al cuerpo corte en la pierna",
+          "talla": ["xs","s","m","l","xl"],
+          "precio": "1200",
+          "color":["rosa","blanco","negro","amarillo"],
+          "imagen": "https://i.ibb.co/68gp0pS/vestido4.jpg"
+        },
+        {
+          "id": 12342,
+          "nombre": "Vestido medio ceñido al cuerpo corte en la pierna",
+          "talla": ["xs","s","m","l","xl"],
+          "precio": "1200",
+          "color":["rosa","blanco","negro","amarillo"],
+          "imagen": "https://i.ibb.co/BP39kq1/vestido5.jpg"
+        },
     ]
 
     return(
@@ -88,7 +128,7 @@ const FlatListDress = ({navigation}) =>{
                                             style ={styles.image}/>
                                             <Text>{}</Text>
                                             <View style= {styles.contenedorInformacion}>
-                                                <Text>Nombre: {item.nombre}</Text>    
+                                                <Text>{item.nombre}</Text>    
                                                 <Text>{}</Text>
                                                 <Text>Precio: L.{item.precio}</Text> 
                                                 <Text>{}</Text>

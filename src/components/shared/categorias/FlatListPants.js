@@ -14,48 +14,48 @@ const FlatListPants = ({navigation}) =>{
 
     const pants = [
         {
-            "id": 1231241,
-            "nombre": "Pantalon 1",
+            "id": 1,
+            "nombre": "Pantalon olgado a la cintura",
             "talla": ["xs","s","m","l","xl"],
             "precio": "800",
             "color":["rosa","blanco","negro","amarillo"],
             "imagen": "https://i.ibb.co/rbS6Jzx/Pantalon1.jpg"
           },
           {
-             "id": 2123123,
-             "nombre": "Pantalon 2",
+             "id": 2,
+             "nombre": "Pantalon olgado estilo culotte",
              "talla": ["xs","s","m","l","xl"],
              "precio": "800",
              "color":["rosa","blanco","negro","amarillo"],
              "imagen": "https://i.ibb.co/YX71DXJ/Pantalon2.jpg"
           },
           {
-            "id": 3123121,
-            "nombre": "Pantalon 3",
+            "id": 3,
+            "nombre": "Pantalon estilo culotte con faja a la cintura",
             "talla": ["xs","s","m","l","xl"],
             "precio": "900",
             "color":["rosa","blanco","negro","amarillo"],
             "imagen": "https://i.ibb.co/cT4zBVR/Pantalon3.jpg"
           },
           {
-            "id": 41231241,
-            "nombre": "Pantalon 4",
+            "id": 4,
+            "nombre": "Pantalon estilo culotte plizado",
             "talla": ["xs","s","m","l","xl"],
             "precio": "900",
             "color":["rosa","blanco","negro","amarillo"],
             "imagen": "https://i.ibb.co/N3STgMb/Pantalon4.jpg"
           },
           {
-            "id": 5123444,
-            "nombre": "Pantalon 5",
+            "id": 5,
+            "nombre": "Pantalon olgado floreado",
             "talla": ["xs","s","m","l","xl"],
             "precio": "900",
             "color":["rosa","blanco","negro","amarillo"],
             "imagen": "https://i.ibb.co/QMjW84F/Pantalon5.jpg"
           },
           {
-            "id": 6432498,
-            "nombre": "Pantalon 6",
+            "id": 6,
+            "nombre": "Pantalon olgado a la cintura",
             "talla": ["xs","s","m","l","xl"],
             "precio": "1000",
             "color":["rosa","blanco","negro","amarillo"],
@@ -63,12 +63,52 @@ const FlatListPants = ({navigation}) =>{
           },
           {
             "id": 7,
-            "nombre": "Pantalon 7",
+            "nombre": "Pantalon estilo culotte largo a la cintura",
             "talla": ["xs","s","m","l","xl"],
             "precio": "1000",
             "color":["rosa","blanco","negro","amarillo"],
             "imagen": "https://i.ibb.co/4NKc5x4/Pantalon7.jpg"
-          }
+          },
+          {
+          "id": 8,
+          "nombre": "Jean a la cintura",
+          "talla": ["xs","s","m","l","xl"],
+          "precio": "800",
+          "color":["rosa","blanco","negro","amarillo"],
+          "imagen": "https://i.ibb.co/mNT5sv1/pantalon1.jpg"
+        },
+        {
+          "id": 9,
+          "nombre": "Jean a la cintura roto en las rodillas",
+          "talla": ["xs","s","m","l","xl"],
+          "precio": "700",
+          "color":["rosa","blanco","negro","amarillo"],
+          "imagen": "https://i.ibb.co/GT2ccwp/pantalon2.jpg"
+        },
+        {
+          "id": 10,
+          "nombre": "Jean a la cintura con bolsas",
+          "talla": ["xs","s","m","l","xl"],
+          "precio": "900",
+          "color":["rosa","blanco","negro","amarillo"],
+          "imagen": "https://i.ibb.co/1KRKb3J/pantalon3.jpg"
+        },
+        {
+          "id": 11,
+          "nombre": "Pantalon casual a la cintura con faja",
+          "talla": ["xs","s","m","l","xl"],
+          "precio": "800",
+          "color":["rosa","blanco","negro","amarillo"],
+          "imagen": "https://i.ibb.co/TLyjSkm/pantalon4.jpg"
+        },
+        {
+          "id": 12,
+          "nombre": "Pantalo con cadena casual",
+          "talla": ["xs","s","m","l","xl"],
+          "precio": "900",
+          "color":["rosa","blanco","negro","amarillo"],
+          "imagen": "https://i.ibb.co/9cCgvvy/pantalon5.jpg"
+        },
     ]
 
     return (
@@ -89,7 +129,7 @@ const FlatListPants = ({navigation}) =>{
                                             style ={styles.image}/>
                                             <Text>{}</Text>
                                             <View style= {styles.contenedorInformacion}>
-                                                <Text>Nombre: {item.nombre}</Text>    
+                                                <Text>{item.nombre}</Text>    
                                                 <Text>{}</Text>
                                                 <Text>Precio: L.{item.precio}</Text> 
                                                 <Text>{}</Text>

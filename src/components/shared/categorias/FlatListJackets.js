@@ -12,10 +12,9 @@ const {width, height} = Dimensions.get("window");
 const FlatListJackets = ({navigation}) =>{
 
     const jackets = [
-
         {
             "id": 1,
-            "nombre": "Chaqueta 1",
+            "nombre": "Chaqueta estilo artesanal semiformal",
             "talla": ["xs","s","m","l","xl"],
             "precio": "800",
             "color":["rosa","blanco","negro","amarillo"],
@@ -23,7 +22,7 @@ const FlatListJackets = ({navigation}) =>{
           },
           {
               "id": 2,
-              "nombre": "Chaqueta 2",
+              "nombre": "Chaqueta estilo artesanal casual",
               "talla": ["xs","s","m","l","xl"],
               "precio": "800",
               "color":["rosa","blanco","negro","amarillo"],
@@ -31,7 +30,7 @@ const FlatListJackets = ({navigation}) =>{
           },
           {
             "id": 3,
-            "nombre": "Chaqueta 3",
+            "nombre": "Chaqueta tipo blaser formal",
             "talla": ["xs","s","m","l","xl"],
             "precio": "900",
             "color":["rosa","blanco","negro","amarillo"],
@@ -39,7 +38,7 @@ const FlatListJackets = ({navigation}) =>{
           },
           {
             "id": 4,
-            "nombre": "Chaqueta 4",
+            "nombre": "Chaqueta rayada con estilo artesanal en borde",
             "talla": ["xs","s","m","l","xl"],
             "precio": "900",
             "color":["rosa","blanco","negro","amarillo"],
@@ -47,7 +46,7 @@ const FlatListJackets = ({navigation}) =>{
           },
           {
             "id": 5,
-            "nombre": "Chaqueta 5",
+            "nombre": "Chaqueta tipo blaser con encaje floreado formal",
             "talla": ["xs","s","m","l","xl"],
             "precio": "900",
             "color":["rosa","blanco","negro","amarillo"],
@@ -55,7 +54,7 @@ const FlatListJackets = ({navigation}) =>{
           },
           {
             "id": 6,
-            "nombre": "Chaqueta 6",
+            "nombre": "Chaqueta tipo blaser con encaje triangular formal",
             "talla": ["xs","s","m","l","xl"],
             "precio": "1000",
             "color":["rosa","blanco","negro","amarillo"],
@@ -63,12 +62,52 @@ const FlatListJackets = ({navigation}) =>{
           },
           {
             "id": 7,
-            "nombre": "Chaqueta 7",
+            "nombre": "Chaqueta tipo blaser encaje variado formal",
             "talla": ["xs","s","m","l","xl"],
             "precio": "1000",
             "color":["rosa","blanco","negro","amarillo"],
             "imagen": "https://i.ibb.co/L0d9QRW/Chaquetas7.jpg"
-          }
+          },
+          {
+          "id": 8,
+          "nombre": "Chaqueta estilo casual floreada",
+          "talla": ["xs","s","m","l","xl"],
+          "precio": "900",
+          "color":["rosa","blanco","negro","amarillo"],
+          "imagen": "https://i.ibb.co/bsXt7x7/chaqueta1.jpg"
+        },
+        {
+          "id": 9,
+          "nombre": "Chaqueta terciopelo brillante casual",
+          "talla": ["xs","s","m","l","xl"],
+          "precio": "900",
+          "color":["rosa","blanco","negro","amarillo"],
+          "imagen": "https://i.ibb.co/jDL7syV/chaqueta2.jpg"
+        },
+        {
+          "id": 10,
+          "nombre": "Chaqueta brilante liso",
+          "talla": ["xs","s","m","l","xl"],
+          "precio": "900",
+          "color":["rosa","blanco","negro","amarillo"],
+          "imagen": "https://i.ibb.co/RCPNdn1/chaqueta3.jpg"
+        },
+        {
+          "id": 11,
+          "nombre": "Chaqueta de cuero casual",
+          "talla": ["xs","s","m","l","xl"],
+          "precio": "1000",
+          "color":["rosa","blanco","negro","amarillo"],
+          "imagen": "https://i.ibb.co/2jX0NB3/chaqueta4.jpg"
+        },
+        {
+          "id": 12,
+          "nombre": "Chaqueta terciopelo casual",
+          "talla": ["xs","s","m","l","xl"],
+          "precio": "1000",
+          "color":["rosa","blanco","negro","amarillo"],
+          "imagen": "https://i.ibb.co/kcS9RFY/chaqueta5.jpg"
+        }
         ]
     return(
 
@@ -89,7 +128,7 @@ const FlatListJackets = ({navigation}) =>{
                                             style ={styles.image}/>
                                             <Text>{}</Text>
                                             <View style= {styles.contenedorInformacion}>
-                                                <Text>Nombre: {item.nombre}</Text>    
+                                                <Text>{item.nombre}</Text>    
                                                 <Text>{}</Text>
                                                 <Text>Precio: L.{item.precio}</Text> 
                                                 <Text>{}</Text>

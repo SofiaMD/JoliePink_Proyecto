@@ -40,6 +40,31 @@ const JoliePinkPurchasingProcess = ({navigation,route}) =>{
 
     const tallas = ["XS","S", "M","L","XL"];
 
+    // const tallas = [
+    //     {
+    //         "id":232,
+    //         "tipo":"XS"
+    //     },
+    //     {
+    //         "id":67,
+    //         "tipo":"S"
+    //     },
+    //     {
+    //         "id":22,
+    //         "tipo":"M"
+    //     },
+    //     {
+    //         "id":28,
+    //         "tipo":"L"
+    //     },
+    //     {
+    //         "id":218,
+    //         "tipo":"XL"
+    //     },
+
+
+    // ];
+
     let negro = "black"
         let rosa = "pink";
         let blanco = "white"
@@ -83,8 +108,9 @@ const JoliePinkPurchasingProcess = ({navigation,route}) =>{
         const categoriaEspecifica = props.categoriaPrenda;
 
         if(categoriaEspecifica === "accesorios"){
-
+            
             return (
+            
                 tamaños.map((index) =>(
                     <TouchableOpacity   
                       onPress= {() => valorTamaño(index)}
@@ -96,7 +122,16 @@ const JoliePinkPurchasingProcess = ({navigation,route}) =>{
         }
 
         else{
+            // for(let i= 0; i < 6; i++){
 
+            //     return (
+            //             <TouchableOpacity   
+            //               onPress= {() =>valorTalla(tallas[i].tipo)}
+            //               style={styles.botonTalla}> 
+            //               <Text style= {styles.textoBotones}>{tallas[i].tipo}</Text>
+            //             </TouchableOpacity >
+            //     )
+            // }
             return (
                 tallas.map((index) =>(
                     <TouchableOpacity   
@@ -106,6 +141,7 @@ const JoliePinkPurchasingProcess = ({navigation,route}) =>{
                     </TouchableOpacity >
                   ))
             )
+           
         }
     }
 
