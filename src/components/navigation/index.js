@@ -40,6 +40,7 @@ import JoliePinkPurchasingProcess from "../screens/JoliePinkPurchasingProcess";
 import JoliePinkShoppingCart from "../screens/JoliePinkShoppingCart";
 import JoliePinkPurchasingUpdate from "../screens/JoliePinkPurchasingUpdate";
 import JoliePinkPersonalInformation from "../screens/JoliePinkPersonalInformation";
+import JoliePinkPurchases from "../screens/JoliePinkPurchases";
 
 
 import theme from "../../theme";
@@ -161,6 +162,15 @@ const Navigation = () => {
                 name = "Category" 
                 component = {myTabBar} 
                 options = {{headerShown: false}}
+              />
+              <Stack.Screen 
+                name = "Purchases" 
+                component = {JoliePinkPurchases} 
+                options={{ headerTitle: props => <HeaderJolie {...props}/>,
+                headerStyle: {
+                  backgroundColor: "#bd787d",
+
+                }}}
               />
               <Stack.Screen 
               name = "Verification" 

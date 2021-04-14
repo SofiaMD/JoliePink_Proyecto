@@ -6,8 +6,6 @@ import {Card} from "react-native-elements";
 const {width,height} = Dimensions.get("screen");
 
 const Purchase = ({id,nombre,precio,cantidad,talla,color,img,total}) =>{
-    
-
 
     return(
         <Card style={styles.container}>
