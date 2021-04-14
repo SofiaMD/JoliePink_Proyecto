@@ -22,24 +22,23 @@ const shoppingReducer = (state, action) => {
                   talla: action.payload.shoppingCart.talla,
                   color:  action.payload.shoppingCart.color,
                   cantidad :  action.payload.shoppingCart.cantidad,
+                  total : action.payload.shoppingCart.total
                 };
               }
               return shoppingCart;
             })
           }; 
         case "deleteCart":
-          return {
-
-            ...state,
-            shoppingsCart: state.shoppingsCart.map((shoppingCart) =>{
+          return {...state, 
+            shoppingsCart:state.shoppingsCart.map((shoppingCart) =>{
               if(shoppingCart.id === action.payload.shoppingCart.id){
                 return {
-                  ...shoppingCart
+                  ...shoppingCart,
                 };
               }
-              return shoppingCart;
+              return shoppingCart
             })
-          }; 
+          };
         default:
             return state;
     }
@@ -49,7 +48,7 @@ const shoppingReducer = (state, action) => {
 const shoppingCartRef = firebase.firestore().collection("shoppingsCart");
 
 
-const createShoppingCart = (dispatch) => (id,nombre,precio,cantidad,talla,color,img,usuario) =>{
+const createShoppingCart = (dispatch) => (id,nombre,precio,cantidad,talla,color,img,total,usuario) =>{
 
     const data = {
         id,
@@ -59,6 +58,7 @@ const createShoppingCart = (dispatch) => (id,nombre,precio,cantidad,talla,color,
         talla,
         color,
         img,
+        total,
         userId: usuario,
     };
 
@@ -102,20 +102,20 @@ const clearMessage = (dispatch) => () => {
   dispatch({ type: "errorMessage", payload: "" });
 };
 
-// Establece la nota actual seleccionada
+// Establece del articulo actual seleccionada
 const setCurrentCart = (dispatch) => (shoppingCart) => {
   dispatch({ type: "setCurrentCart", payload: shoppingCart });
 };
 
 
-const updateCart = (dispatch) => (id, talla, color, cantidad) => {
+const updateCart = (dispatch) => (id, talla, color, cantidad,total) => {
   shoppingCartRef
     .doc(id)
-    .update({ talla, color, cantidad })
+    .update({ talla, color, cantidad,total })
     .then(() => {
       dispatch({
         type: "updateCart",
-        payload: { shoppingCart: { id, talla, color, cantidad } },
+        payload: { shoppingCart: { id, talla, color, cantidad, total } },
       });
       dispatch({ type: "errorMessage", payload: "Carrito actualizado " });
     })
@@ -128,9 +128,10 @@ const deleteCart = (dispatch) =>(id) =>{
 
   shoppingCartRef
   .doc(id)
-  .delete(id)
+  .delete()
   .then(()=>{
-    dispatch({ type: "errorMessage", payload: "Carrito eliminado " });
+    dispatch({ type: "deleteCart", payload: { shoppingCart: {id}}});
+    dispatch({ type: "errorMessage", payload: "Articulo Eliminado" });
     console.log("Document successfully deleted!");
   })
   .catch((error) => {
@@ -152,7 +153,7 @@ export const {Provider,Context} = createDateContext(
      {
          shoppingsCart : [],
          errorMessage: "",
-         currentCart: { id: "",nombre: "", precio: "",cantidad:"" , talla:"", color:"",img: "" },
+         currentCart: { id: "",nombre: "", precio: "",cantidad:"" , talla:"", color:"",img: "", total: ""},
      }
 
 );
