@@ -53,17 +53,17 @@ const PersonalInformation =({navigation}) =>{
 
     const  handleSaveInformation = () =>{
         createPersonalInformation(direccion,telefono,codigoPostal, state.user.id);
-        // navigation.navigate("Profile");
+        navigation.navigate("Home");
     }
      return (
          <View>
              {error ? <Alert title={error} type="error"/> : null}
-             <View>
-                 <Text>Ingresa tus datos</Text>
+             <View style={styles.contenedorTexto}>
+                 <Text style= {styles.texto}>Ingresa tus datos</Text>
              </View>
              <View style={styles.contenedorCentral}>
                  <Input 
-                        placeholder= "Direccion"
+                        placeholder= "Dirección"
                         value={direccion}
                         onChangeText={setDireccion}
                         onBlur ={() =>{
@@ -74,7 +74,7 @@ const PersonalInformation =({navigation}) =>{
                         }
                     />
                     <Input
-                        placeholder= "Telefono:"
+                        placeholder= "Teléfono"
                         value= {telefono}
                         onChangeText ={setTelefono}
                         onBlur={() => {
@@ -85,7 +85,7 @@ const PersonalInformation =({navigation}) =>{
                             }
                     style={styles.input}/>
                     <Input
-                        placeholder= "Codigo Postal:"
+                        placeholder= "Código Postal"
                         value= {codigoPostal}
                         onChangeText ={setCodigoPostal}
                         onBlur={() => {
@@ -115,14 +115,35 @@ const styles = StyleSheet.create({
         flexDirection: "column",
         backgroundColor: "#f2d3ce",
         alignItems: "center",
-        justifyContent: "center"
+        justifyContent: "center",
+        backgroundColor:"red"
 
     },
     input:{
-        width: width * 0.010,
+        width: width * 0.10,
         height: height *0.03,
         fontSize: 20,
     },
+    contenedorCentral:{
+        // backgroundColor: "#ffff",
+        width: width * 0.80,
+        height: height *0.30,
+        justifyContent: "center",
+        alignItems: "center",
+        marginBottom: 30,
+        marginTop:10
+    },
+    texto:{
+        fontSize:20,
+        marginBottom:10
+    },
+    contenedorTexto:{
+        width: width * 0.80,
+        // height: height *0.30,
+        justifyContent: "center",
+        alignItems: "center",
+        // marginBottom:15,
+    }
 });
 
 

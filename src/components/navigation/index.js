@@ -97,15 +97,7 @@ const myTabBar =() =>{
             ),
           }}
          />
-         {/* <Tab.Screen   name = "Pay" 
-          component = {JoliePinkPay} 
-          options={{
-            tabBarLabel: 'Perfil',
-            tabBarIcon: ({ color }) => (
-              <MaterialCommunityIcons name="account" color={color} size={26} />
-            ),
-          }}
-         /> */}
+       
     </Tab.Navigator>
   )
 }
@@ -212,11 +204,11 @@ const Navigation = () => {
               component = {JoliePinkPersonalInformation} 
               options = {{headerShown: false}}
             />
-            <Stack.Screen 
+            {/* <Stack.Screen 
               name = "ForgotPassword" 
               component = {JoliePinkForgotPassword} 
               options = {{headerShown: false}}
-            />
+            /> */}
             <Stack.Screen 
               name = "ChangePassword" 
               component = {JoliePinkChangePassword} 
@@ -262,7 +254,12 @@ const Navigation = () => {
                 name = "Register" 
                 component = {JoliePinkRegister}  
                 options ={{ headerShown: false}}
-              />    
+              />  
+              <Stack.Screen 
+              name = "ForgotPassword" 
+              component = {JoliePinkForgotPassword} 
+              options = {{headerShown: false}}
+            />  
             </Stack.Navigator>
         )}
       </>

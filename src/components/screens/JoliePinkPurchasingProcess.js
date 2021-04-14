@@ -66,7 +66,7 @@ const JoliePinkPurchasingProcess = ({navigation,route}) =>{
     // ];
 
     let negro = "black"
-        let rosa = "pink";
+        let rosa = "#bd787d";
         let blanco = "white"
 
     const obtenerColor1 = ()=> {setColor(rosa);};
@@ -122,23 +122,13 @@ const JoliePinkPurchasingProcess = ({navigation,route}) =>{
         }
 
         else{
-            // for(let i= 0; i < 6; i++){
-
-            //     return (
-            //             <TouchableOpacity   
-            //               onPress= {() =>valorTalla(tallas[i].tipo)}
-            //               style={styles.botonTalla}> 
-            //               <Text style= {styles.textoBotones}>{tallas[i].tipo}</Text>
-            //             </TouchableOpacity >
-            //     )
-            // }
             return (
                 tallas.map((index) =>(
                     <TouchableOpacity   
-                      onPress= {() =>valorTalla(index)}
-                      style={styles.botonTalla}> 
-                      <Text style= {styles.textoBotones}>{index}</Text>
-                    </TouchableOpacity >
+                    onPress= {() =>valorTalla(index)}
+                    style={styles.botonTalla}> 
+                    <Text style= {styles.textoBotones}>{index}</Text>
+                  </TouchableOpacity >
                   ))
             )
            
@@ -153,7 +143,7 @@ const JoliePinkPurchasingProcess = ({navigation,route}) =>{
         Toast.show({
             text1 : "Articulo Agregado Correctamente" ,
             position: 'top',
-            // visibilityTime: 3000,
+            onPress: () => {navigation.navigate("Home")} 
           });  
     }
 
@@ -235,7 +225,9 @@ const JoliePinkPurchasingProcess = ({navigation,route}) =>{
                         setCantidad(cantidad)
                     }}
                 />
-                <InputTotal  total = {total}/>
+                <View style={{marginTop:-15,marginLeft:5}}>
+                    <InputTotal  total = {total}/>
+                </View>
 
             </View>
             <View style={styles.contendorBotones}>
@@ -312,6 +304,7 @@ const styles= StyleSheet.create({
         marginRight:5,
         alignItems:"center",
         height: height * 0.06,
+        marginTop:15,
         // width: width * 0.15
         
         // padding:12,
@@ -374,6 +367,7 @@ const styles= StyleSheet.create({
         backgroundColor: '#bd787d',
         justifyContent:"center",
         alignItems:"center",
+        alignContent:"center",
         margin:5
     },
     botonTamaño:{

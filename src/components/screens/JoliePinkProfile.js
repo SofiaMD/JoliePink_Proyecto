@@ -109,7 +109,7 @@ const styles = StyleSheet.create({
         resizeMode: "contain",
     },
     contenedorBoton:{
-        marginTop: 10
+        marginTop: 3
     },
     contenedorCentral:{
         marginTop: 150,

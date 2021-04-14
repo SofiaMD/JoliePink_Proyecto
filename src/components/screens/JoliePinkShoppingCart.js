@@ -28,14 +28,14 @@ const JoliePinkShoppingCart = ({navigation}) =>{
         console.log(shoppingCartState);
     },[shoppingCartState]);
 
-    //   useEffect(() => {
-    //     if (shoppingCartState.errorMessage) {
-    //     //   Toast.show({
-    //     //     text2: shoppingCartState.errorMessage,
-    //     //   });
-    //       clearMessage();
-    //     }
-    //   }, [shoppingCartState.errorMessage]);
+      useEffect(() => {
+        if (shoppingCartState.errorMessage) {
+        //   Toast.show({
+        //     text2: shoppingCartState.errorMessage,
+        //   });
+          clearMessage();
+        }
+      }, [shoppingCartState.errorMessage]);
     return(
         <SafeAreaProvider>
         <Header 

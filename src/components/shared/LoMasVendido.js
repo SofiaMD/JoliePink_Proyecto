@@ -1,6 +1,6 @@
 export default LoMasVendido=[
     {
-        "id": 2,
+        "id": 212,
         "nombre": "Bikini dos piezas con hojas",
         "talla": ["xs","s","m","l","xl"],
         "precio": "600",
@@ -8,7 +8,7 @@ export default LoMasVendido=[
         "imagen": "https://i.ibb.co/G3Y2B59/bikini2.jpg"
       },
       {
-        "id": 1,
+        "id": 11,
         "nombre": "Bolso con agarradera pequeña y cadena",
         "talla": ["xs","s","m","l","xl"],
         "precio": "800",
@@ -16,7 +16,7 @@ export default LoMasVendido=[
         "imagen": "https://i.ibb.co/DWsgTp5/Bolso1.jpg"
       },
       {
-        "id": 8,
+        "id": 18,
         "nombre": "Blusa manga al codo hombros descubiertos",
         "talla": ["xs","s","m","l","xl"],
         "precio": "700",
@@ -26,7 +26,7 @@ export default LoMasVendido=[
 
 
     {
-      "id": 8,
+      "id": 89,
       "nombre": "Diademas delagadas con perlas",
       "talla": ["xs","s","m","l","xl"],
       "precio": "400",
@@ -51,7 +51,7 @@ export default LoMasVendido=[
       },
 
     {
-      "id": 8,
+      "id": 86,
       "nombre": "Bikini abdomen descubierto diagonal",
       "talla": ["xs","s","m","l","xl"],
       "precio": "800",
@@ -59,7 +59,7 @@ export default LoMasVendido=[
       "imagen": "https://i.ibb.co/wpnSrWp/bikini1.jpg"
       },
       {
-        "id": 12,
+        "id": 142,
         "nombre": "Pantalo con cadena casual",
         "talla": ["xs","s","m","l","xl"],
         "precio": "900",
@@ -67,7 +67,7 @@ export default LoMasVendido=[
         "imagen": "https://i.ibb.co/9cCgvvy/pantalon5.jpg"
       },
       {
-         "id": 7,
+         "id": 77,
         "nombre": "Pantalon estilo culotte largo a la cintura",
         "talla": ["xs","s","m","l","xl"],
         "precio": "1000",
@@ -76,7 +76,7 @@ export default LoMasVendido=[
       },
 
     {
-      "id": 11,
+      "id": 124,
       "nombre": "Vestido largo ceñido al cuerpo corte en la pierna",
       "talla": ["xs","s","m","l","xl"],
       "precio": "1200",
@@ -84,7 +84,7 @@ export default LoMasVendido=[
       "imagen": "https://i.ibb.co/68gp0pS/vestido4.jpg"
       },
       {
-        "id": 4,
+        "id": 40,
         "nombre": "Chaqueta rayada con estilo artesanal en borde",
         "talla": ["xs","s","m","l","xl"],
         "precio": "900",
@@ -92,7 +92,7 @@ export default LoMasVendido=[
         "imagen": "https://i.ibb.co/KhjyCPh/Chaquetas4.jpg"
       },
       {
-        "id": 9,
+        "id": 19,
         "nombre": "Bikini dos piezas agarre a un hombro",
         "talla": ["xs","s","m","l","xl"],
         "precio": "1000",
@@ -101,7 +101,7 @@ export default LoMasVendido=[
       },
 
     {
-      "id": 11,
+      "id": 171,
       "nombre": "Chaqueta de cuero casual",
       "talla": ["xs","s","m","l","xl"],
       "precio": "1000",
@@ -109,7 +109,7 @@ export default LoMasVendido=[
       "imagen": "https://i.ibb.co/2jX0NB3/chaqueta4.jpg"
       },
       {
-        "id": 8,
+        "id": 978,
         "nombre": "Jean a la cintura",
         "talla": ["xs","s","m","l","xl"],
         "precio": "800",
@@ -117,7 +117,7 @@ export default LoMasVendido=[
         "imagen": "https://i.ibb.co/mNT5sv1/pantalon1.jpg"
       },
       {
-        "id": 10,
+        "id": 1120,
         "nombre": "Vestido de seda corto ceñido al cuerpo con agarres",
         "talla": ["xs","s","m","l","xl"],
         "precio": "1100",
@@ -126,7 +126,7 @@ export default LoMasVendido=[
       },
 
     {
-      "id": 1,
+      "id": 121,
         "nombre": "Chaqueta estilo artesanal semiformal",
         "talla": ["xs","s","m","l","xl"],
         "precio": "800",
@@ -134,7 +134,7 @@ export default LoMasVendido=[
         "imagen": "https://i.ibb.co/vmvTGsp/Chaquetas1.jpg"
       },
       {
-        "id": 11,
+        "id": 151,
         "nombre": "Blusa floreada mangas largas al hombro",
         "talla": ["xs","s","m","l","xl"],
         "precio": "800",
@@ -142,7 +142,7 @@ export default LoMasVendido=[
         "imagen": "https://i.ibb.co/37vScgp/blusa4.jpg"
       },
       {
-        "id": 1,
+        "id": 971,
         "nombre": "Blusa brillante espalda descubierta",
         "talla": ["xs","s","m","l","xl"],
         "precio": "800",

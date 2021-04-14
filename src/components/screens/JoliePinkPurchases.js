@@ -26,16 +26,11 @@ const JoliePinkPurchases = ({navigation}) =>{
     },[purchasesState]);
 
     return (
-        // <SafeAreaProvider>
-        // <Header 
-        //     centerComponent={{ text: 'Mis Compras', style: { color: '#f9ece9', fontSize: 25 }}}
-        //     containerStyle = { {backgroundColor : '#bd787d' , justifyContent : 'space-around'} }
-        // />
+       
         <View style= {styles.container}>
            <PurchaseList purchases={purchasesState.purchases} navigation = {navigation}/>
-            {/* <ShoppingCartList shoppingsCart={shoppingCartState.shoppingsCart} navigation={navigation} /> */}
+           
         </View>
-        // </SafeAreaProvider>
     )
 };
 

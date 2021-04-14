@@ -15,7 +15,7 @@ const JoliePinkTheMostSold = ({navigation}) =>{
                     return (
                         <View> 
                             <TouchableOpacity onPress = {() => {navigation.navigate("PurchansingProcess",{id:item.id,
-                            nombre: item.nombre, img : item.imagen, precio: item.precio,talla: item.talla})}}>
+                            nombre: item.nombre, img : item.imagen, precio: item.precio,talla: item.talla, categoriaPrenda:"blusas"})}}>
                             <Card>
                                     <View style={styles.contenedorImagen}> 
                                      <Image source={{uri:`${item.imagen}`, }} 
@@ -23,19 +23,15 @@ const JoliePinkTheMostSold = ({navigation}) =>{
                                         <Text>{}</Text>
                                         <View style= {styles.contenedorInformacion}>
                                           <View style={styles.contenedorNombre}>
-                                          <Text style={styles.nombre}>{item.nombre}</Text> 
+                                            <Text style={styles.nombre}>{item.nombre}</Text> 
                                           </View>
                                             {/* <Text style={styles.nombre}>{item.nombre}</Text>     */}
                                             <Text>{}</Text>
                                             <Text>Precio: L.{item.precio}</Text> 
                                             <Text>{}</Text>
-                                            <Text>Tallas: {item.talla.map((index) =>(
-                                                <Text style={styles.texto}>
-                                                {" "}{index}
-                                                </Text>
-                                            ))}</Text>
+                                            <Text>Tallas: XS,S,M,L,XL</Text>
                                             <Text>{}</Text>
-                                            <View style={styles.contenedorBoton} >
+                                            <View style={styles.contenedorBotones} >
                                                 <Text >Colores:</Text>
                                                 <TouchableOpacity
                                                     style={{
@@ -119,9 +115,10 @@ contenedorImagen: {
    
 },
 contenedorBotones:{
-    marginTop: 90,
+    // marginTop: 90,
     flexDirection: "row",
-    marginLeft: 2
+    marginLeft: 2,
+    
 },
 contenedorInformacion:{
     marginTop: 10,

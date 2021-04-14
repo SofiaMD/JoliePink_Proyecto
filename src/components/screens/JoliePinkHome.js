@@ -26,22 +26,23 @@ const JoliePinkHome = ({navigation}) =>{
   
      const data = [
         {
-          imgUrl: "https://i.ibb.co/CQwmT8T/unknown-3.png"
+          imgUrl: "https://i.ibb.co/ZzTDyh0/unknown-1.png"
         },
             {
-            imgUrl: "https://i.ibb.co/ZzTDyh0/unknown-1.png "
+            imgUrl: "https://i.ibb.co/6ggMLHp/unknown-2.png"
           },
           {
-            imgUrl: "https://i.ibb.co/ZzTDyh0/unknown-2.png "
-          },
-          {
-            imgUrl: "https://i.ibb.co/ZzTDyh0/unknown-4.png "
-          },
-          {
-            imgUrl: "https://i.ibb.co/ZzTDyh0/unknown-5.png "
+            imgUrl: "https://i.ibb.co/CQwmT8T/unknown-3.png"
           },
           {
             imgUrl: "https://i.ibb.co/s1WJQH7/unknown.png"
+          },
+          {
+            imgUrl: "https://i.ibb.co/FYkyjDD/unknown-4.png"
+          },
+          {
+            imgUrl: "https://i.ibb.co/Jn5Zytz/unknown-5.png",
+            
           }
         
       ]
@@ -90,7 +91,8 @@ const JoliePinkHome = ({navigation}) =>{
 const styles = StyleSheet.create({
     container:{
         flex: 1,
-        flexDirection: "column"
+        flexDirection: "column",
+        backgroundColor:"#ddd2ce"
     },
     contenedorRopa:{
         flexDirection: "row",

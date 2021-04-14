@@ -6,7 +6,8 @@ import {
     Text,
     TouchableOpacity,
     View,
-    Alert
+    Alert,
+    Dimensions
     
 } from "react-native";
 
@@ -20,6 +21,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 
 import {Context as ShoppingCartContext} from "../../providers/ShoppingCartContext";
 
+const {width, height} = Dimensions.get("window");
 
 import ShoppingCart from "../shared/ShoppingCart";
 
@@ -42,7 +44,7 @@ const ShoppingCartList =({navigation, shoppingsCart}) =>{
 
     const emptyFlatList = (
         <View style={styles.emptyShoppingCart}>
-          <Text style = {styles.textoMensaje}> No has agregado articulos al carrito...</Text>
+          <Text style = {styles.textoMensaje}> No has agregado artículos al carrito...</Text>
         </View>
       );
 
@@ -75,8 +77,6 @@ const ShoppingCartList =({navigation, shoppingsCart}) =>{
                     </>   
                             
                 )}  
-
-                
             />
 
              
@@ -94,6 +94,9 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: "center",
         alignSelf: "center",
+        alignItems:"center",
+        width: width * 1,
+        height:height * 0.8,
         // backgroundColor: "red"
       },
 

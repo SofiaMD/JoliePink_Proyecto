@@ -174,7 +174,7 @@ const styles = StyleSheet.create({
     contenedorCentral:{
         backgroundColor: "#ffff",
         width: width * 0.80,
-        height: height *0.40,
+        height: height *0.50,
         justifyContent: "center",
         alignItems: "center",
         marginBottom: 30

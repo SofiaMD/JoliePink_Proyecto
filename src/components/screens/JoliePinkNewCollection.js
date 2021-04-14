@@ -20,11 +20,11 @@ const JoliePinkNewCollection = () =>{
 
     return(
         <SafeAreaProvider style={styles.container}>
-            <Text style={styles.nueva}>¡Nueva Colección!</Text>
-            {/* <Header
-            centerComponent={{ text: 'Nueva Colección', style: { color: '#f9ece9', fontSize: 25 }}}
-            containerStyle = { {backgroundColor : '#bd787d' , justifyContent : 'space-around'} }
-            /> */}
+            <View style = {styles.contenedorTexto}>
+                <Text style={styles.proximamente}>Proximamente</Text>
+                <Text style={styles.nueva}>¡Nueva Colección!</Text>
+            </View>
+           
             <View >
                 <View style={styles.contenedorRopa}>
                     <Carousel
@@ -46,7 +46,7 @@ const JoliePinkNewCollection = () =>{
 
 const styles = StyleSheet.create({
     container:{
-        backgroundColor: '#f2d3ce',
+        backgroundColor: '#ddd2ce',
         flex:1,
         flexDirection: "column"
     },
@@ -56,13 +56,25 @@ const styles = StyleSheet.create({
         height: height * 0.80,
         marginTop: 10
     },
-    nueva:{
-        fontSize: 40,
-        marginTop: 30,
+    contenedorTexto:{
         justifyContent: "center",
         alignContent: "center",
-        marginLeft: 50,
+        alignItems:"center",
+    },
+    nueva:{
+        fontSize: 40,
+        // marginTop: 30,
+        justifyContent: "center",
+        alignContent: "center",
+        alignItems:"center",
+        // marginLeft: 50,
         color:"#bd787d",
+        
+    },
+    proximamente:{
+        fontSize: 30,
+        marginTop: 30,
+        color:"black",
         
     }
 })

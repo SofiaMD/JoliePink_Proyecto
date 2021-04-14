@@ -149,7 +149,7 @@ const styles = StyleSheet.create({
     contenedorInformacion:{
         backgroundColor: "#fff",
         width: width * 0.70,
-        height: height * 0.18,
+        height: height * 0.25,
         justifyContent: "center",
         alignItems: "center",
         marginBottom: 5

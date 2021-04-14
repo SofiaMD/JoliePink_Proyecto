@@ -2,7 +2,7 @@ import React,{useState,useContext,useEffect} from "react";
 import {StyleSheet,View,Text,Image,Dimensions,TouchableOpacity, TouchableHighlight,TextInput} from "react-native";
 
 
-
+import Toast from "react-native-toast-message";
 import {  
 
     Card,
@@ -35,7 +35,7 @@ const JoliePinkPurchasingUpdate = ({navigation}) =>{
 
     const tallas = ["XS","S", "M","L","XL"];
         let negro = "black"
-        let rosa = "pink";
+        let rosa = "#bd787d";
         let blanco = "white"
 
     const obtenerColor1 = ()=> {setColor(rosa);};
@@ -117,6 +117,12 @@ const JoliePinkPurchasingUpdate = ({navigation}) =>{
             total
 
         );
+
+        Toast.show({
+            text1 : "Articulo Agregado Correctamente" ,
+            position: 'top',
+            onPress: () => {navigation.navigate("Home")} 
+          }); 
     }
     const guardar = () =>{
         createPurchase(shoppingCartState.currentCart.id,shoppingCartState.currentCart.nombre,precio,cantidad,talla,color,shoppingCartState.currentCart.img,total, state.user.id);
@@ -133,6 +139,7 @@ const JoliePinkPurchasingUpdate = ({navigation}) =>{
                 <View style={styles.contenedorImagen}>
                         <Image style = {styles.imagen} source={{uri:`${shoppingCartState.currentCart.img}`, }}/>
                 </View>
+                <Toast  ref={(ref) => Toast.setRef(ref)} />
                 <View style={styles.contenedorDetalles}>
                 <View style={styles.descripcion}>
                     <Text style={styles.texto}>Precio: L.</Text>
@@ -195,7 +202,10 @@ const JoliePinkPurchasingUpdate = ({navigation}) =>{
                         setCantidad(cantidad)
                     }}
                 />
-                <InputTotal  total = {total}/>
+                <View style={{marginTop:-15,marginLeft:5}}>
+                    <InputTotal  total = {total}/>
+                </View>
+                
                
             </View>
             <View style={styles.contendorBotones}>
@@ -206,11 +216,9 @@ const JoliePinkPurchasingUpdate = ({navigation}) =>{
                 </View>
             <View style={styles.contendorBotones}>
             <Button
-                      // mode="contained"
                       style={styles.boton}
                       onPress={handleSaveShopping}
                       title =  "Agregar al Carrito"
-                    //   onPress = {calcularTotal}
                     >
             </Button>
             <Text>      </Text>

@@ -128,7 +128,9 @@ const FlatListBikinis = ({navigation}) =>{
                                             style ={styles.image}/>
                                             <Text>{}</Text>
                                             <View style= {styles.contenedorInformacion}>
-                                                <Text style={styles.texto}>{item.nombre}</Text>    
+                                                <View style={styles.contenedorNombre}>
+                                                        <Text style={styles.nombreTexto}>{item.nombre}</Text> 
+                                                 </View>  
                                                 <Text>{}</Text>
                                                 <Text>Precio: L.{item.precio}</Text> 
                                                 <Text>{}</Text>
@@ -207,7 +209,7 @@ const styles = StyleSheet.create({
     },
     image: {
         width: width * 0.40,
-        height: height * 0.20
+        height: height * 0.30
     },
     informacion:{
         fontWeight: "bold",
@@ -241,7 +243,15 @@ const styles = StyleSheet.create({
     },
     texto:{
         fontSize: 15
-    }
+    },
+    contenedorNombre:{
+        // marginTop: 10,
+        width: width * 0.40,
+      
+      },
+      nombreTexto:{
+        fontSize: 16
+      },
 });
 
 export default FlatListBikinis;

@@ -31,8 +31,8 @@ const UserInformation = ({navigation, personalsInformation}) =>{
     const emptyFlatList = (
         <View style={styles.emptyPersonalInformation}>
            <TouchableOpacity onPress= {() => {navigation.navigate("PersonalInformation")}}>
-                        <Text>Agregar Datos Personales</Text>
-                    </TouchableOpacity>
+                        <Text style= {styles.texto}>Agrega Tus Datos</Text>
+            </TouchableOpacity>
         </View>
       );
 
@@ -75,23 +75,26 @@ const styles = StyleSheet.create({
       alignItems:"center",
       // backgroundColor: "white",
       width: width * 1,
-      height: height * 0.3,
+      height: height * 0.4,
     },
     emptyPersonalInformation: {
       flex: 1,
       justifyContent: "center",
       alignSelf: "center",
-      backgroundColor: "red"
+      alignItems:"center",
+      width: width * 1,
+      height:height * 0.3,
+      // backgroundColor: "red"
     },
     informacion:{
-    justifyContent:"center",
-    alignContent:"center",
-    margin: 10
+      justifyContent:"center",
+      alignContent:"center",
+      margin: 10
       // alignItems:"center",
     },
     texto:{
       fontSize: 20,
-      marginLeft: 20,
+      // marginLeft: 20,
       color:  "#bd787d"
     },
     textoItem:{

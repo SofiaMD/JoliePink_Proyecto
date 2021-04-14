@@ -13,14 +13,34 @@ const Purchase = ({id,nombre,precio,cantidad,talla,color,img,total}) =>{
         <View style={styles.contenedorImagen}> 
             <Image source={{uri:`${img}`, }} style ={styles.image}/>
             <View style= {styles.contenedorInformacion}>
-                <Text>{nombre}</Text> 
-                {/* <Text>{"\n"}</Text>   */}
-                <Text>Precio:{precio}</Text> 
-                {/* <Text>{"\n"}</Text>   */}
-                <Text>Talla:{talla}</Text> 
-                <Text>Color:{color}</Text> 
-                <Text>Cantidad:{cantidad}</Text>
-                <Text>Total:{total}</Text>                  
+            <View style={styles.contenedorNombre}>
+                <Text style={styles.nombreTexto}>{nombre}</Text> 
+            </View>
+            <Text></Text>  
+            <Text style={styles.texto}>Precio: L.{precio}.00</Text>
+            <Text style={styles.texto}>Talla: {talla}</Text> 
+            <Text style={styles.texto}>Color: {color}</Text> 
+            <Text style={styles.texto}>Cantidad: {cantidad}</Text>
+            <View style={styles.colorCampo}>
+            <Text style={styles.texto}>Color:   </Text>
+            <TouchableOpacity 
+                            style={{
+                                borderWidth:1,
+                                borderColor:color,
+                                alignItems:'center',
+                                justifyContent:'center',
+                                width:25,
+                                height:25,
+                                backgroundColor:color,
+                                borderRadius:50,
+                                
+                            }}   
+                        > 
+                        </TouchableOpacity>
+                
+                </View>
+            <Text style={styles.texto}>Total: {total}</Text>
+            <Text></Text>                   
             </View>
             
         </View>
@@ -45,7 +65,7 @@ const styles = StyleSheet.create({
     },
     image: {
       width: width * 0.40,
-      height: height * 0.20
+      height: height * 0.30
   },
   contenedorInformacion:{
     marginTop: 10,
@@ -57,8 +77,26 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     backgroundColor: "#DED1DB",
     // backgroundColor: "#bd787d",
-   
-},
+    
+  },
+  contenedorNombre:{
+    // marginTop: 10,
+    width: width * 0.40,
+
+  },
+  nombreTexto:{
+    fontSize: 16
+  },
+  texto:{
+    fontSize: 15
+  },
+  texto1:{
+    fontSize: 20
+  },
+  colorCampo:{
+    flexDirection:"row"
+  }
+
   });
 
 export default Purchase;

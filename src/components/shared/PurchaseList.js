@@ -5,7 +5,8 @@ import {
     StyleSheet,
     Text,
     TouchableOpacity,
-    View
+    View,
+    Dimensions
 } from "react-native";
 
 
@@ -13,6 +14,7 @@ import {
     Card
 } from "react-native-elements";
 
+const {width, height} = Dimensions.get("window");
 
 import Purchase from "../shared/Purchase";
 
@@ -26,7 +28,7 @@ const PurchaseList = ({navigation,purchases}) =>{
     
     const emptyFlatList = (
         <View style={styles.emptyShoppingCart}>
-          <Text>No has realizdo ninguna compra...</Text>
+          <Text style ={styles.textoMensaje}>No has realizado ninguna compra aún...</Text>
         </View>
       );
 
@@ -70,7 +72,16 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: "center",
         alignSelf: "center",
+        alignItems:"center",
+        width: width * 1,
+        height:height * 0.8,
+        // backgroundColor:"red"
+
       },
+      textoMensaje: {
+        fontSize:20,
+        fontWeight: "bold"
+    }
 
 });
 export default PurchaseList;

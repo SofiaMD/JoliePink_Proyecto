@@ -27,11 +27,11 @@ const ShoppingCart = ({id,nombre,precio,cantidad,talla,color,img,total,navigatio
         "¿Estas seguro que deseas eliminar este articulo?",
         [
           {
-            text: "Cancel",
+            text: "No",
             onPress: () => console.log("Cancel Pressed"),
             style: "cancel"
           },
-          { text: "OK", onPress: () => handleDeleteArticle(id) }
+          { text: "Si", onPress: () => handleDeleteArticle(id) }
         ]
       );
     }
@@ -51,35 +51,36 @@ const ShoppingCart = ({id,nombre,precio,cantidad,talla,color,img,total,navigatio
         <Image source={{uri:`${img}`, }} style ={styles.image}/>
           <View style= {styles.contenedorInformacion}>
           <Text></Text> 
-            <Text style={styles.texto1}>{nombre}</Text> 
-            <Text></Text>  
+            <View style={styles.contenedorNombre}>
+                <Text style={styles.nombreTexto}>{nombre}</Text> 
+            </View>
+            <Text></Text>
             <Text style={styles.texto}>Precio: L.{precio}.00</Text> 
-            <Text></Text>  
             <Text style={styles.texto}>Talla: {talla}</Text> 
-            <Text></Text>  
-            <Text style={styles.texto}>Color: {color}</Text> 
-            <Text></Text>  
             <Text style={styles.texto}>Cantidad: {cantidad}</Text> 
-            <Text></Text>    
+            <View style={styles.colorCampo}>
+            <Text style={styles.texto}>Color:   </Text>
             <TouchableOpacity 
                             style={{
-                                margin:1,
                                 borderWidth:1,
                                 borderColor:color,
                                 alignItems:'center',
                                 justifyContent:'center',
-                                width:20,
-                                height:20,
+                                width:25,
+                                height:25,
                                 backgroundColor:color,
                                 borderRadius:50,
+                                // marginTop:15
+                                
                             }}   
-                        >
-                         
+                        > 
                         </TouchableOpacity>
-            <Text>Cantidad:{cantidad}</Text>  
+                
+                </View>
+                <Text style={styles.texto}>Total: L.{total}.00</Text>
               <View style = {styles.contenedorEliminar}>
                 <TouchableOpacity onPress ={VerifyDeleteShopping} style = {styles.botonEliminar}>
-                    <MaterialCommunityIcons name="delete-empty"  color={"white"} size={30}  /> 
+                    <MaterialCommunityIcons name="delete-empty"  color={"#bd787d"} size={40}  /> 
                 </TouchableOpacity>
               </View>
               
@@ -93,9 +94,12 @@ const ShoppingCart = ({id,nombre,precio,cantidad,talla,color,img,total,navigatio
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      width: width * 0.45,
-      height: height * 0.2,
-      margin: 5,
+      flexDirection: "column",
+    justifyContent: "center",
+    alignContent: "center",
+      // width: width * 0.45,
+      // height: height * 0.2,
+      // margin: 5,
       // padding: 5,
     },
     content: {
@@ -128,8 +132,9 @@ const styles = StyleSheet.create({
 
     justifyContent: "flex-end",
     alignItems: "flex-end",
-    
-    width: width * 0.4
+    width: width * 0.4,
+    marginTop:25,
+    // backgroundColor:"red"
   },
   eliminar:{
     marginLeft: 140,
@@ -140,6 +145,17 @@ const styles = StyleSheet.create({
   },
   texto1:{
     fontSize: 20
+  },
+  contenedorNombre:{
+    // marginTop: 10,
+    width: width * 0.40,
+  
+  },
+  nombreTexto:{
+    fontSize: 16
+  },
+  colorCampo:{
+    flexDirection:"row"
   }
 
   });

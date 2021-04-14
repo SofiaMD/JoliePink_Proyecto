@@ -89,12 +89,7 @@ const JoliePinkPay = ({navigation,route}) =>{
               !numeroTarjetaError &&
               !mesError &&
               !añoError &&
-              !CSVError  &&
-              !año &&
-              !mes  &&
-              !nombreTarjeta  &&
-              !numeroTarjeta  &&
-              !CSV 
+              !CSVError  
             ){
                  createPurchase(id,nombre,precio,cantidad,talla,color,img,total, state.user.id);   
                 Alert.alert(
@@ -119,9 +114,8 @@ const JoliePinkPay = ({navigation,route}) =>{
                 <Image style= {styles.imagenLogo} source = {require("../../../assets/Logo.png")} />
             </View>
             <Text style={styles.texto}>Detalles Tajeta de Credito</Text>
-           
             <View style= {styles.contenedorCentral}>
-            <Toast config={toastConfig} ref={(ref) => Toast.setRef(ref)} />
+            {/* <Toast config={toastConfig} ref={(ref) => Toast.setRef(ref)} /> */}
                 <Input
                     placeholder= "Nombre:"
                     value= {nombreTarjeta}
@@ -203,7 +197,7 @@ const styles = StyleSheet.create({
     contenedorCentral:{
         backgroundColor: "#ffff",
         width: width * 0.90,
-        height: height *0.45,
+        height: height *0.50,
         justifyContent: "center",
         alignItems: "center",
         marginBottom: 5
@@ -214,8 +208,9 @@ const styles = StyleSheet.create({
         height: height * 0.35,
         alignItems: "center",
         justifyContent: "center",
-        marginBottom: 2,  
-        // marginTop: -55
+        marginBottom: 10,  
+        // backgroundColor:"red",
+        marginTop: 5
     },
 
     imagenLogo:{
@@ -242,7 +237,7 @@ const styles = StyleSheet.create({
         fontSize: 25,
         fontWeight: "bold",
         color: "#843d3b",
-        marginBottom: 20,
+        // marginBottom: 20,
         marginTop: -20
         
     },
