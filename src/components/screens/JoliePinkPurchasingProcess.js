@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { StyleSheet, View, Text, FlatList, Image, Dimensions,TouchableOpacity,TextInput } from "react-native";
 import {
     Card, 
@@ -9,6 +9,9 @@ import {
 } from "react-native-elements";
 
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import Toast from "react-native-toast-message";
+
+import InputTotal from "../shared/InputTotal";
 
 import {Context as ShoppingCartContext} from "../../providers/ShoppingCartContext";
 import { Context as AuthContext} from "../../providers/AuthContext";
@@ -23,54 +26,121 @@ const JoliePinkPurchasingProcess = ({navigation,route}) =>{
 
     const {createShoppingCart} = useContext(ShoppingCartContext);
     // const {state:shoppingCartState,updateShoppingCart} =useContext(ShoppingCartContext);
-    const { createPurchase} = useContext(PurchaseContext);
+    const {createPurchase} = useContext(PurchaseContext);
     const {state} = useContext(AuthContext);
+
     const [cantidad, setCantidad] = useState("");
-    const {id,nombre,precio,img,talla} = route.params;
+    const {id,nombre,precio,img,categoriaPrenda} = route.params;
 
     const [color, setColor] = useState("");
-    const [talla1,setTalla1] = useState("");
+    const [talla,setTalla] = useState("");
     const [total,setTotal] = useState("");
+
+    const [tamaño, setTamaño] = useState("")
 
     const tallas = ["XS","S", "M","L","XL"];
 
- 
+    let negro = "black"
+        let rosa = "pink";
+        let blanco = "white"
+
+    const obtenerColor1 = ()=> {setColor(rosa);};
+    const obtenerColor2 = ()=>{setColor(blanco)};
+    const obtenerColor3 = () =>{setColor(negro)};
+
 
     const calcularTotal =(input) =>{
         if(input != ""){
             setTotal(cantidad * precio);
+            // console.log(total);
         }  
     }
 
-    const valortalla= (value)=>{
-       if(value != ""){
-        console.log(value);
-       }
+    useEffect(()=>{
+    
+      calcularTotal(cantidad);
+      console.log(total);
+
+    },[cantidad])
+
+    const valorTalla = (index) =>{
+        
+        setTalla(index);
+        console.log(talla)
+    
     }
+
+    const valorTamaño = (index) =>{
+        
+        setTalla(index);
+        console.log(talla)
+    
+    }
+
+    const tamaños = ["Pequeño", "Mediano", "Grande"] 
+
+    function MostrarTamaños (props){
+        const categoriaEspecifica = props.categoriaPrenda;
+
+        if(categoriaEspecifica === "accesorios"){
+
+            return (
+                tamaños.map((index) =>(
+                    <TouchableOpacity   
+                      onPress= {() => valorTamaño(index)}
+                      style={styles.botonTamaño}> 
+                      <Text style= {styles.textoBotones}>{index}</Text>
+                    </TouchableOpacity >
+                  ))
+            )
+        }
+
+        else{
+
+            return (
+                tallas.map((index) =>(
+                    <TouchableOpacity   
+                      onPress= {() =>valorTalla(index)}
+                      style={styles.botonTalla}> 
+                      <Text style= {styles.textoBotones}>{index}</Text>
+                    </TouchableOpacity >
+                  ))
+            )
+        }
+    }
+
 
 
 
     const  handleSaveShopping = () =>{
-        createShoppingCart(id,nombre,precio,cantidad,talla,color,img, state.user.id);
+        createShoppingCart(id,nombre,precio,cantidad,talla,color,img,total, state.user.id);
+        Toast.show({
+            text1 : "Articulo Agregado Correctamente" ,
+            position: 'top',
+            // visibilityTime: 3000,
+          });  
     }
 
     const handleSavePurchase = () =>{
-        // createPurchase(id,nombre,precio,cantidad,talla,color,img,total, state.user.id);
         navigation.navigate("Pay", {id:id,
             nombre: nombre, img : img, precio: precio,talla: talla,total: total,color:color, cantidad: cantidad})
     }
+
 
     return (
         <View style= {styles.container}>
                 <View style={styles.contenedorImagen}>
                         <Image style = {styles.imagen} source={{uri:`${img}`, }}/>
                 </View>
+                <Toast  ref={(ref) => Toast.setRef(ref)} />
+
                 <View style={styles.contenedorDetalles}>
                 <View style={styles.descripcion}>
                     <Text style={styles.texto}>Precio: L.</Text>
                     <Text style={styles.texto}>{precio}      </Text>
 
                         <TouchableOpacity
+                            onPress= {obtenerColor1}
                             value = {"rosa"}
                             style={{
                             margin:1,
@@ -86,7 +156,7 @@ const JoliePinkPurchasingProcess = ({navigation,route}) =>{
                         >
                         </TouchableOpacity>
                         <TouchableOpacity
-                        value = {"blanco"}
+                            onPress= {obtenerColor2}
                             style={{
                                 margin:1,
                                 borderWidth:1,
@@ -101,6 +171,7 @@ const JoliePinkPurchasingProcess = ({navigation,route}) =>{
                         >
                         </TouchableOpacity>
                         <TouchableOpacity 
+                        onPress= {obtenerColor3}
                             style={{
                                 margin:1,
                                 borderWidth:1,
@@ -114,48 +185,26 @@ const JoliePinkPurchasingProcess = ({navigation,route}) =>{
                             }}
                             
                         >
-                        {/* <Input 
-                            value ={"negro"}
-                            onChangeText = {setColor}
-                            disabled = {true}
-                            
-                        /> */}
                         </TouchableOpacity>
                 
             </View>
             <View style={styles.contenedorInputs}>
                 <Input 
+                    // type = "number"
                     value= {cantidad}
                     onChangeText={setCantidad}
                     style={styles.inputs}
                     placeholder= "Cantidad"
                     onBlur ={() =>{
-                        calcularTotal(cantidad)
+                        setCantidad(cantidad)
                     }}
                 />
-                 <Input 
-                    value= {total}
-                    onChangeText={setTotal}
-                    style={styles.inputs}
-                    placeholder= "Total"
-                    disabled={true}
-                />
+                <InputTotal  total = {total}/>
 
             </View>
             <View style={styles.contendorBotones}>
 
-                {tallas.map((index) =>(
-                    <TouchableOpacity   style={styles.botonTalla}> 
-                    <TextInput style = {styles.textoBotones}
-                     value={index}
-                     onChangeText = {setTalla1}
-                     editable = {false}
-                     onBlur = {()=>{
-                        valortalla();
-                     }}
-                    />
-                    </TouchableOpacity >
-                ))}
+                <MostrarTamaños categoriaPrenda ={categoriaPrenda}/>
 
                 
             </View>
@@ -290,7 +339,16 @@ const styles= StyleSheet.create({
         justifyContent:"center",
         alignItems:"center",
         margin:5
-    }
+    },
+    botonTamaño:{
+        width: width * 0.25,
+        height: height * 0.06,
+        backgroundColor: '#bd787d',
+        justifyContent:"center",
+        alignItems:"center",
+        alignContent:"center",
+        margin:5
+    },
 });
 
 export default JoliePinkPurchasingProcess;

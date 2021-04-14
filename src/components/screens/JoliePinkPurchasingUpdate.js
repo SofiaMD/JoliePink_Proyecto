@@ -1,5 +1,5 @@
 import React,{useState,useContext,useEffect} from "react";
-import {StyleSheet,View,Text,Image,Dimensions,TouchableOpacity} from "react-native";
+import {StyleSheet,View,Text,Image,Dimensions,TouchableOpacity, TouchableHighlight,TextInput} from "react-native";
 
 
 
@@ -11,8 +11,9 @@ import {
     
 } from "react-native-elements";
 
-
+import InputTotal from "../shared/InputTotal";
 import {Context as ShoppingCartContext} from "../../providers/ShoppingCartContext";
+import { Context as PurchaseContext} from "../../providers/PurchaseContext";
 import { Context as AuthContext} from "../../providers/AuthContext";
 // import { Image } from "react-native";
 
@@ -23,6 +24,7 @@ const {width, height} = Dimensions.get("window");
 const JoliePinkPurchasingUpdate = ({navigation}) =>{
 
     const {state:shoppingCartState,updateCart} =useContext(ShoppingCartContext);
+    const { createPurchase} = useContext(PurchaseContext);
     const {state} = useContext(AuthContext);
 
     const [cantidad,setCantidad] =useState("");
@@ -31,22 +33,77 @@ const JoliePinkPurchasingUpdate = ({navigation}) =>{
     const [precio,setPrecio] = useState("");
     const [total,setTotal] = useState("");
 
-    const tallas = ["xs","s", "m","l","xl"];
+    const tallas = ["XS","S", "M","L","XL"];
+        let negro = "black"
+        let rosa = "pink";
+        let blanco = "white"
 
-    // talla = "xs"
-    // color= "negro"
+    const obtenerColor1 = ()=> {setColor(rosa);};
+    const obtenerColor2 = ()=>{setColor(blanco)};
+    const obtenerColor3 = () =>{setColor(negro)};
+
+    const valorTalla = (index) =>{
+        
+        setTalla(index);
+        console.log(talla)
+    
+    }
+
+    const valorTamaño = (index) =>{
+        
+        setTalla(index);
+        console.log(talla)
+    
+    }
+
+    const tamaños = ["Pequeño", "Mediano", "Grande"] ;
+
+    function MostrarTamaños (props){
+        const categoriaTamaño = props.categoriaPrenda;
+
+        if(categoriaTamaño=== "Pequeño" || 
+        categoriaTamaño === "Grande"  || 
+        categoriaTamaño === "Mediano"  ){
+
+            return (
+                tamaños.map((index) =>(
+                    <TouchableOpacity   
+                      onPress= {() => valorTamaño(index)}
+                      style={styles.botonTamaño}> 
+                      <Text style= {styles.textoBotones}>{index}</Text>
+                    </TouchableOpacity >
+                  ))
+            )
+        }else{
+            return (
+                tallas.map((index) =>(
+                    <TouchableOpacity   
+                      onPress= {() =>valorTalla(index)}
+                      style={styles.botonTalla}> 
+                      <Text style= {styles.textoBotones}>{index}</Text>
+                    </TouchableOpacity >
+                  ))
+            )
+        }
+    }
+
+    useEffect(()=>{
+    
+        calcularTotal(cantidad);
+        console.log(total);
+  
+      },[cantidad])
 
     useEffect(() => {
         if (shoppingCartState.currentCart.id) {
           setPrecio(shoppingCartState.currentCart.precio);
             setCantidad(shoppingCartState.currentCart.cantidad);
-        console.log("Hola")
         }
       }, [shoppingCartState.currentCart]);
 
 
-      const calcularTotal =(input) =>{
-        if(input != ""){
+      const calcularTotal =(cantidad) =>{
+        if(cantidad != ""){
             setTotal(cantidad * precio);
         }  
     }
@@ -56,9 +113,18 @@ const JoliePinkPurchasingUpdate = ({navigation}) =>{
             shoppingCartState.currentCart.id,
             talla,
             color,
-            cantidad
+            cantidad,
+            total
 
         );
+    }
+    const guardar = () =>{
+        createPurchase(shoppingCartState.currentCart.id,shoppingCartState.currentCart.nombre,precio,cantidad,talla,color,shoppingCartState.currentCart.img,total, state.user.id);
+    }
+
+    const handleSavePurchase = () =>{
+        navigation.navigate("Pay", {id:shoppingCartState.currentCart.id,
+            nombre: shoppingCartState.currentCart.nombre, img : shoppingCartState.currentCart.img, precio: precio,talla: talla,total: total,color:color, cantidad: cantidad})
     }
 
       return(
@@ -71,8 +137,8 @@ const JoliePinkPurchasingUpdate = ({navigation}) =>{
                 <View style={styles.descripcion}>
                     <Text style={styles.texto}>Precio: L.</Text>
                     <Text style={styles.texto}>{shoppingCartState.currentCart.precio}        </Text>
-
                         <TouchableOpacity
+                            onPress = {obtenerColor1}
                             style={{
                             margin:1,
                             borderWidth:1,
@@ -87,6 +153,7 @@ const JoliePinkPurchasingUpdate = ({navigation}) =>{
                         >
                         </TouchableOpacity>
                         <TouchableOpacity
+                            onPress = {obtenerColor2}
                             style={{
                                 margin:1,
                                 borderWidth:1,
@@ -101,6 +168,7 @@ const JoliePinkPurchasingUpdate = ({navigation}) =>{
                         >
                         </TouchableOpacity>
                         <TouchableOpacity
+                            onPress = {obtenerColor3}
                             style={{
                                 margin:1,
                                 borderWidth:1,
@@ -117,36 +185,25 @@ const JoliePinkPurchasingUpdate = ({navigation}) =>{
                 
             </View>
             <View style={styles.contenedorInputs}>
-                <Input 
-                     value= {cantidad}
-                     onChangeText={setCantidad}
-                     style={styles.inputs}
-                     placeholder= "Cantidad"
-                     onBlur ={() =>{
-                         calcularTotal(cantidad)
-                     }}
-                />
-                <Input 
-                    value= {total}
-                    onChangeText={setTotal}
+                    <Input 
+                    // type = "number"
+                    value= {cantidad}
+                    onChangeText={setCantidad}
                     style={styles.inputs}
-                    placeholder= "Total"
-                    disabled={true}
+                    placeholder= "Cantidad"
+                    onBlur ={() =>{
+                        setCantidad(cantidad)
+                    }}
                 />
+                <InputTotal  total = {total}/>
+               
             </View>
             <View style={styles.contendorBotones}>
 
-                {tallas.map((index) =>(
-                    <Button style={styles.texto}
-                        title = {index}
-                        style = {styles.botonTalla}
-                        value = {index}
-                        // onPress = {valortalla}
-                    > 
-                    </Button>
-                ))}
-                
-            </View>
+                <MostrarTamaños categoriaPrenda ={shoppingCartState.currentCart.talla}/>
+
+
+                </View>
             <View style={styles.contendorBotones}>
             <Button
                       // mode="contained"
@@ -156,11 +213,11 @@ const JoliePinkPurchasingUpdate = ({navigation}) =>{
                     //   onPress = {calcularTotal}
                     >
             </Button>
-            
+            <Text>      </Text>
             <Button
                       // mode="contained"
                       style={styles.boton}
-                      onPress={()=> {navigation.navigate("Pay")}}
+                      onPress={handleSavePurchase}
                       title =  "Comprar Articulo"
                     >
             </Button>
@@ -208,6 +265,20 @@ const styles= StyleSheet.create({
       fontWeight: "bold",
       color: "#833c3c",
   },
+  textoBotones:{
+    fontSize: 20,
+    fontWeight: "bold",
+    color: "white",
+    borderColor:"#bd787d",
+    // marginTop:25,
+    marginLeft:5,
+    marginRight:5,
+    alignItems:"center",
+    // height: height * 0.06,
+    // width: width * 0.15
+    
+    // padding:12,
+},
   contenedorDetalles: {
       flex: 1,
       flexDirection: "column",
@@ -244,19 +315,38 @@ const styles= StyleSheet.create({
       height: height * 0.10
   },
   contendorBotones:{
-      flexDirection:"row",
-      alignItems:"center",
-      justifyContent: "center",
-      alignContent: "center",
-      marginTop: 20,
-      height: height * 0.08
+    flexDirection:"row",
+    alignItems:"center",
+    justifyContent: "center",
+    alignContent: "center",
+    marginTop: 10,
+    height: height * 0.08,
 
   },
-  botonTalla:{
-      width: width * 0.16,
-      marginRight:2,
-      backgroundColor: '#DED1DB'
-  }
+    botonTalla:{
+        width: width * 0.15,
+        height: height * 0.06,
+        backgroundColor: '#bd787d',
+        justifyContent:"center",
+        alignItems:"center",
+        alignContent:"center",
+        margin:5
+    },
+
+    botonTamaño:{
+        width: width * 0.25,
+        height: height * 0.06,
+        backgroundColor: '#bd787d',
+        justifyContent:"center",
+        alignItems:"center",
+        alignContent:"center",
+        margin:5
+    },
+    button: {
+        alignItems: "center",
+        backgroundColor: "#DDDDDD",
+        padding: 10
+    }
 
 });
 

@@ -1,8 +1,9 @@
 import React,{useState,useEffect,useContext}from "react";
-import { StyleSheet, View, Text, Dimensions, ImageBackground , Image} from "react-native";
+import { StyleSheet, View, Text, Dimensions, ImageBackground , Image, Alert} from "react-native";
 import { Input, Divider} from 'react-native-elements';
 
 import Button from "../../components/shared/Button";
+import Logo from "../shared/Logo";
 
 const {width, height} = Dimensions.get("window");
 
@@ -10,7 +11,9 @@ const {width, height} = Dimensions.get("window");
 import { Context as AuthContext} from "../../providers/AuthContext";
 import { Context as PurchaseContext} from "../../providers/PurchaseContext";
 
-
+import Toast from "react-native-toast-message";
+import { Touchable } from "react-native";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 const JoliePinkPay = ({navigation,route}) =>{
 
@@ -32,6 +35,23 @@ const JoliePinkPay = ({navigation,route}) =>{
     const [añoError, setAñoError] = useState(false);
     const [CSVError, setCSVError] = useState(false);
     const [error, setError] = useState("");
+
+
+        const toastConfig = {
+        success: ({ text1, props, ...rest }) => (
+          <View style={{ width: width * 0.8, backgroundColor:"#f2d3ce"}}>
+            <TouchableOpacity style = {{backgroundColor:"#f2d3ce", width: width * 0.8}}
+            onPress = {() => navigation.navigate("Home")}
+            >
+                    {/* <Logo/> */}
+            <Text style = {{fontSize:30}}>{text1}</Text>
+            </TouchableOpacity>
+            
+            {/* <Text>{props.guid}</Text> */}
+          </View>
+        )
+      };
+      
 
     const handleVerify = (input) =>{
         if(input ==="nombreTarjeta"){
@@ -60,7 +80,7 @@ const JoliePinkPay = ({navigation,route}) =>{
         }
         else if (input === "CSV"){
             if(!CSV) setCSVError(true)
-            else if(mes.length != 5) setCSVError(true)
+            else if(CSV.length != 3) setCSVError(true)
             else setCSVError(false);
         }
         else if (input === "purchase") {
@@ -68,23 +88,40 @@ const JoliePinkPay = ({navigation,route}) =>{
               !nombreTarjetaError &&
               !numeroTarjetaError &&
               !mesError &&
-              !añoError 
-            )
-            createPurchase(id,nombre,precio,cantidad,talla,color,img,total, state.user.id);
+              !añoError &&
+              !CSVError  &&
+              !año &&
+              !mes  &&
+              !nombreTarjeta  &&
+              !numeroTarjeta  &&
+              !CSV 
+            ){
+                 createPurchase(id,nombre,precio,cantidad,talla,color,img,total, state.user.id);   
+                Alert.alert(
+                   "Compra Realizada",
+                    "Gracias Por Su Compra",
+                    [
+                      { text: "OK", onPress: () => {navigation.navigate("Home")} }
+                    ]
+                  );
+            }
             else setError("Se requieren estos datos para continuar!");
           }
     }
 
+
     return(
         <View style = {styles.container}>
+            
             <ImageBackground source = {require ("../../../assets/FondoInicio.jpg")}
             style = {styles.image}>
             <View style = {styles.contenedorImagen}>
                 <Image style= {styles.imagenLogo} source = {require("../../../assets/Logo.png")} />
             </View>
             <Text style={styles.texto}>Detalles Tajeta de Credito</Text>
+           
             <View style= {styles.contenedorCentral}>
-                <Text>{img}</Text>
+            <Toast config={toastConfig} ref={(ref) => Toast.setRef(ref)} />
                 <Input
                     placeholder= "Nombre:"
                     value= {nombreTarjeta}
@@ -217,6 +254,11 @@ const styles = StyleSheet.create({
         width: width * 1,
         height: height * 1
     },
+    estiloMensaje:{
+        backgroundColor: "#f2d3ce",
+        height: height * 0.60,
+        width: width * 0.80
+    }
 });
 
 
