@@ -129,7 +129,7 @@ const FlatListBlouses = ({navigation}) =>{
                                             style ={styles.image}/>
                                             <Text>{}</Text>
                                             <View style= {styles.contenedorInformacion}>
-                                                <Text>{item.nombre}</Text>    
+                                                <Text style={styles.texto}>{item.nombre}</Text>    
                                                 <Text>{}</Text>
                                                 <Text>Precio: L.{item.precio}</Text> 
                                                 <Text>{}</Text>
@@ -238,7 +238,9 @@ const styles = StyleSheet.create({
         flexDirection: "row",
        
     },
-    
+    texto:{
+        fontSize: 15
+    }
 });
 
 export default FlatListBlouses;

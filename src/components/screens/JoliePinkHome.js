@@ -74,8 +74,8 @@ const JoliePinkHome = ({navigation}) =>{
                 </View>
                 <Text style={styles.textoNueva}>Nueva Colección</Text>
                     <View style={styles.contenedorBotones}>
-                    <Button title="Lo más vendido" callback ={() => {navigation.navigate("Pay")}}/>
-                    <Button title="Nueva colección" callback ={() => {navigation.navigate("Home")}}/>
+                    <Button title="Lo más vendido" callback ={() => {navigation.navigate("MostSold")}}/>
+                    <Button title="Nueva colección" callback ={() => {navigation.navigate("NewCollection")}}/>
                     </View>
                     <View style={styles.contenedorImagen}>
                         <Image style= {styles.imagenRopa} source = {require("../../../assets/ropa.jpg")}/>
