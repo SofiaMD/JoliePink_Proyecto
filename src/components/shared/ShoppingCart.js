@@ -1,5 +1,12 @@
 import React,{useContext}  from "react";
-import {Dimensions,StyleSheet,Text,Image,View, TouchableOpacity} from "react-native";
+import {
+  Dimensions,
+  StyleSheet,
+  Text,
+  Image,
+  View, 
+  Alert,
+TouchableOpacity} from "react-native";
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import {Card} from "react-native-elements";
@@ -10,12 +17,31 @@ const { width, height } = Dimensions.get("screen");
 
 
 
-const ShoppingCart = ({id,nombre,precio,cantidad,talla,color,img}) =>{
+const ShoppingCart = ({id,nombre,precio,cantidad,talla,color,img,total,navigation}) =>{
 
   const {state, setCurrentCart, deleteCart} = useContext(ShoppingCartContext);
 
-    const handleDeleteShopping = ()=>{
-      deleteCart(state.id)
+    const VerifyDeleteShopping = ()=>{
+      Alert.alert(
+        "Eliminar Articulo",
+        "¿Estas seguro que deseas eliminar este articulo?",
+        [
+          {
+            text: "Cancel",
+            onPress: () => console.log("Cancel Pressed"),
+            style: "cancel"
+          },
+          { text: "OK", onPress: () => handleDeleteArticle(id) }
+        ]
+      );
+    }
+
+    const handleDeleteArticle = (id)=>{
+        console.log(id)
+        deleteCart(id);
+        navigation.navigate("ShoppingCart");
+        alert("Articulo eliminado exitosamente");
+        
     }
     return(
 
@@ -29,11 +55,30 @@ const ShoppingCart = ({id,nombre,precio,cantidad,talla,color,img}) =>{
             <Text>Precio:{precio}</Text> 
             {/* <Text>{"\n"}</Text>   */}
             <Text>Talla:{talla}</Text> 
-            <Text>Color:{color}</Text> 
+            <Text>Total:{total}</Text> 
+            <Text>Color: </Text> 
+            <TouchableOpacity 
+                            style={{
+                                margin:1,
+                                borderWidth:1,
+                                borderColor:color,
+                                alignItems:'center',
+                                justifyContent:'center',
+                                width:20,
+                                height:20,
+                                backgroundColor:color,
+                                borderRadius:50,
+                            }}   
+                        >
+                         
+                        </TouchableOpacity>
             <Text>Cantidad:{cantidad}</Text>  
-            <TouchableOpacity onPress ={()=>{handleDeleteShopping}}>
-                <MaterialCommunityIcons name="delete-empty"  color={"white"} size={30}  /> 
-          </TouchableOpacity>                  
+              <View style = {styles.contenedorEliminar}>
+                <TouchableOpacity onPress ={VerifyDeleteShopping} style = {styles.botonEliminar}>
+                    <MaterialCommunityIcons name="delete-empty"  color={"white"} size={30}  /> 
+                </TouchableOpacity>
+              </View>
+              
           </View>
          
       </View>
@@ -70,7 +115,20 @@ const styles = StyleSheet.create({
     backgroundColor: "#DED1DB",
     // backgroundColor: "#bd787d",
    
-},
+  },
+
+  botonEliminar:{
+    justifyContent: "flex-end",
+    alignItems: "flex-end",
+  },
+  contenedorEliminar:{
+
+    justifyContent: "flex-end",
+    alignItems: "flex-end",
+    
+    width: width * 0.4
+  }
+
   });
 
   export default ShoppingCart;

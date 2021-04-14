@@ -5,7 +5,8 @@ import {
     StyleSheet,
     Text,
     TouchableOpacity,
-    View
+    View,
+    Alert
     
 } from "react-native";
 
@@ -15,8 +16,10 @@ import {
 
 }from "react-native-elements";
 
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import {Context as ShoppingCartContext} from "../../providers/ShoppingCartContext";
+
 
 import ShoppingCart from "../shared/ShoppingCart";
 
@@ -24,16 +27,22 @@ import ShoppingCart from "../shared/ShoppingCart";
 const ShoppingCartList =({navigation, shoppingsCart}) =>{
 
 
-    const {state, setCurrentCart} = useContext(ShoppingCartContext);
+    const {state, setCurrentCart,deleteCart} = useContext(ShoppingCartContext);
 
     const handleSelectArticle = (shoppingCart) => {
         setCurrentCart(shoppingCart);
         navigation.navigate("PurchansingUpdate");
     };
 
+
+    const handleSelectArticleDelete = (shoppingCart) =>{
+
+        deleteCart(shoppingCart.id)
+    }
+
     const emptyFlatList = (
         <View style={styles.emptyShoppingCart}>
-          <Text>No has agregado articulos al carrito...</Text>
+          <Text style = {styles.textoMensaje}> No has agregado articulos al carrito...</Text>
         </View>
       );
 
@@ -42,7 +51,7 @@ const ShoppingCartList =({navigation, shoppingsCart}) =>{
         <View style={styles.container}>
            <FlatList
             data = {shoppingsCart}
-            emptyFlatList={emptyFlatList}
+            ListEmptyComponent = {emptyFlatList}
             keyExtractor = {(item) => item.id.toString()}
             renderItem ={({item}) =>(
                 <>
@@ -59,12 +68,18 @@ const ShoppingCartList =({navigation, shoppingsCart}) =>{
                             talla={item.talla}
                             color={item.color}
                             img={item.img}
-                        />
-                    </TouchableOpacity>
+                            total= {item.total}
+                            navigation={navigation}
+                        /> 
+                    </TouchableOpacity>                
                     </>   
                             
                 )}  
+
+                
             />
+
+             
     </View>
     )
 }
@@ -79,7 +94,13 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: "center",
         alignSelf: "center",
+        // backgroundColor: "red"
       },
+
+    textoMensaje: {
+        fontSize:20,
+        fontWeight: "bold"
+    }
 
 });
 
