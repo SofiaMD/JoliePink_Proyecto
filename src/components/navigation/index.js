@@ -40,10 +40,13 @@ import JoliePinkPurchasingProcess from "../screens/JoliePinkPurchasingProcess";
 import JoliePinkShoppingCart from "../screens/JoliePinkShoppingCart";
 import JoliePinkPurchasingUpdate from "../screens/JoliePinkPurchasingUpdate";
 import JoliePinkPersonalInformation from "../screens/JoliePinkPersonalInformation";
+import JoliePinkTheMostSold from "../screens/JoliePinkTheMostSold";
+
 
 
 import theme from "../../theme";
 import Button from "../shared/Button";
+import JoliePinkNewCollection from '../screens/JoliePinkNewCollection';
 
 
 
@@ -171,6 +174,23 @@ const Navigation = () => {
               name = "Pay" 
               component = {JoliePinkPay} 
               options = {{ headerShown: false}}
+            />
+            <Stack.Screen
+            name= "MostSold"
+            component= {JoliePinkTheMostSold}
+            options={{ headerTitle: props => <HeaderJolie {...props}/>,
+            headerStyle: {
+            backgroundColor: "#bd787d",
+
+            }}}
+            />
+            <Stack.Screen
+            name= "NewCollection"
+            component= {JoliePinkNewCollection}
+            options={{ headerTitle: props => <HeaderJolie {...props}/>,
+            headerStyle: {
+            backgroundColor: "#bd787d",
+            }}}
             />
             <Stack.Screen 
               name = "Profile" 
