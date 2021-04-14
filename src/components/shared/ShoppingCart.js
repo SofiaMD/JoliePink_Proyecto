@@ -24,14 +24,18 @@ const ShoppingCart = ({id,nombre,precio,cantidad,talla,color,img}) =>{
       <View style={styles.contenedorImagen}> 
         <Image source={{uri:`${img}`, }} style ={styles.image}/>
           <View style= {styles.contenedorInformacion}>
-            <Text>Nombre:{nombre}</Text> 
-            {/* <Text>{"\n"}</Text>   */}
-            <Text>Precio:{precio}</Text> 
-            {/* <Text>{"\n"}</Text>   */}
-            <Text>Talla:{talla}</Text> 
-            <Text>Color:{color}</Text> 
-            <Text>Cantidad:{cantidad}</Text>  
-            <TouchableOpacity onPress ={()=>{handleDeleteShopping}}>
+            <Text></Text> 
+            <Text style={styles.texto1}>{nombre}</Text> 
+            <Text></Text>  
+            <Text style={styles.texto}>Precio: L.{precio}.00</Text> 
+            <Text></Text>  
+            <Text style={styles.texto}>Talla: {talla}</Text> 
+            <Text></Text>  
+            <Text style={styles.texto}>Color: {color}</Text> 
+            <Text></Text>  
+            <Text style={styles.texto}>Cantidad: {cantidad}</Text> 
+            <Text></Text>   
+            <TouchableOpacity style={styles.eliminar} onPress ={()=>{handleDeleteShopping}}>
                 <MaterialCommunityIcons name="delete-empty"  color={"white"} size={30}  /> 
           </TouchableOpacity>                  
           </View>
@@ -57,7 +61,7 @@ const styles = StyleSheet.create({
     },
     image: {
       width: width * 0.40,
-      height: height * 0.20
+      height: height * 0.30
   },
   contenedorInformacion:{
     marginTop: 10,
@@ -70,7 +74,17 @@ const styles = StyleSheet.create({
     backgroundColor: "#DED1DB",
     // backgroundColor: "#bd787d",
    
-},
+  },
+  eliminar:{
+    marginLeft: 140,
+    marginTop: 5
+  },
+  texto:{
+    fontSize: 15
+  },
+  texto1:{
+    fontSize: 20
+  }
   });
 
   export default ShoppingCart;
