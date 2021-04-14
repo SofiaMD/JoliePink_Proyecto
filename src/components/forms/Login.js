@@ -1,5 +1,8 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useContext, useEffect} from "react";
 import { StyleSheet, View,Dimensions, Image, ImageBackground, TouchableOpacity} from "react-native";
+import { Context as AuthContext } from "../../providers/AuthContext";
+
+
 
 import {
     Input,
@@ -16,6 +19,8 @@ const {width, height} = Dimensions.get("window");
 
 const Login = ({navigation}) => {
 
+    const {state, signin,  clearErrorMessage } = useContext(AuthContext);
+
     const [correoElectronico, setCorreoElectronico] = useState("");
 
     const [contrasena, setContrasena] = useState("");
@@ -25,40 +30,35 @@ const Login = ({navigation}) => {
     const [contrasenaError, setContrasenaError] = useState(false);
     const [error, setError] = useState("");
     
+    useEffect(() => {
+        if (state.errorMessage) clearErrorMessage();    
+       
+      }, []);
+    
+      useEffect(() => {
+        if (state.errorMessage) setError(state.errorMessage);
+      }, [state.errorMessage]);
+
+
+    // useEffect(() => {
+    //     setError(state.errorMessage);
+    //   }, [state.errorMessage]);
+    
+    // //   useEffect(() => {
+    // //     if (state.errorMessage) setError(state.errorMessage);
+    // //   }, [state.errorMessage]);
+
+    useEffect(()=>{
+        console.log(state.user);
+    },[state.user])
+    
     const handlerSignUP =()=>{
-        firebase
-        .auth()
-        .signInWithEmailAndPassword(correoElectronico, contrasena)
-        .then((response) => {
-            // Obtener el Unique Identifier generado para cada usuario
-            // Firebase -> Authentication
-            const uid = response.user.uid;
+         // Iniciar sesión implementado el Contexto de autenticación
+         signin(correoElectronico, contrasena);
 
-            // Obtener la colección desde Firebase
-            const usersRef = firebase.firestore().collection("users");
-
-            // Verificar que el usuario existe en Firebase authentication
-            // y también está almacenado en la colección de usuarios.
-            usersRef
-            .doc(uid)
-            .get()
-            .then((firestoreDocument) => {
-                if (!firestoreDocument.exists) {
-                setError("User does not exist in the database!");
-                return;
-                }
-
-                // Obtener la información del usuario y enviarla a la pantalla Home
-                const user = firestoreDocument.data();
-                navigation.navigate("Home", {user});
-            });
-            
-        })
-        .catch((error) => {
-            console.log(error);
-            setError(error.message);
-        });
     };
+    
+    
 
     const handleVerify = (input) => {
         if (input === "correoElectronico") {
@@ -73,14 +73,15 @@ const Login = ({navigation}) => {
 
       const forgotPass= ()=> {
         navigation.navigate("ForgotPassword");
-      }
+        
+      };
 
     return (
         <View>
             <View style = {styles.contenedorImagen}>
                 <Image style= {styles.imagenLogo} source = {require("../../../assets/Logo.png")}/>
             </View>
-            {error ? <Alert type="error" title={error} /> : null}
+            {/* {error ? <Alert type="error" title={error} /> : null} */}
             <View style = {styles.contenedorInformacion}>
             <Input
                 placeholder='Correo Electronico'
@@ -148,7 +149,7 @@ const styles = StyleSheet.create({
     contenedorInformacion:{
         backgroundColor: "#fff",
         width: width * 0.70,
-        height: height * 0.18,
+        height: height * 0.25,
         justifyContent: "center",
         alignItems: "center",
         marginBottom: 5
@@ -181,7 +182,8 @@ const styles = StyleSheet.create({
     texto:{
         alignItems: "center",
         justifyContent: "center",
-        marginTop: 10
+        marginTop: 10,
+        // backgroundColor: "red"
     }
   
 

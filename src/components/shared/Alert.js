@@ -1,5 +1,6 @@
 import React from "react";
 import { StyleSheet, View, Text } from "react-native";
+// import Icon from "react-native-vector-icons/FontAwesome";
 import Icon from "react-native-vector-icons/FontAwesome";
 
 const Alert = ({ type,title }) => {
@@ -7,12 +8,16 @@ const Alert = ({ type,title }) => {
     let icon = "";
 
     if (type === "error"){
-        icon = "tomes-circle";
+        background = "#fdecea";
+        icon = "times-circle";
     } else if (type === "warning"){
-        icon = "warnig";
+        background = "#fff4e5";
+        icon = "warning";
     } else if (type === "info"){
+        background = "#e8f4fd";
         icon = "info-circle";
     } else if (type === "success"){
+        background = "#edf7ed";
         icon = "check-circle";
     }
 
