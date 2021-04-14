@@ -12,7 +12,7 @@ const {width, height} = Dimensions.get("window");
 
 const Register = ({navigation}) => {
 
-    const { state, signup } = useContext(AuthContext);
+    const { state, signup,clearErrorMessage } = useContext(AuthContext);
 
     // Variables a utilizar 
     const [nombreCompleto, setNombreCompleto] = useState("");
@@ -83,8 +83,7 @@ const Register = ({navigation}) => {
           }
     };
 
-    
-
+   
     return(
         <View>
             {error ? <Alert title={error} type="error"/> : null} 
