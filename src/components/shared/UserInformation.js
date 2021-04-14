@@ -29,7 +29,9 @@ const UserInformation = ({navigation, personalsInformation}) =>{
 
     const emptyFlatList = (
         <View style={styles.emptyPersonalInformation}>
-          <Text>No has agregado articulos al carrito...</Text>
+           <TouchableOpacity onPress= {() => {navigation.navigate("PersonalInformation")}}>
+                        <Text>Agregar Datos Personales</Text>
+                    </TouchableOpacity>
         </View>
       );
 
@@ -37,22 +39,9 @@ const UserInformation = ({navigation, personalsInformation}) =>{
     return(
 
         <View style={styles.container}>
-           {/* <FlatList
-            data = {users}
-            emptyFlatList = {emptyFlatList}
-            keyExtractor = {(item) => item.id.toString()}
-            renderItem={({item}) => (
-                    <>
-                    <View style ={styles.informacion}>
-                      <Text>{item.nombreCompleto}</Text>
-                      <Text>hola</Text>
-                    </View>
-                    </>   
-            )}
-            /> */}
             <FlatList
             data = {personalsInformation}
-            emptyFlatList = {emptyFlatList}
+            ListEmptyComponent = {emptyFlatList}
             keyExtractor = {(item) => item.id.toString()}
             renderItem={({item}) => (
                     <>
@@ -84,7 +73,8 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: "center",
         alignSelf: "center",
-        backgroundColor: "red"
+        alignContent: "center"
+        // backgroundColor: "red"
       },
       informacion:{
         justifyContent:"center",
