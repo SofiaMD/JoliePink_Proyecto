@@ -78,7 +78,7 @@ const FlatListDress = ({navigation}) =>{
                         return (
                             <View> 
                                 <TouchableOpacity onPress = {() => {navigation.navigate("PurchansingProcess",{id:item.id,
-                                nombre: item.nombre, img : item.imagen, precio: item.precio,talla: item.talla})}}>
+                                nombre: item.nombre, img : item.imagen, precio: item.precio,talla: item.talla, categoriaPrenda: "vestidos"})}}>
                                 <Card style ={styles.cardImage}>
                                     {/* <Card.Title style= {styles.contenedorTitulo}>{item.nombre}</Card.Title> */}
                                         {/* <Card.Divider/>   */}
@@ -92,11 +92,11 @@ const FlatListDress = ({navigation}) =>{
                                                 <Text>{}</Text>
                                                 <Text>Precio: L.{item.precio}</Text> 
                                                 <Text>{}</Text>
-                                                <Text>Tallas: {item.talla.map((index) =>(
+                                                {/* <Text>Tallas: {item.talla.map((index) =>( */}
                                                     <Text style={styles.texto}>
-                                                    {" "}{index}
+                                                    XS, S, M, L, XL
                                                     </Text>
-                                                ))}</Text>
+                                                {/* ))}</Text> */}
                                                 <Text>{}</Text>
                                                 <View style={styles.contenedorBoton} >
                                                     <Text >Colores:</Text>

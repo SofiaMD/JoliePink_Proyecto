@@ -14,60 +14,100 @@ const FlatListBikinis = ({navigation}) =>{
 
     const bikinis = [
         {
-            "id": 16897,
-            "nombre": "Traje de Baño 1",
-            "talla": ["xs","s","m","l","xl"],
+            "id": "21",
+            "nombre": "Bikini con escote cruzado",
+            "talla":["xs","s","m","l","xl"],
             "precio": "700",
             "color":["rosa","blanco","negro","amarillo"],
             "imagen": "https://i.ibb.co/0VMWxZ0/bikini1.jpg"
           },
           {
-            "id": 267575,
-            "nombre": "Traje de Baño 2",
+            "id": "22",
+            "nombre": "Bikini dos piezas con hojas",
             "talla": ["xs","s","m","l","xl"],
             "precio": "600",
             "color":["rosa","blanco","negro","amarillo"],
             "imagen": "https://i.ibb.co/G3Y2B59/bikini2.jpg"
           },
           {
-            "id": 335332,
-            "nombre": "Traje de Baño 3",
+            "id": "23",
+            "nombre": "Bikini de dos piezas rayado",
             "talla": ["xs","s","m","l","xl"],
             "precio": "700",
             "color":["rosa","blanco","negro","amarillo"],
             "imagen": "https://i.ibb.co/vqcdNj9/bikini3.jpg"
           },
           {
-            "id": 423423,
-            "nombre": "Traje de Baño 4",
+            "id": "24",
+            "nombre": "Bikini de dos piezas camisa plizada",
             "talla": ["xs","s","m","l","xl"],
             "precio": "700",
             "color":["rosa","blanco","negro","amarillo"],
             "imagen": "https://i.ibb.co/jf1gpkb/bikini4.jpg"
           },
           {
-            "id": 324365,
-            "nombre": "Traje de Baño 5",
+            "id":"25",
+            "nombre": "Bikini de dos piezas listones al cuello",
             "talla": ["xs","s","m","l","xl"],
             "precio": "700",
             "color":["rosa","blanco","negro","amarillo"],
             "imagen": "https://i.ibb.co/Jydjp2S/bikini5.jpg"
           },
           {
-            "id": 6553656,
-            "nombre": "Traje de Baño 6",
+            "id":"26",
+            "nombre": "Bikini dos piezas con nudo",
             "talla": ["xs","s","m","l","xl"],
             "precio": "800",
             "color":["rosa","blanco","negro","amarillo"],
             "imagen": "https://i.ibb.co/Jy04vcY/bikini6.jpg"
           },
           {
-            "id": 78675675,
-            "nombre": "Traje de Baño 7",
+            "id": "27",
+            "nombre": "Bikini dos piezas tigreado con argolla",
             "talla": ["xs","s","m","l","xl"],
             "precio": "800",
             "color":["rosa","blanco","negro","amarillo"],
             "imagen": "https://i.ibb.co/2SK2ZW5/bikini7.jpg"
+          },
+          {
+            "id": "28",
+            "nombre": "Bikini abdomen descubierto diagonal",
+            "talla": ["xs","s","m","l","xl"],
+            "precio": "800",
+            "color":["rosa","blanco","negro","amarillo"],
+            "imagen": "https://i.ibb.co/wpnSrWp/bikini1.jpg"
+          },
+          {
+            "id": "29",
+            "nombre": "Bikini dos piezas agarre a un hombro",
+            "talla": ["xs","s","m","l","xl"],
+            "precio": "1000",
+            "color":["rosa","blanco","negro","amarillo"],
+            "imagen": "https://i.ibb.co/vhFqH2m/bikini2.jpg"
+          },
+          {
+            "id": "210",
+            "nombre": "Bikini dos piezas parte superior plizado",
+            "talla": ["xs","s","m","l","xl"],
+            "precio": "700",
+            "color":["rosa","blanco","negro","amarillo"],
+            "imagen": "https://i.ibb.co/NKxn0xJ/bikini3.jpg"
+          },
+          {
+            "id": "211",
+            "nombre": "Bikini dos piezas de seda parte superior agarre cruzado",
+            "talla": ["xs","s","m","l","xl"],
+            "precio": "900",
+            "color":["rosa","blanco","negro","amarillo"],
+            "imagen": "https://i.ibb.co/fkgFw9s/bikini4.jpg"
+          },
+          {
+            "id": "212",
+            "nombre": "Bikini dos piezas agarre a un hombro con pasador",
+            "talla": ["xs","s","m","l","xl"],
+            "precio": "600",
+            "color":["rosa","blanco","negro","amarillo"],
+            "imagen": "https://i.ibb.co/jvf2Q30/bikini5.jpg"
           }
     ]
     return(      
@@ -78,7 +118,7 @@ const FlatListBikinis = ({navigation}) =>{
                         return (
                             <View> 
                                 <TouchableOpacity onPress = {() => {navigation.navigate("PurchansingProcess",{id:item.id,
-                                nombre: item.nombre, img : item.imagen, precio: item.precio,talla: item.talla})}}>
+                                nombre: item.nombre, img : item.imagen, precio: item.precio,talla: item.talla, categoriaPrenda: "Bikinis"})}}>
                                 <Card style ={styles.cardImage}>
                                     {/* <Card.Title style= {styles.contenedorTitulo}>{item.nombre}</Card.Title> */}
                                         {/* <Card.Divider/>   */}
@@ -92,11 +132,11 @@ const FlatListBikinis = ({navigation}) =>{
                                                 <Text>{}</Text>
                                                 <Text>Precio: L.{item.precio}</Text> 
                                                 <Text>{}</Text>
-                                                <Text>Tallas: {item.talla.map((index) =>(
+                                                {/* <Text>Tallas: {item.talla.map((index) =>( */}
                                                     <Text style={styles.texto}>
-                                                    {" "}{index}
+                                                        XS, S, M, L, XL
                                                     </Text>
-                                                ))}</Text>
+                                                {/* ))}</Text> */}
                                                 <Text>{}</Text>
                                                 <View style={styles.contenedorBoton} >
                                                     <Text >Colores:</Text>
