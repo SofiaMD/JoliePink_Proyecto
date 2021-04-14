@@ -18,8 +18,7 @@ const Purchase = ({id,nombre,precio,cantidad,talla,color,img,total}) =>{
             </View>
             <Text></Text>  
             <Text style={styles.texto}>Precio: L.{precio}.00</Text>
-            <Text style={styles.texto}>Talla: {talla}</Text> 
-            <Text style={styles.texto}>Color: {color}</Text> 
+            <Text style={styles.texto}>Talla: {talla}</Text>  
             <Text style={styles.texto}>Cantidad: {cantidad}</Text>
             <View style={styles.colorCampo}>
             <Text style={styles.texto}>Color:   </Text>
